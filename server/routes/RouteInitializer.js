@@ -1,4 +1,4 @@
-import viewRoutes from '../views/index'
+import viewRoutes from '../views/whitelist'
 
 export default function (app) {
   app.use('/', viewRoutes)
