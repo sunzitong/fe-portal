@@ -1,0 +1,130 @@
+:root {
+    --lightGreen: #1BBFB7;
+    --bgGray: #efeff4;
+    --bgDarkGray: #cfcfcf;
+    --LightGray: #f8f8f8;
+    --yellow: #fede84;
+    --foreLight: #d4d4d4;
+    --foreLightness: #8d8d8d;
+    --foreLight2: #c5c5c5;
+    --blue: #004990;
+    --lightRed: #ff9494;
+    --red: #f73434;
+    --foreGray: #999999;
+    --grayish: #C7C7CC;
+    --foreGrayness: #737373;
+    --foreLightBlack: #606060;
+    --black: #222222;
+    --orange: #ef8c17;
+}
+
+:global(.bg-light-gray) {
+    background-color: var(--LightGray)!important;
+}
+
+:global(.bg-gray) {
+    background-color: var(--bgGray)!important;
+}
+
+:global(.bg-dark-gray) {
+    color: white !important;
+    background-color: var(--bgDarkGray)!important;
+}
+
+:global(.bg-green) {
+    color: var(--LightGray)!important;
+    background-color: var(--lightGreen)!important;
+}
+
+:global(.bg-red-gradient) {
+    background: linear-gradient(90deg, var(--red), var(--lightRed))!important;
+}
+
+:global(.bg-yellow) {
+    background-color: var(--yellow)!important;
+}
+
+:global(.bg-white) {
+    background-color: white!important;
+}
+
+:global(.bg-blue) {
+    color: var(--LightGray)!important;
+    background-color: var(--blue) !important;
+}
+
+:global(.fore-white) {
+    color: white!important;
+}
+
+:global(.fore-black) {
+    color: var(--black)!important;
+}
+
+:global(.fore-green) {
+    color: var(--lightGreen) !important;
+}
+
+:global(.fore-light) {
+    color: var(--foreLight) !important;
+}
+
+:global(.placeholder-light::-webkit-input-placeholder) {
+    /* WebKit browsers */
+    color: var(--foreLight) !important;
+}
+
+:global(.placeholder-light:-moz-placeholder) {
+    /* Mozilla Firefox 4 to 18 */
+    color: var(--foreLight) !important;
+}
+
+:global(.placeholder-light::-moz-placeholder) {
+    /* Mozilla Firefox 19+ */
+    color: var(--foreLight) !important;
+}
+
+:global(.placeholder-light:-ms-input-placeholder) {
+    /* Internet Explorer 10+ */
+    color: var(--foreLight) !important;
+}
+
+:global(.fore-light2) {
+    color: var(--foreLight2) !important;
+}
+
+:global(.fore-lightness) {
+    color: var(--foreLightness) !important;
+}
+
+:global(.fore-light-black) {
+    color: var(--foreLightBlack) !important;
+}
+
+:global(.fore-orange) {
+    color: var(--orange) !important;
+}
+
+:global(.fore-gray) {
+    color: var(--foreGray) !important;
+}
+
+:global(.fore-grayish) {
+    color: var(--grayish) !important;
+}
+
+:global(.fore-grayness) {
+    color: var(--foreGrayness) !important;
+}
+
+:global(.fore-blue) {
+    color: var(--blue) !important;
+}
+
+:global(.fore-yellow) {
+    color: var(--yellow) !important;
+}
+
+:global(.fore-red) {
+    color: var(--red) !important;
+}

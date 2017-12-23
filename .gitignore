@@ -1,0 +1,11 @@
+node_modules/
+
+dist/
+
+*.log
+
+.vscode/
+
+.DS_STORE
+
+HashMapping.json

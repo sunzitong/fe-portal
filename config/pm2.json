@@ -1,0 +1,7 @@
+{
+  "name": "cybereits",
+  "instance": 1,
+  "watch": ["server"],
+  "script": "./server/enter.js",
+  "log_date_format": "YYYY-MM-DD HH:mm Z"
+}
