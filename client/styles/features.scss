@@ -213,6 +213,12 @@
     overflow-y: auto;
 }
 
+:global(.form-container) {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
 :global(.page-container) {
     height: calc(100% - 64px);
     width: 100%;

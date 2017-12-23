@@ -14,7 +14,7 @@ const INIT_STATE = {
 const RENDER_INDEX = userInfo => `<!doctype html>
     <html lang="zh-cn">
     <head>
-        <title>Temptation!</title>
+        <title>Cybereits Whitelist</title>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link href="//cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
