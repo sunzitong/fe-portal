@@ -4,7 +4,7 @@ import { TextField, FlatButton, SelectField, MenuItem, Dialog } from 'material-u
 
 import { alert, confirm } from '../actions/dialog'
 import TitleLogo from '../components/TitleLogo'
-import apis from '../apis'
+import whitelistApis from '../apis/whitelist'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
 
 const OFFICIAL_EMAIL = 'info@cybereits.com'
@@ -56,7 +56,7 @@ const CustomizedWrapper = ({ label, children }) => (
   </div>
 )
 
-const ConfirmDialog = ({ open, confirm, cancel, walletAddr }) => (
+const ConfirmDialog = ({ open, confirm, confirmDisable, cancel, walletAddr }) => (
   <Dialog
     open={open}
     modal={false}
@@ -81,6 +81,7 @@ const ConfirmDialog = ({ open, confirm, cancel, walletAddr }) => (
             backgroundColor: '#004990',
             color: 'white',
           }}
+          disabled={confirmDisable}
           onClick={confirm}
         >确认</FlatButton>
         <FlatButton style={{ backgroundColor: '#dedede' }} onClick={cancel}>取消</FlatButton>
@@ -103,6 +104,7 @@ export default class WhiteList extends React.Component {
       openConfirm: false,
       emailValid: false,
       emailValidDisabled: false,
+      submitBtnDisable: false,
       submitSucc: false,
       community: null,
       wxAccount: null,
@@ -113,6 +115,7 @@ export default class WhiteList extends React.Component {
       validCode: '',
       amount: '',
       walletAddr: '',
+      queueIndex: null,
     }
     this.changeCommunity = this.changeCommunity.bind(this)
     this.submit = this.submit.bind(this)
@@ -121,7 +124,7 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
-    apis.getCommunities()
+    whitelistApis.getCommunities()
       .then((data) => {
         this.setState({
           communities: data,
@@ -187,13 +190,37 @@ export default class WhiteList extends React.Component {
 
   confirmSubmit() {
     this.setState({
-      submitSucc: true,
-      openConfirm: false,
+      submitBtnDisable: true,
+    }, () => {
+      whitelistApis
+        .submit({
+          email: this.state.email,
+          checkcode: this.state.emailValid,
+          name: this.state.realname,
+          idno: this.state.identityNo,
+          mobile: this.state.mobile,
+          community_id: this.state.community,
+          ethcount: this.state.amount,
+          ethaddress: this.state.walletAddr,
+        })
+        .then(({ index }) => {
+          this.setState({
+            submitSucc: true,
+            openConfirm: false,
+            queueIndex: index,
+          })
+        })
+        .catch((err) => {
+          this.setState({
+            submitBtnDisable: false,
+          })
+          console.log(err)
+        })
     })
   }
 
   sendValidCode() {
-    apis.sendEmail(this.state.email)
+    whitelistApis.sendEmail(this.state.email)
     this.setState({
       emailValidDisabled: true,
     }, () => {
@@ -208,7 +235,13 @@ export default class WhiteList extends React.Component {
   render() {
     return (
       <div className="container form-container bg-gray fore-blue">
-        <ConfirmDialog open={this.state.openConfirm} walletAddr={this.state.walletAddr} cancel={() => { this.setState({ openConfirm: false }) }} confirm={this.confirmSubmit} />
+        <ConfirmDialog
+          open={this.state.openConfirm}
+          walletAddr={this.state.walletAddr}
+          cancel={() => { this.setState({ openConfirm: false }) }}
+          confirm={this.confirmSubmit}
+          confirmDisable={this.state.submitBtnDisable}
+        />
         <TitleLogo />
         {
           !this.state.submitSucc
@@ -274,7 +307,7 @@ export default class WhiteList extends React.Component {
             : <div style={{ wordBreak: 'break-all' }}>
               <div style={{ width: '80%', margin: '0 auto' }}>
                 <h2 className="text-center">注册完成</h2>
-                <p className="text-center animated fadeInDown">当前投资序列为 <b>{123}</b> 号</p>
+                <p className="text-center animated fadeInDown">当前投资序列为 <b>{this.state.queueIndex}</b> 号</p>
               </div>
               <div className="bg-white" style={{ boxSizing: 'border-box', padding: '1.5rem' }}>
                 <div style={{ marginBottom: '1.5rem' }} className="fore-black bold text-center">北京时间 2017年12月25日 12:00:00</div>

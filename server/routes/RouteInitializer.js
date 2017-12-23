@@ -1,5 +1,5 @@
 import viewRoutes from '../views/whitelist'
 
 export default function (app) {
-  app.use('/', viewRoutes)
+  app.use('/wl', viewRoutes)
 }
