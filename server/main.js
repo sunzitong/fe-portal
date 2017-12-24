@@ -5,10 +5,11 @@ import devMiddleware from 'webpack-dev-middleware'
 import hotMiddleware from 'webpack-hot-middleware'
 import bodyParser from 'body-parser'
 import http from 'http'
+import ejs from 'ejs'
 
-import config from '../config/index'
+import config from '../config/env'
 import webpackClientConfig from '../config/webpack.config'
-import routeIniter from './routes/RouteInitializer'
+import routeIniter from './routes'
 
 // init chatroom socket service
 const app = new Express()
@@ -18,6 +19,11 @@ const paths = config.utils_paths
 // static resource
 app.use(Express.static(path.resolve(__dirname, '../public')))
 app.use('/static', Express.static(paths.dist()))
+app.set('views', path.join(__dirname, 'views'))
+
+// view engine
+app.engine('html', ejs.renderFile)
+app.set('view engine', 'ejs')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({

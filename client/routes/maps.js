@@ -1,12 +1,24 @@
-import Home from 'material-ui/svg-icons/action/home'
-
 import WhiteList from '../containers/Whitelist'
+import Participate from '../containers/Participate'
+import HomePage from '../containers/Home'
 
-export default [
+export const WhitelistMaps = [
   {
-    text: '白名单录入',
+    text: 'Whitelist',
     path: '/',
-    icon: <Home />,
     component: WhiteList,
+  },
+  {
+    text: 'Participate',
+    path: ['/pt/:token', '/pt'],
+    component: Participate,
+  },
+]
+
+export const HomeMaps = [
+  {
+    text: 'Home',
+    path: '/',
+    component: HomePage,
   },
 ]

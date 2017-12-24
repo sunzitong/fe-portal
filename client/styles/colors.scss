@@ -8,6 +8,8 @@
     --foreLightness: #8d8d8d;
     --foreLight2: #c5c5c5;
     --blue: #004990;
+    --lightBlue: #6df5ff;
+    --darkBlue: #13143f;
     --lightRed: #ff9494;
     --red: #f73434;
     --foreGray: #999999;
@@ -51,6 +53,14 @@
 :global(.bg-blue) {
     color: var(--LightGray)!important;
     background-color: var(--blue) !important;
+}
+
+:global(.bg-darkblue) {
+    background-color: var(--darkBlue) !important;
+}
+
+:global(.bg-lightblue) {
+    background-color: var(--lightBlue) !important;
 }
 
 :global(.fore-white) {
@@ -119,6 +129,14 @@
 
 :global(.fore-blue) {
     color: var(--blue) !important;
+}
+
+:global(.fore-lightblue) {
+    color: var(--lightBlue) !important;
+}
+
+:global(.fore-darkblue) {
+    color: var(--darkBlue) !important;
 }
 
 :global(.fore-yellow) {

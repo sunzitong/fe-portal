@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 import injectTabEvent from 'react-tap-event-plugin'
-import createHashHistory from 'history/createHashHistory'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 import './common/polyfill'
 import reducers from './reducers'
 import configureStore from './store'
-import { WhitelistRoot } from './containers/Root'
+import { HomeRoot } from './containers/Root'
 import './styles/main.scss'
 
 // inject react tab event
@@ -22,14 +22,14 @@ window.onresize = initFontSize
 initFontSize()
 // #endregion
 
-const customHistory = createHashHistory()
+const customHistory = createBrowserHistory()
 const MOUNT_NODE = document.getElementById('root')
 
 const store = configureStore(reducers, {}, customHistory)
 
 let renderIndex = () => {
   render(
-    <WhitelistRoot
+    <HomeRoot
       store={store}
       history={customHistory}
     />,
