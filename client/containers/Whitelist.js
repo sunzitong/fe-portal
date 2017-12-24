@@ -193,7 +193,7 @@ export default class WhiteList extends React.Component {
       whitelistApis
         .submit({
           email: this.state.email,
-          checkcode: this.state.emailValid,
+          checkcode: this.state.validCode,
           name: this.state.realname,
           idno: this.state.identityNo,
           mobile: this.state.mobile,
@@ -211,13 +211,26 @@ export default class WhiteList extends React.Component {
           this.setState({
             submitBtnDisable: false,
           })
-          console.log(err)
+          this.props.alert({
+            title: '错误',
+            msg: err.message,
+          })
         })
     })
   }
 
   sendValidCode() {
-    whitelistApis.sendEmail(this.state.email)
+    whitelistApis
+      .sendEmail(this.state.email)
+      .catch((err) => {
+        this.props.alert({
+          title: '错误',
+          msg: err.message,
+        })
+        this.setState({
+          emailValidDisabled: false,
+        })
+      })
     this.setState({
       emailValidDisabled: true,
     }, () => {
