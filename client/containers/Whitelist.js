@@ -115,7 +115,6 @@ export default class WhiteList extends React.Component {
       validCode: '',
       amount: '',
       walletAddr: '',
-      queueIndex: null,
     }
     this.changeCommunity = this.changeCommunity.bind(this)
     this.submit = this.submit.bind(this)
@@ -203,11 +202,10 @@ export default class WhiteList extends React.Component {
           ethcount: this.state.amount,
           ethaddress: this.state.walletAddr,
         })
-        .then(({ index }) => {
+        .then(() => {
           this.setState({
             submitSucc: true,
             openConfirm: false,
-            queueIndex: index,
           })
         })
         .catch((err) => {
@@ -307,7 +305,6 @@ export default class WhiteList extends React.Component {
             : <div style={{ wordBreak: 'break-all' }}>
               <div style={{ width: '80%', margin: '0 auto' }}>
                 <h2 className="text-center">注册完成</h2>
-                <p className="text-center animated fadeInDown">当前投资序列为 <b>{this.state.queueIndex}</b> 号</p>
               </div>
               <div className="bg-white" style={{ boxSizing: 'border-box', padding: '1.5rem' }}>
                 <div style={{ marginBottom: '1.5rem' }} className="fore-black bold text-center">北京时间 2017年12月25日 12:00:00</div>
