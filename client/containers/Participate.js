@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { toast } from '../actions/toast'
+import { alert } from '../actions/dialog'
 
 import Icon from '../components/Icon'
 import TitleLogo from '../components/TitleLogo'
@@ -35,7 +36,7 @@ const Paragraph = ({ children, className, ...rest }) => (
 )
 
 const mapStateToProps = state => ({})
-const mapDispatchToProps = { toast }
+const mapDispatchToProps = { toast, alert }
 
 const QRCode = () => (
   <Icon logo="qrcode" style={{ width: '8rem', height: '8rem', margin: '20px auto' }} />
@@ -44,10 +45,6 @@ const QRCode = () => (
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Participate extends React.Component {
 
-  static defaultProps = {}
-
-  static propTypes = {}
-
   constructor(props) {
     super(props)
 
@@ -55,24 +52,51 @@ export default class Participate extends React.Component {
 
     this.state = {
       valid: !!token,
-      scale: 10000,
-      limit: 10,
-      address: '0xaaaaabbbbbcccccdddddeeeeefffff0000011111',
+      token: token,
+      scale: 0,
+      limit: 0,
+      lock: 0,
+      address: '',
+      loaded: false,
     }
   }
 
   componentDidMount() {
     // todo
-    window
-      .jQuery('#countdown')
-      .countdown({
-        image: '/images/digits.png',
-        startTime: '00:01:00:03',
-        timerEnd: () => {
+    whitelistApis
+      .getCheckTokenAddr(this.state.token)()
+      .then(({ address, min, scale, lock, deadline }) => {
+        let deadlineDate = new Date(deadline.replace(/\s/g, 'T'))
+        if (deadlineDate - new Date() > 0) {
+          this.setState({
+            address,
+            limit: min,
+            scale,
+            lock,
+            loaded: true,
+          })
+          window
+            .jQuery('#countdown')
+            .countdown({
+              image: '/images/digits.png',
+              endTime: deadlineDate,
+              timerEnd: () => {
+                this.setState({
+                  valid: false,
+                })
+              },
+            })
+        } else {
           this.setState({
             valid: false,
           })
-        },
+        }
+      })
+      .catch((ex) => {
+        this.props.alert({
+          title: '错误',
+          msg: ex.message,
+        })
       })
   }
 
@@ -88,49 +112,62 @@ export default class Participate extends React.Component {
           <Paragraph>
             <Notice text="使用转账的 ETH 地址必须是白名单填写的地址" />，且确认不是交易所、OTC等平台的提现地址，否则无法收到 CRE，后果自负！
           </Paragraph>
-          <h2 className="text-center">投资汇率</h2>
-          <Panel text={`1 ETH = ${this.state.scale} CRE`} />
-          <Panel text={`最低额度 ${this.state.limit} ETH`} />
-          <Panel text="自公售发币后锁定 2 个月" />
-          <div
-            className="bg-white"
-            style={{
-              boxSizing: 'border-box',
-              padding: '1.5rem',
-              textAlign: 'center',
-              margin: '2rem 0',
-            }}>
-            <h2 style={{ margin: '0 0 10px 0' }}>您的参投地址为</h2>
-            <input
-              tabIndex={-1}
-              role="button"
-              className="fore-black bold m-t-10 m-b-10 text-center"
-              style={{
-                border: '1px solid #dfdfdf',
-                overflow: 'visible',
-                width: '100%',
-                padding: '6px 0',
-                fontSize: '.8rem',
-              }}
-              onClick={(event) => {
-                copy(event.target, () => {
-                  this.props.toast('Copy Successed!')
-                })
-              }}
-              readOnly
-              value={this.state.address}
-            />
-            <div className="fore-gray m-t-10">Gas Limit: 200000</div>
-            <div className="fore-gray m-t-10">Gas Price: 20 gwei</div>
-          </div>
-          <h2 className="text-center" style={{ marginBottom: '0' }}>参投倒计时</h2>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div
-              id="countdown"
-              className="dis-flex"
-              style={{ minWidth: '36rem', transform: 'scale(.5)' }}
-            />
-          </div>
+          {
+            this.state.loaded
+              ? <div>
+                <h2 className="text-center">投资汇率</h2>
+                <Panel text={`1 ETH = ${this.state.scale} CRE`} />
+                <Panel text={`最低额度 ${this.state.limit} ETH`} />
+                {
+                  this.state.lock > 0
+                    ? <Panel text={`自公售发币后锁定 ${this.state.lock} 个月`} />
+                    : null
+                }
+                <div
+                  className="bg-white"
+                  style={{
+                    boxSizing: 'border-box',
+                    padding: '1.5rem',
+                    textAlign: 'center',
+                    margin: '2rem 0',
+                  }}>
+                  <h2 style={{ margin: '0 0 10px 0' }}>您的参投地址为</h2>
+                  <input
+                    tabIndex={-1}
+                    role="button"
+                    className="fore-black bold m-t-10 m-b-10 text-center"
+                    style={{
+                      border: '1px solid #dfdfdf',
+                      overflow: 'visible',
+                      width: '100%',
+                      padding: '6px 0',
+                      fontSize: '.8rem',
+                    }}
+                    onClick={(event) => {
+                      copy(event.target, () => {
+                        this.props.toast('Copy Successed!')
+                      })
+                    }}
+                    readOnly
+                    value={this.state.address}
+                  />
+                  <div className="fore-gray m-t-10">Gas Limit: 200000</div>
+                  <div className="fore-gray m-t-10">Gas Price: 20 gwei</div>
+                </div>
+                <h2 className="text-center" style={{ marginBottom: '0' }}>参投倒计时</h2>
+                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                  <div
+                    id="countdown"
+                    className="dis-flex"
+                    style={{ minWidth: '36rem', transform: 'scale(.5)' }}
+                  />
+                </div>
+              </div>
+              : <h2 className="text-center">
+                参投信息生成中...<br />
+                请稍后
+              </h2>
+          }
           <h2 className="text-center">投资状态</h2>
           <Paragraph className="text-center" style={{ marginBottom: '1.5rem', lineHeight: '1.3rem', fontSize: '1rem' }}>
             如果您成功地参与了此次投资，您会收到<br />
