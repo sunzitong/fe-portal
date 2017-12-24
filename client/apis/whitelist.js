@@ -18,4 +18,5 @@ export default {
     ethcount,
     ethaddress,
   }),
+  getCheckTokenAddr: addr => api.__genGet(`address/${addr}`),
 }
