@@ -2,9 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { TextField, FlatButton, SelectField, MenuItem, Dialog } from 'material-ui'
 
-import { alert, confirm } from '../actions/dialog'
 import TitleLogo from '../components/TitleLogo'
+
+import tools from '../common/tools'
 import whitelistApis from '../apis/whitelist'
+import { alert, confirm } from '../actions/dialog'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
 
 const OFFICIAL_EMAIL = 'info@cybereits.com'
@@ -123,6 +125,8 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
+    tools.initShareMenu('Cybereits 白名单注册', '注册时间2017年12月25日-27日')
+
     whitelistApis.getCommunities()
       .then((data) => {
         this.setState({
@@ -322,7 +326,8 @@ export default class WhiteList extends React.Component {
                 <h2 className="text-center">注册完成</h2>
               </div>
               <div className="bg-white" style={{ boxSizing: 'border-box', padding: '1.5rem' }}>
-                <div style={{ marginBottom: '1.5rem' }} className="fore-black bold text-center">北京时间 2017年12月25日 12:00:00</div>
+                <div style={{ marginBottom: '1.5rem', fontSize: '1.2rem' }} className="fore-black bold text-center">私募开始时间</div>
+                <div className="fore-black text-center m-b-10">北京时间 <Notice text="2017年12月27日 12:00:00" /></div>
                 <div className="fore-gray">届时我们会依照白名单投资序列依次从 <Notice text={OFFICIAL_EMAIL} /> 发放私募邀请邮件，请按照邮件中的指示完成投资。</div>
               </div>
               <div className="text-center fore-gray" style={{ position: 'absolute', bottom: '1rem', left: '50%', width: '80%', marginLeft: '-40%', fontSize: '.8rem' }}>
