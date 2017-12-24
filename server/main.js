@@ -7,7 +7,7 @@ import bodyParser from 'body-parser'
 import http from 'http'
 import ejs from 'ejs'
 
-import config from '../config/index'
+import config from '../config/env'
 import webpackClientConfig from '../config/webpack.config'
 import routeIniter from './routes'
 

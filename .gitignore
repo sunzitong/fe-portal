@@ -10,4 +10,4 @@ dist/
 
 HashMapping.json
 
-config/index.js
+env.js

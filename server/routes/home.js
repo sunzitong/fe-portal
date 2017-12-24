@@ -1,6 +1,6 @@
 import { index as mainFilePath } from '../../HashMapping.json'
 import { name as vendorsFilePath } from '../../manifest.json'
-import config from '../../config/index'
+import config from '../../config/env'
 
 export default function (req, res) {
 
