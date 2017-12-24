@@ -40,6 +40,7 @@ const CustomizedText = ({ label, placeholder, ...rest }) => (
     <span style={CustomizedSpan}>{label}</span>
     <TextField
       {...rest}
+      tabIndex={0}
       hintText={placeholder}
       underlineFocusStyle={UnderLineStyle}
     />
@@ -258,13 +259,14 @@ export default class WhiteList extends React.Component {
             ? <div>
               <h2 className="text-center" style={{ margin: '0 0 2.4rem 0' }}>私募白名单注册</h2>
               <section className="text-center">
-                <CustomizedText label="微信账号" value={this.state.wxAccount} placeholder="请输入当前微信号" onChange={(event, newValue) => { this.setState({ wxAccount: newValue }) }} />
+                <CustomizedText label="微信账号" type="text" value={this.state.wxAccount} placeholder="请输入当前微信号" onChange={(event, newValue) => { this.setState({ wxAccount: newValue }) }} />
                 <CustomizedWrapper label="来源社区">
                   <SelectField
                     hintText="选择来源社区"
                     underlineFocusStyle={UnderLineStyle}
                     value={this.state.community}
                     onChange={this.changeCommunity}
+                    tabIndex={0}
                   >
                     {
                       this.state.communities.map(({ id, name }) => (
@@ -273,13 +275,14 @@ export default class WhiteList extends React.Component {
                     }
                   </SelectField>
                 </CustomizedWrapper>
-                <CustomizedText label="真实姓名" placeholder="请输入身份证上的姓名" onChange={(event, newValue) => { this.setState({ realname: newValue }) }} />
-                <CustomizedText label="身份证号" placeholder="请输入对应的身份证号码" onChange={(event, newValue) => { this.setState({ identityNo: newValue }) }} />
+                <CustomizedText label="真实姓名" type="text" placeholder="请输入身份证上的姓名" onChange={(event, newValue) => { this.setState({ realname: newValue }) }} />
+                <CustomizedText label="身份证号" type="text" placeholder="请输入对应的身份证号码" onChange={(event, newValue) => { this.setState({ identityNo: newValue }) }} />
                 <CustomizedText label="手机号码" type="number" placeholder="请输入常用手机" onChange={(event, newValue) => { this.setState({ mobile: newValue }) }} />
                 <CustomizedWrapper label="邮箱地址">
                   <div>
                     <TextField
                       type="email"
+                      tabIndex={0}
                       hintText="请输入常用邮箱"
                       underlineFocusStyle={UnderLineStyle}
                       onChange={(event, newValue) => {
@@ -305,12 +308,12 @@ export default class WhiteList extends React.Component {
                     }
                   </div>
                 </CustomizedWrapper>
-                <CustomizedText label="邮箱验证码" placeholder="请输入邮箱收到的验证码" onChange={(event, newValue) => { this.setState({ validCode: newValue }) }} />
+                <CustomizedText label="邮箱验证码" type="text" placeholder="请输入邮箱收到的验证码" onChange={(event, newValue) => { this.setState({ validCode: newValue }) }} />
                 <CustomizedText label="投资意向" type="number" placeholder="请输入ETH投资数量（≥10ETH）" onChange={(event, newValue) => { this.setState({ amount: newValue }) }} />
-                <CustomizedText label="钱包地址" placeholder="请输入用于投资的ETH钱包地址" onChange={(event, newValue) => { this.setState({ walletAddr: newValue }) }} />
+                <CustomizedText label="钱包地址" type="text" placeholder="请输入用于投资的ETH钱包地址" onChange={(event, newValue) => { this.setState({ walletAddr: newValue }) }} />
                 <div className="fore-red label" style={{ width: '90%', margin: '0 auto' }}>*此钱包地址用于 ERC20 代币 CRE 的收发，禁止填入交易所或 OTC 站内地址</div>
                 <div style={{ width: '80%', margin: '20px auto' }}>
-                  <FlatButton fullWidth style={{ backgroundColor: '#004990', color: 'white', height: '2.6rem' }} onClick={this.submit}>完成注册</FlatButton>
+                  <FlatButton tabIndex={0} fullWidth style={{ backgroundColor: '#004990', color: 'white', height: '2.6rem' }} onClick={this.submit}>完成注册</FlatButton>
                 </div>
               </section>
             </div>
