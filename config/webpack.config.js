@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const fs = require('fs')
 
 const pkg = require('../package.json')
-const config = require('./index')
+const config = require('./env')
 const manifest = require('../manifest.json')
 
 const paths = config.utils_paths
