@@ -4,7 +4,6 @@ import { TextField, FlatButton, SelectField, MenuItem, Dialog } from 'material-u
 
 import TitleLogo from '../components/TitleLogo'
 
-import tools from '../common/tools'
 import whitelistApis from '../apis/whitelist'
 import { alert, confirm } from '../actions/dialog'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
@@ -125,8 +124,6 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
-    tools.initShareMenu('Cybereits 白名单注册', '注册时间2017年12月25日-27日')
-
     whitelistApis.getCommunities()
       .then((data) => {
         this.setState({
