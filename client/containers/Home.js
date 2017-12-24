@@ -5,10 +5,9 @@ import { SmallTitleLogo } from '../components/TitleLogo'
 
 import { alert, confirm } from '../actions/dialog'
 
-const mapStateToProps = state => ({})
 const mapDispatchToProps = { alert, confirm }
 
-@connect(mapStateToProps, mapDispatchToProps)
+@connect(null, mapDispatchToProps)
 export default class WhiteList extends React.Component {
 
   static defaultProps = {}
@@ -31,6 +30,9 @@ export default class WhiteList extends React.Component {
             <li>{}</li>
           </ul>
         </header>
+        <h1 className="text-center fore-white">
+          Coming soon
+        </h1>
       </div>
     )
   }

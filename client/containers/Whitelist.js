@@ -9,9 +9,6 @@ import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/valida
 
 const OFFICIAL_EMAIL = 'info@cybereits.com'
 
-const mapStateToProps = state => ({})
-const mapDispatchToProps = { alert, confirm }
-
 const UnderLineStyle = {
   borderColor: '#004990',
 }
@@ -90,7 +87,9 @@ const ConfirmDialog = ({ open, confirm, confirmDisable, cancel, walletAddr }) =>
   </Dialog>
 )
 
-@connect(mapStateToProps, mapDispatchToProps)
+const mapDispatchToProps = { alert, confirm }
+
+@connect(null, mapDispatchToProps)
 export default class WhiteList extends React.Component {
 
   static defaultProps = {}
