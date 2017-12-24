@@ -9,3 +9,5 @@ dist/
 .DS_STORE
 
 HashMapping.json
+
+config/index.js

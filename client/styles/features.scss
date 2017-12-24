@@ -53,6 +53,11 @@
     flex: 1;
 }
 
+:global(.w-80) {
+    width: 80%;
+    margin: 0 auto;
+}
+
 :global(.w-100) {
     width: 100%;
 }
