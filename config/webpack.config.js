@@ -13,14 +13,18 @@ const __DEBUG__ = config.globals.__DEV__
 module.exports = {
   name: 'client',
   target: 'web',
-  entry: __DEBUG__ ? [
-    'react-hot-loader/patch',
-    'webpack-hot-middleware/client',
-    'webpack/hot/only-dev-server',
-    paths.web('main.js'),
-  ] : [
-    paths.web('main.js'),
-  ],
+  entry: __DEBUG__
+    ? {
+      'whitelist': [
+        'react-hot-loader/patch',
+        'webpack-hot-middleware/client',
+        'webpack/hot/only-dev-server',
+        paths.web('whitelist.js'),
+      ],
+    }
+    : {
+      'whitelist': paths.web('whitelist.js'),
+    },
   output: {
     path: paths.dist(),
     publicPath: '/static/',
@@ -33,7 +37,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           paths.base(),
-          
+
         ],
         exclude: /node_modules/,
         query: {
@@ -134,33 +138,32 @@ module.exports = {
     ...__DEBUG__ ? [
       new webpack.HotModuleReplacementPlugin(),
     ] : [
-      new webpack.NoEmitOnErrorsPlugin(),
-      new webpack.optimize.UglifyJsPlugin({
-        sourceMap: false,
-        compress: {
-          screw_ie8: true, // React doesn't support IE8
-          unused: true,
-          dead_code: true,
+        new webpack.NoEmitOnErrorsPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+          sourceMap: false,
+          compress: {
+            screw_ie8: true, // React doesn't support IE8
+            unused: true,
+            dead_code: true,
+          },
+          mangle: {
+            screw_ie8: true,
+          },
+          output: {
+            comments: false,
+            screw_ie8: true,
+          },
+        }),
+        // write the file hash mapping into a json file in the root of the server path
+        function () {
+          this.plugin('done', (stats) => {
+            let _stats = stats.toJson()
+            fs.writeFileSync(
+              path.join(__dirname, '../HashMapping.json'),
+              JSON.stringify(_stats.assetsByChunkName))
+          })
         },
-        mangle: {
-          screw_ie8: true,
-        },
-        output: {
-          comments: false,
-          screw_ie8: true,
-        },
-      }),
-      new webpack.optimize.DedupePlugin(),
-      // write the file hash mapping into a json file in the root of the server path
-      function() {
-        this.plugin('done', (stats) => {
-          let _stats = stats.toJson()
-          fs.writeFileSync(
-            path.join(__dirname, '../HashMapping.json'),
-            JSON.stringify(_stats.assetsByChunkName))
-        })
-      },
-    ],
+      ],
   ],
   node: {
     fs: 'empty',

@@ -25,7 +25,7 @@ const RENDER_INDEX = userInfo => `<!doctype html>
           window.__INIT_STATE=${JSON.stringify(Object.assign({}, INIT_STATE, userInfo))}
         </script>
         <script src="/build/${vendorsFilePath}.min.js"></script>
-        <script src="/static/${config.globals.__DEV__ ? 'main.js' : HashMapping.main}"></script>
+        <script src="/static/${config.globals.__DEV__ ? 'whitelist.js' : HashMapping.whitelist}"></script>
     </body>
     </html>`
 
