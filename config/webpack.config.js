@@ -21,9 +21,16 @@ module.exports = {
         'webpack/hot/only-dev-server',
         paths.web('whitelist.js'),
       ],
+      'home': [
+        'react-hot-loader/patch',
+        'webpack-hot-middleware/client',
+        'webpack/hot/only-dev-server',
+        paths.web('home.js'),
+      ],
     }
     : {
       'whitelist': paths.web('whitelist.js'),
+      'home': paths.web('home.js'),
     },
   output: {
     path: paths.dist(),

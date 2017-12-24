@@ -6,7 +6,7 @@ import {
 import { connect } from 'react-redux'
 
 import { toggleSideMenu } from '../actions/global'
-import LINKS from '../routes/maps'
+import { HomeMaps } from '../routes/maps'
 
 const SideMenus = ({
   history,
@@ -29,7 +29,7 @@ const SideMenus = ({
         className="bg-green"
       />
       {
-        LINKS.map(link => (
+        HomeMaps.map(link => (
           <MenuItem
             key={link.path}
             onClick={() => {

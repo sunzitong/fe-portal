@@ -5,15 +5,14 @@ import { ConnectedRouter } from 'react-router-redux'
 import uuid from 'uuid/v4'
 
 import App from '../containers/App'
-import Routes from './maps'
+import { WhitelistMaps, HomeMaps } from './maps'
 
-// application routes map
-const RouteMaps = ({ history, setTitle }) => (
+export const WhitelistRouteMaps = ({ history, setTitle }) => (
   <App history={history} >
     <ConnectedRouter history={history}>
       <div className="container">
         {
-          Routes.map(({ path, text, component: Component, ...rest }) => (
+          WhitelistMaps.map(({ path, text, component: Component, ...rest }) => (
             <Route
               exact
               path={path}
@@ -28,12 +27,38 @@ const RouteMaps = ({ history, setTitle }) => (
         }
       </div>
     </ConnectedRouter>
-  </App >
+  </App>
 )
 
-RouteMaps.propTypes = {
+WhitelistRouteMaps.propTypes = {
   history: PropTypes.object.isRequired,
   setTitle: PropTypes.func.isRequired,
 }
 
-export default RouteMaps
+export const HomeRouteMaps = ({ history, setTitle }) => (
+  <App history={history} >
+    <ConnectedRouter history={history}>
+      <div className="container">
+        {
+          HomeMaps.map(({ path, text, component: Component, ...rest }) => (
+            <Route
+              exact
+              path={path}
+              key={uuid()}
+              {...rest}
+              render={(props) => {
+                setTimeout(() => setTitle(text))
+                return (<Component {...props} />)
+              }}
+            />
+          ))
+        }
+      </div>
+    </ConnectedRouter>
+  </App>
+)
+
+HomeRouteMaps.propTypes = {
+  history: PropTypes.object.isRequired,
+  setTitle: PropTypes.func.isRequired,
+}
