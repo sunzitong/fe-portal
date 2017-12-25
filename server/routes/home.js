@@ -1,4 +1,4 @@
-import { index as mainFilePath } from '../../HashMapping.json'
+import { home as mainFilePath } from '../../HashMapping.json'
 import { name as vendorsFilePath } from '../../manifest.json'
 import config from '../../config/env'
 

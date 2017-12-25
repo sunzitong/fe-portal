@@ -6,6 +6,7 @@ import hotMiddleware from 'webpack-hot-middleware'
 import bodyParser from 'body-parser'
 import http from 'http'
 import ejs from 'ejs'
+// import favicon from 'serve-favicon'
 
 import config from '../config/env'
 import webpackClientConfig from '../config/webpack.config'
@@ -14,12 +15,13 @@ import routeIniter from './routes'
 // init chatroom socket service
 const app = new Express()
 const server = http.createServer(app)
-const paths = config.utils_paths
+const utilsPaths = config.utils_paths
 
 // static resource
 app.use(Express.static(path.resolve(__dirname, '../public')))
-app.use('/static', Express.static(paths.dist()))
+app.use('/static', Express.static(utilsPaths.dist()))
 app.set('views', path.join(__dirname, 'views'))
+// app.use(favicon(path.resolve(__dirname, '../public/images/favicon.ico')))
 
 // view engine
 app.engine('html', ejs.renderFile)
