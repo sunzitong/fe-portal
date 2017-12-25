@@ -194,6 +194,7 @@ export default class WhiteList extends React.Component {
     }, () => {
       whitelistApis
         .submit({
+          wechat: this.state.wxAccount,
           email: this.state.email,
           checkcode: this.state.validCode,
           name: this.state.realname,
