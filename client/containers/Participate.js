@@ -9,7 +9,7 @@ import TitleLogo from '../components/TitleLogo'
 
 import whitelistApis from '../apis/whitelist'
 
-const OFFICIAL_EMAIL = 'info@cybereits.com'
+const OFFICIAL_EMAIL = 'info@mail.cybereits.com'
 
 const copy = (ele, callback) => {
   if (document.execCommand) {

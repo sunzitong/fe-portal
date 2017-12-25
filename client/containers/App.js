@@ -48,7 +48,6 @@ class App extends React.Component {
         <FlatButton
           label={alertMessagePayload.btnText}
           primary
-          keyboardFocused
           onClick={() => {
             this.props.closeDialog()
             // execute the callback function
@@ -97,7 +96,6 @@ class App extends React.Component {
               confirmMessagePayload.confirmCallback()
             }
           }}
-          keyboardFocused
           primary
         />,
       ]
@@ -126,13 +124,6 @@ class App extends React.Component {
       <div className="container">
         {this.renderDialog()}
         <Toast />
-        {/* <AppBar
-          title={this.props.title}
-          style={{ textAlign: 'center'}}
-          onLeftIconButtonTouchTap={() => { this.props.toggleSideMenu(true) }}
-          iconClassNameRight="muidocs-icon-navigation-expand-more"
-        /> */}
-        {/* <SideMenus history={this.props.history} /> */}
         {this.props.children}
       </div>
     )

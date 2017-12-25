@@ -8,7 +8,7 @@ import whitelistApis from '../apis/whitelist'
 import { alert, confirm } from '../actions/dialog'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
 
-const OFFICIAL_EMAIL = 'info@cybereits.com'
+const OFFICIAL_EMAIL = 'info@mail.cybereits.com'
 
 const UnderLineStyle = {
   borderColor: '#004990',
@@ -74,7 +74,6 @@ const ConfirmDialog = ({ open, confirm, confirmDisable, cancel, walletAddr }) =>
       <div className="fore-red label">注：请勿使用交易所或 OTC 站内地址，否则出现收不到 CRE 的情况，请知晓！</div>
       <div className="dis-flex" style={{ marginTop: '1.6rem' }}>
         <FlatButton
-          keyboardFocused
           primary
           style={{
             backgroundColor: '#004990',
@@ -124,7 +123,8 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
-    whitelistApis.getCommunities()
+    whitelistApis
+      .getCommunities()
       .then((data) => {
         this.setState({
           communities: data,
