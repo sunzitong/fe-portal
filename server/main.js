@@ -6,7 +6,7 @@ import hotMiddleware from 'webpack-hot-middleware'
 import bodyParser from 'body-parser'
 import http from 'http'
 import ejs from 'ejs'
-// import favicon from 'serve-favicon'
+import favicon from 'serve-favicon'
 
 import config from '../config/env'
 import webpackClientConfig from '../config/webpack.config'
@@ -21,7 +21,7 @@ const utilsPaths = config.utils_paths
 app.use(Express.static(path.resolve(__dirname, '../public')))
 app.use('/static', Express.static(utilsPaths.dist()))
 app.set('views', path.join(__dirname, 'views'))
-// app.use(favicon(path.resolve(__dirname, '../public/images/favicon.ico')))
+app.use(favicon(path.resolve(__dirname, '../public/images/favicon.ico')))
 
 // view engine
 app.engine('html', ejs.renderFile)
