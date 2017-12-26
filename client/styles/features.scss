@@ -23,8 +23,16 @@
     cursor: pointer;
 }
 
+:global(.big) {
+    font-size: 1.2rem;
+}
+
 :global(.large) {
-    font-size: 1.8rem;
+    font-size: 2rem;
+}
+
+:global(.normal) {
+    font-size: 1rem;
 }
 
 :global(.small) {
@@ -37,6 +45,7 @@
 
 :global(.dis-flex) {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
 }
@@ -87,6 +96,10 @@
 
 :global(.m-b-10) {
     margin-bottom: 10px;
+}
+
+:global(.m-b-3rem) {
+    margin-bottom: 3rem;
 }
 
 :global(.m-r-10) {

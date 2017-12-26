@@ -1,0 +1,337 @@
+:root {
+    --lightBlue: #6df5ff;
+}
+
+.bg_lightblue {
+    background-color: var(--lightBlue) !important;
+}
+
+.fore_lightblue {
+    color: var(--lightBlue) !important;
+}
+
+.globe {
+    top: 0;
+    display: block;
+    position: absolute;
+    left: 50%;
+    width: 1000px;
+    margin-left: -500px;
+    z-index: 0 !important;
+}
+
+.header {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 3.2rem;
+    width: 80%;
+    margin: 1rem auto 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    .titleLogo {
+        height: 3.2rem;
+        min-width: 12rem;
+        margin-left: 20px;
+        position: absolute;
+        left: -5rem;
+        top: 0;
+    }
+    .navHeader {
+        height: 100%;
+        display: flex;
+        margin: 0 auto;
+        .headerLink {
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            line-height: 3rem;
+            color: rgba(255, 255, 255, .7);
+            padding: 0 1rem;
+            border-bottom: 2px solid rgba(230, 230, 230, .3);
+            &.actived {
+                color: white;
+                border-bottom: 2px solid var(--lightBlue);
+            }
+            &:hover {
+                transition: all .6s ease;
+                border-bottom: 2px solid var(--lightBlue);
+                background-color: rgba(230, 230, 230, .1);
+            }
+        }
+    }
+    .i18n {
+        margin: auto 20px auto 0;
+        font-size: .8rem;
+        display: flex;
+        align-items: flex-end;
+        position: absolute;
+        right: 0;
+        &>a {
+            margin: 0 5px;
+        }
+    }
+}
+
+.content {
+    max-width: 1000px;
+    margin: 0 auto;
+    .token_sale {
+        position: relative;
+        z-index: 1;
+        margin: 3.2rem 0 0 0;
+        .primaryLogo {
+            width: 12rem;
+            height: 12rem;
+            margin: 0 auto;
+        }
+        .sub_title {
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--lightBlue);
+        }
+        .whitepaper_icon {
+            width: 2rem;
+            height: 2rem;
+            margin-right: 6px;
+        }
+        .whitepaper_button {
+            cursor: pointer;
+            width: 16rem;
+            margin: 8rem auto;
+            box-sizing: border-box;
+            padding: .8rem 2.4rem;
+            background-color: rgba(230, 230, 230, .1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--lightBlue);
+            border-radius: 6px;
+            transition: all .5s ease;
+            line-height: 2rem;
+            &:hover {
+                color: #004990;
+                background-color: var(--lightBlue);
+                font-size: 1.4rem;
+                &>i {
+                    display: none;
+                }
+            }
+        }
+    }
+    .seperator {
+        width: 100%;
+        margin: 20px auto;
+        border: none;
+        border-bottom: 1px solid rgba(230, 230, 230, .3);
+    }
+    .intro {
+        .intro_block {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 3rem auto;
+            .intro_img {
+                width: 50%;
+            }
+            .intro_param {
+                width: 40%;
+                display: inline-block;
+                font-size: 1.2rem;
+                line-height: 2rem;
+                box-sizing: border-box;
+            }
+        }
+    }
+    .achievement {
+        .achievement_grid {
+            margin: 6rem auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            .achievement_logo_container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex: 1;
+                .achievement_logo {
+                    width: 10rem;
+                    height: 10rem;
+                }
+            }
+        }
+    }
+    .allocate {
+        .cre_container {
+            margin: 8rem auto;
+            position: relative;
+            .cre_logo {
+                display: block;
+                margin: 0 auto;
+                width: 18rem;
+            }
+        }
+        .allocate_img {
+            width: 45%;
+        }
+    }
+    .roadmap {
+        margin: 8rem auto;
+    }
+    .team {
+        .team_member_container {
+            margin: 8rem auto;
+            border: 1px solid rgba(230, 230, 230, .3);
+            border-radius: 4px;
+            position: relative;
+            width: 24%;
+            min-width: 12rem;
+            height: 20rem;
+            line-height: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            box-sizing: border-box;
+            transition: all .6s ease;
+            padding: 6rem 1rem 0 1rem;
+            .team_avatar {
+                position: absolute;
+                height: 8rem;
+                top: -4rem;
+                transition: all .6s ease;
+            }
+            &:hover {
+                padding: 4rem 1rem 0 1rem;
+                color: var(--lightBlue);
+                .team_avatar {
+                    top: -6rem;
+                }
+            }
+        }
+    }
+    .investors {
+        margin: 8rem auto;
+        .investor_container {
+            margin: 2rem auto;
+            text-align: center;
+            border: 1px solid rgba(230, 230, 230, .7);
+            padding-bottom: 1rem;
+            .investor_avatar {
+                height: 12rem;
+                border-bottom: 1px solid rgba(230, 230, 230, .7);
+            }
+            .investor_name {
+                margin: 1.2rem auto;
+                font-size: 1.4rem;
+                color: var(--lightBlue);
+            }
+        }
+    }
+    .consultant {
+        .consultant_container {
+            flex: 1;
+            text-align: center;
+            margin: 20px;
+            padding: 1rem;
+            .consultant_avatar {
+                height: 10rem;
+                display: block;
+                margin: 20px auto;
+            }
+            .consultant_name {
+                margin: 1.2rem auto;
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .whitepaper {
+        margin: 8rem auto;
+        .book {
+            margin: 4rem auto;
+            &>figure {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+    }
+    .community {
+        margin: 8rem auto;
+        &>div {
+            justify-content: center;
+            .community_logo {
+                display: inline-block;
+                margin: 20px auto;
+                flex: 1;
+                max-width: 14rem;
+            }
+        }
+    }
+    .sec_title {
+        color: #dedede;
+        font-size: 1.6rem;
+        text-align: center;
+        margin-top: 3rem;
+    }
+}
+
+.footer {
+    padding: 2rem 0;
+    background-color: rgb(3, 3, 51);
+    .footer_logo_container {
+        text-align: center;
+        margin: 3rem auto;
+        &>a {
+            display: inline-block;
+            position: relative;
+            .footer_logo {
+                cursor: pointer;
+                display: inline-block;
+                width: 3rem;
+                height: 3rem;
+                margin: 0 3rem;
+            }
+            .footer_logo_wechat {
+                position: absolute;
+                width: 7rem;
+                height: 7rem;
+                top: -7.5rem;
+                left: 50%;
+                margin-left: -3.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width:30em) {
+    .globe {
+        display: none;
+    }
+    .header {
+        .titleLogo {
+            left: -2rem;
+        }
+        .navHeader {
+            display: none;
+        }
+    }
+    .content {
+        .allocate {
+            .cre_container {
+                display: none;
+            }
+            div {
+                img {
+                    display: block;
+                    width: 80% !important;
+                    margin: 3rem auto;
+                }
+            }
+        }
+    }
+}
