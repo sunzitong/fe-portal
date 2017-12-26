@@ -22,7 +22,9 @@ const execFetch = (method, _url, data) => {
     .then(res => res.json())
     .then((res) => {
       if (res.code === 0) {
-        return res.data
+        return Object.assign({
+          __serverTime: res.datetime,
+        }, res.data)
       } else {
         throw new Error(res.msg)
       }

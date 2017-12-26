@@ -66,9 +66,9 @@ export default class Participate extends React.Component {
   componentDidMount() {
     whitelistApis
       .getCheckTokenAddr(this.state.token)()
-      .then(({ address, min, scale, lock, deadline, name, idl4 }) => {
-        let deadlineDate = new Date(deadline.replace(/\s/g, 'T'))
-        if (deadlineDate - new Date() > 0) {
+      .then(({ __serverTime, address, min, scale, lock, deadline, name, idl4 }) => {
+        let deadlineDate = new Date(deadline.replace(/-/g, '/'))
+        if (deadlineDate - new Date(__serverTime.replace(/-/g, '/')) > 0) {
           this.setState({
             address,
             limit: min,
@@ -82,7 +82,7 @@ export default class Participate extends React.Component {
             .jQuery('#countdown')
             .countdown({
               image: '/images/digits.png',
-              endTime: new Date(deadlineDate - (1000 * 24 * 60 * 60)),  // fxxk bugs
+              endTime: deadlineDate,
               timerEnd: () => {
                 this.setState({
                   valid: false,
@@ -115,8 +115,8 @@ export default class Participate extends React.Component {
           {
             this.state.loaded
               ? <Paragraph>
-                <div style={{ lineHeight: '2rem' }}>参投人:{this.state.username}</div>
-                <div style={{ lineHeight: '2rem' }}>身份证后四位:{this.state.idno}</div>
+                <div style={{ lineHeight: '1.2rem' }}>参投人 : <Notice text={this.state.username} /></div>
+                <div style={{ lineHeight: '1.2rem' }}>身份证后四位 : <Notice text={this.state.idno} /></div>
               </Paragraph>
               : null
           }
