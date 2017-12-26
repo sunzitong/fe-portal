@@ -29,8 +29,8 @@ const Panel = ({ text, ...rest }) => (
   <div className="text-center fore-black m-b-10" {...rest}>{text}</div>
 )
 
-const Paragraph = ({ children, className, ...rest }) => (
-  <p className={`small w-80 fore-gray m-b-10 ${className || ''}`} {...rest}>
+const Paragraph = ({ children, className, style = {}, ...rest }) => (
+  <p className={`small w-80 fore-gray m-b-10 ${className || ''}`} {...rest} style={Object.assign({ lineHeight: '1.2rem' }, style)}>
     {children}
   </p>
 )
@@ -112,8 +112,14 @@ export default class Participate extends React.Component {
         ? <div className="container form-container bg-gray fore-blue">
           <TitleLogo />
           <h2 className="text-center" style={{ margin: '0 0 2.4rem 0' }}>CRE 私募活动</h2>
-          <div style={{ textIndent: '3rem', lineHeight: '2rem' }}>参投人:{this.state.username}</div>
-          <div style={{ textIndent: '3rem', lineHeight: '2rem' }}>身份证后四位:{this.state.idno}</div>
+          {
+            this.state.loaded
+              ? <Paragraph>
+                <div style={{ lineHeight: '2rem' }}>参投人:{this.state.username}</div>
+                <div style={{ lineHeight: '2rem' }}>身份证后四位:{this.state.idno}</div>
+              </Paragraph>
+              : null
+          }
           <div className="text-center bold m-b-10">投资须知</div>
           <Paragraph>
             此次投资的参与者必须<Notice text="已加入白名单" />，未加入白名单者无法参与此次投资
@@ -125,7 +131,7 @@ export default class Participate extends React.Component {
             <Notice text="使用转账的 ETH 地址必须是白名单填写的地址" />，且确认不是交易所、OTC等平台的提现地址，否则无法收到 CRE，后果自负！
           </Paragraph>
           {
-            !this.state.loaded
+            this.state.loaded
               ? <div>
                 <h2 className="text-center">投资汇率</h2>
                 <Panel text={`1 ETH = ${this.state.scale} CRE`} />
