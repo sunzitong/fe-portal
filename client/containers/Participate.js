@@ -177,7 +177,7 @@ export default class Participate extends React.Component {
                   <div
                     id="countdown"
                     className="dis-flex"
-                    style={{ minWidth: '38rem', transform: 'scale(.5)' }}
+                    style={{ minWidth: '40rem', transform: 'scale(.5)' }}
                   />
                 </div>
               </div>
