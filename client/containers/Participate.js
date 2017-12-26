@@ -58,19 +58,22 @@ export default class Participate extends React.Component {
       lock: 0,
       address: '',
       loaded: false,
+      username: '',
+      idno: '',
     }
   }
 
   componentDidMount() {
-    // todo
     whitelistApis
       .getCheckTokenAddr(this.state.token)()
-      .then(({ address, min, scale, lock, deadline }) => {
+      .then(({ address, min, scale, lock, deadline, name, idl4 }) => {
         let deadlineDate = new Date(deadline.replace(/\s/g, 'T'))
         if (deadlineDate - new Date() > 0) {
           this.setState({
             address,
             limit: min,
+            username: name,
+            idno: idl4,
             scale,
             lock,
             loaded: true,
@@ -79,7 +82,7 @@ export default class Participate extends React.Component {
             .jQuery('#countdown')
             .countdown({
               image: '/images/digits.png',
-              endTime: deadlineDate,
+              endTime: new Date(deadlineDate - (1000 * 24 * 60 * 60)),  // fxxk bugs
               timerEnd: () => {
                 this.setState({
                   valid: false,
@@ -97,6 +100,9 @@ export default class Participate extends React.Component {
           title: '错误',
           msg: ex.message,
         })
+        this.setState({
+          valid: false,
+        })
       })
   }
 
@@ -106,14 +112,20 @@ export default class Participate extends React.Component {
         ? <div className="container form-container bg-gray fore-blue">
           <TitleLogo />
           <h2 className="text-center" style={{ margin: '0 0 2.4rem 0' }}>CRE 私募活动</h2>
+          <div style={{ textIndent: '3rem', lineHeight: '2rem' }}>参投人:{this.state.username}</div>
+          <div style={{ textIndent: '3rem', lineHeight: '2rem' }}>身份证后四位:{this.state.idno}</div>
+          <div className="text-center bold m-b-10">投资须知</div>
           <Paragraph>
             此次投资的参与者必须<Notice text="已加入白名单" />，未加入白名单者无法参与此次投资
+          </Paragraph>
+          <Paragraph>
+            每个投资人对应一个<Notice text="专属转账地址" />，其他人请勿往此地址转币。
           </Paragraph>
           <Paragraph>
             <Notice text="使用转账的 ETH 地址必须是白名单填写的地址" />，且确认不是交易所、OTC等平台的提现地址，否则无法收到 CRE，后果自负！
           </Paragraph>
           {
-            this.state.loaded
+            !this.state.loaded
               ? <div>
                 <h2 className="text-center">投资汇率</h2>
                 <Panel text={`1 ETH = ${this.state.scale} CRE`} />
@@ -131,7 +143,7 @@ export default class Participate extends React.Component {
                     textAlign: 'center',
                     margin: '2rem 0',
                   }}>
-                  <h2 style={{ margin: '0 0 10px 0' }}>您的参投地址为</h2>
+                  <h2 style={{ margin: '0 0 10px 0' }}>{this.state.username}投资转账的地址是</h2>
                   <input
                     tabIndex={-1}
                     role="button"
@@ -154,12 +166,12 @@ export default class Participate extends React.Component {
                   <div className="fore-gray m-t-10">Gas Limit: 200000</div>
                   <div className="fore-gray m-t-10">Gas Price: 20 gwei</div>
                 </div>
-                <h2 className="text-center" style={{ marginBottom: '0' }}>参投倒计时</h2>
+                <h2 className="text-center" style={{ marginBottom: '0' }}>剩余投资时间</h2>
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                   <div
                     id="countdown"
                     className="dis-flex"
-                    style={{ minWidth: '36rem', transform: 'scale(.5)' }}
+                    style={{ minWidth: '38rem', transform: 'scale(.5)' }}
                   />
                 </div>
               </div>
@@ -181,7 +193,7 @@ export default class Participate extends React.Component {
           <QRCode />
         </div>
         : <div className="container form-container bg-gray text-center fore-blue">
-          <h1 style={{ margin: '4rem auto' }}>您的参投资格已过期</h1>
+          <h1 style={{ margin: '4rem auto' }}>您的参投资格已失效</h1>
           <h2>如有疑问，请联系管理员</h2>
           <QRCode />
         </div>
