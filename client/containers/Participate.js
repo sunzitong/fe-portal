@@ -125,7 +125,7 @@ export default class Participate extends React.Component {
             <Notice text="使用转账的 ETH 地址必须是白名单填写的地址" />，且确认不是交易所、OTC等平台的提现地址，否则无法收到 CRE，后果自负！
           </Paragraph>
           {
-            !this.state.loaded
+            this.state.loaded
               ? <div>
                 <h2 className="text-center">投资汇率</h2>
                 <Panel text={`1 ETH = ${this.state.scale} CRE`} />
