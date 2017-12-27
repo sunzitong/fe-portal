@@ -39,14 +39,13 @@
         margin: 0 auto;
         .headerLink {
             height: 100%;
-            display: flex;
-            align-items: flex-end;
             line-height: 3rem;
             color: rgba(255, 255, 255, .7);
             padding: 0 1rem;
             border-bottom: 2px solid rgba(230, 230, 230, .3);
             &.actived {
                 color: white;
+                background-color: rgba(255, 255, 255, .2);
                 border-bottom: 2px solid var(--lightBlue);
             }
             &:hover {
@@ -220,9 +219,6 @@
                     }
                 }
             }
-        }
-        .investors {
-            margin: 8rem auto;
             .investor_container {
                 margin: 2rem auto;
                 text-align: center;
@@ -238,8 +234,6 @@
                     color: var(--lightBlue);
                 }
             }
-        }
-        .consultant {
             .consultant_container {
                 flex: 1;
                 text-align: center;
@@ -257,9 +251,8 @@
             }
         }
         .whitepaper {
-            margin: 8rem auto;
             .book {
-                margin: 4rem auto;
+                margin: 8rem auto;
                 &>figure {
                     display: block;
                     margin: 0 auto;
@@ -345,16 +338,14 @@
                     }
                 }
             }
-            .investors {
-                .investor_container {
-                    min-width: 16rem;
-                }
-            }
             .team {
                 .team_member_container {
                     height: 22rem;
                     width: 16rem;
                     margin: 4rem auto;
+                }
+                .investor_container {
+                    min-width: 16rem;
                 }
             }
         }

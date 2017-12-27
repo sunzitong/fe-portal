@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import Scrollspy from 'react-scrollspy'
 
 import i18n from '../i18n'
 
@@ -10,14 +11,6 @@ import Icon from '../components/Icon'
 
 import styles from './Home.scss'
 import pageStyles from './Page.scss'
-
-const Header = ({ text, anchor, actived, ...rest }) => (
-  <a href={`#${anchor}`} className={`${styles.headerLink} ${actived ? styles.actived : ''}`} {...rest}>
-    <li>
-      {text}
-    </li>
-  </a>
-)
 
 const AchievementLogo = ({ index, text }) => (
   <div className={styles.achievement_logo_container}>
@@ -90,7 +83,6 @@ export default class WhiteList extends React.Component {
       localeType: locale && i18n[locale] ? locale : 'zh',
       locale: locale && i18n[locale] ? i18n[locale] : i18n.zh,
       showWechatQrcode: false,
-      activedNav: 'token_sale',
     }
     this.switchLocale = this.switchLocale.bind(this)
   }
@@ -113,32 +105,6 @@ export default class WhiteList extends React.Component {
     return (
       <div className="container bg-darkblue fore-white" style={{ position: 'relative' }}>
         <SmallTitleLogo className={styles.titleLogo} />
-        <header className={styles.header}>
-          <ul className={styles.navHeader}>
-            <Header actived={this.state.activedNav === 'token_sale'} text={this.state.locale.token_sale} anchor="token_sale" onClick={() => this.setState({ activedNav: 'token_sale' })} />
-            <Header actived={this.state.activedNav === 'intro'} text={this.state.locale.intro} anchor="intro" onClick={() => this.setState({ activedNav: 'intro' })} />
-            <Header actived={this.state.activedNav === 'achievement'} text={this.state.locale.achievement} anchor="achievement" onClick={() => this.setState({ activedNav: 'achievement' })} />
-            <Header actived={this.state.activedNav === 'allocate'} text={this.state.locale.allocate} anchor="allocate" onClick={() => this.setState({ activedNav: 'allocate' })} />
-            <Header actived={this.state.activedNav === 'roadmap'} text={this.state.locale.roadmap} anchor="roadmap" onClick={() => this.setState({ activedNav: 'roadmap' })} />
-            <Header actived={this.state.activedNav === 'team'} text={this.state.locale.team} anchor="team" onClick={() => this.setState({ activedNav: 'team' })} />
-            <Header actived={this.state.activedNav === 'whitepaper'} text={this.state.locale.whitepaper} anchor="whitepaper" onClick={() => this.setState({ activedNav: 'whitepaper' })} />
-            <Header actived={this.state.activedNav === 'community'} text={this.state.locale.community} anchor="community" onClick={() => this.setState({ activedNav: 'community' })} />
-          </ul>
-          <div className={styles.i18n}>
-            <a
-              tabIndex={-1}
-              role="button"
-              className={this.state.localeType === 'zh' ? styles.fore_lightblue : ''}
-              onClick={() => this.switchLocale('zh')}
-            >中文</a>
-            <a
-              tabIndex={-1}
-              role="button"
-              className={this.state.localeType === 'en' ? styles.fore_lightblue : ''}
-              onClick={() => this.switchLocale('en')}
-            >English</a>
-          </div>
-        </header>
         <div className={styles.body}>
           <div className={styles.content}>
             <section id="token_sale" className={styles.token_sale}>
@@ -288,8 +254,6 @@ export default class WhiteList extends React.Component {
                   content={this.state.locale.team_cmo_intro}
                 />
               </div>
-            </section>
-            <section id="investors" className={styles.investors}>
               <p className="text-center large m-b-3rem">{this.state.locale.early_investors}</p>
               <div className="dis-flex">
                 <Investor
@@ -308,8 +272,6 @@ export default class WhiteList extends React.Component {
                   content={this.state.locale.qidi_intro}
                 />
               </div>
-            </section>
-            <section id="institution" className={styles.investors}>
               <p className="text-center large m-b-3rem">{this.state.locale.institution_investors}</p>
               <div className="dis-flex">
                 <Investor
@@ -328,8 +290,6 @@ export default class WhiteList extends React.Component {
                   content={this.state.locale.jiedianziben_intro}
                 />
               </div>
-            </section>
-            <section id="consultant" className={styles.consultant}>
               <p className="text-center large m-b-3rem">{this.state.locale.consultant}</p>
               <div className="dis-flex">
                 <Consultant
@@ -412,6 +372,8 @@ export default class WhiteList extends React.Component {
               <div className="dis-flex">
                 <Community img="bigone" />
                 <Community img="gongxinbao" />
+              </div>
+              <div className="dis-flex">
                 <Community img="xstar" />
                 <Community img="jingtong" />
               </div>
@@ -446,6 +408,78 @@ export default class WhiteList extends React.Component {
             </div>
           </footer>
         </div>
+        <header className={styles.header}>
+          <Scrollspy
+            items={[
+              'token_sale',
+              'intro',
+              'achievement',
+              'allocate',
+              'roadmap',
+              'team',
+              'whitepaper',
+              'community',
+            ]}
+            currentClassName={styles.actived}
+            className={styles.navHeader}
+            rootEl={`.${styles.body}`}
+          >
+            <li className={styles.headerLink}>
+              <a href="#token_sale" >
+                {this.state.locale.token_sale}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#intro" >
+                {this.state.locale.intro}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#achievement" >
+                {this.state.locale.achievement}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#allocate" >
+                {this.state.locale.allocate}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#roadmap" >
+                {this.state.locale.roadmap}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#team" >
+                {this.state.locale.team}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#whitepaper" >
+                {this.state.locale.whitepaper}
+              </a>
+            </li>
+            <li className={styles.headerLink}>
+              <a href="#community" >
+                {this.state.locale.community}
+              </a>
+            </li>
+          </Scrollspy>
+          <div className={styles.i18n}>
+            <a
+              tabIndex={-1}
+              role="button"
+              className={this.state.localeType === 'zh' ? styles.fore_lightblue : ''}
+              onClick={() => this.switchLocale('zh')}
+            >中文</a>
+            <a
+              tabIndex={-1}
+              role="button"
+              className={this.state.localeType === 'en' ? styles.fore_lightblue : ''}
+              onClick={() => this.switchLocale('en')}
+            >English</a>
+          </div>
+        </header>
       </div>
     )
   }
