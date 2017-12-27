@@ -28,6 +28,7 @@
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.4",
     "normalize.css": "^6.0.0",
+    "particles.js": "^2.0.0",
     "pixrem": "^3.0.2",
     "pleeease-filters": "^3.0.1",
     "postcss-calc": "^5.3.1",

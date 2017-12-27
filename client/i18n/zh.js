@@ -88,4 +88,5 @@ export default {
   'linkvc_intro': '专注区块链投资',
   'jiedianziben': '节点资本',
   'jiedianziben_intro': '汇聚节点链接未来',
+  'media': '合作媒体',
 }

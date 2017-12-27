@@ -5,7 +5,7 @@ export default {
   'allocate': 'Allocation',
   'roadmap': 'Roadmap',
   'team': 'Team',
-  'community': ' Community',
+  'community': 'Community',
   'simple_chinese': 'Chinese',
   'primary_title': 'The NO.1 Global block chain online real estate trading platform',
   'sub_title': 'Achieving 200 trillion US dollars of global real estate digital transactions, opening up the digital currency payment channel',
@@ -89,4 +89,5 @@ export default {
   'linkvc_intro': 'Focus on blockchain investment',
   'jiedianziben': 'Node Capital',
   'jiedianziben_intro': 'Convergence node and link the future',
+  'media': 'Associated Media',
 }

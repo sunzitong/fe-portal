@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Scrollspy from 'react-scrollspy'
+import 'particles.js'
 
 import i18n from '../i18n'
 
@@ -33,13 +34,15 @@ const TeamMember = ({ img, title, content }) => (
 
 const Investor = ({ img, title, content }) => (
   <div className={styles.investor_container}>
-    <img
-      alt=""
-      src={`images/${img}.png`}
-      className={styles.investor_avatar}
-    />
+    <div className={styles.investor_avatar_container}>
+      <img
+        alt=""
+        src={`images/${img}.png`}
+        className={styles.investor_avatar}
+      />
+    </div>
     <div className={styles.investor_name}>{title}</div>
-    <div className="label">{content}</div>
+    <div className={styles.investor_info}>{content}</div>
   </div>
 )
 
@@ -88,6 +91,7 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
+    window.particlesJS.load('home-container', 'plugin/particles.json')
   }
 
   switchLocale(type) {
@@ -103,7 +107,7 @@ export default class WhiteList extends React.Component {
 
   render() {
     return (
-      <div className="container bg-darkblue fore-white" style={{ position: 'relative' }}>
+      <div id="home-container" className="container bg-darkblue fore-white" style={{ position: 'relative' }}>
         <SmallTitleLogo className={styles.titleLogo} />
         <div className={styles.body}>
           <div className={styles.content}>
@@ -376,6 +380,12 @@ export default class WhiteList extends React.Component {
               <div className="dis-flex">
                 <Community img="xstar" />
                 <Community img="jingtong" />
+              </div>
+              <p className="text-center large m-b-3rem">{this.state.locale.media}</p>
+              <div className="dis-flex">
+                <Community img="babicaijing" />
+                <Community img="jinsecaijing" />
+                <Community img="babite" />
               </div>
             </section>
           </div>

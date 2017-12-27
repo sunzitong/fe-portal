@@ -10,6 +10,15 @@
     color: var(--lightBlue) !important;
 }
 
+:global(.particles-js-canvas-el) {
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .titleLogo {
     height: 3.2rem !important;
     width: 10rem !important;
@@ -72,6 +81,9 @@
 }
 
 .body {
+    position: absolute;
+    z-index: 1;
+    background-color: transparent;
     margin-top: 3rem;
     height: calc(100% - 3.2rem);
     width: 100%;
@@ -226,14 +238,29 @@
                 text-align: center;
                 border: 1px solid rgba(230, 230, 230, .7);
                 padding-bottom: 1rem;
-                .investor_avatar {
-                    height: 12rem;
+                width: 16rem;
+                .investor_avatar_container {
+                    overflow: hidden;
+                    height: 14rem;
+                    // min-width: 16rem;
                     border-bottom: 1px solid rgba(230, 230, 230, .7);
+                    .investor_avatar {
+                        width: 100%;
+                        &:hover {
+                            transition: all .4s ease;
+                            transform: scale(1.2);
+                        }
+                    }
                 }
                 .investor_name {
                     margin: 1.2rem auto;
                     font-size: 1.4rem;
                     color: var(--lightBlue);
+                }
+                .investor_info {
+                    margin: 0 auto;
+                    width: 95%;
+                    word-wrap: break-word;
                 }
             }
             .consultant_container {
@@ -345,9 +372,6 @@
                     height: 22rem;
                     width: 16rem;
                     margin: 4rem auto;
-                }
-                .investor_container {
-                    min-width: 16rem;
                 }
             }
         }
