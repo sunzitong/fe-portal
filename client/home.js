@@ -3,9 +3,6 @@ import { render } from 'react-dom'
 import injectTabEvent from 'react-tap-event-plugin'
 import createBrowserHistory from 'history/createBrowserHistory'
 
-import './libs/tween'
-import './libs/globe'
-
 import './common/polyfill'
 import reducers from './reducers'
 import configureStore from './store'
