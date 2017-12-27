@@ -139,311 +139,313 @@ export default class WhiteList extends React.Component {
             >English</a>
           </div>
         </header>
-        <div className={styles.content}>
-          <section id="token_sale" className={styles.token_sale}>
-            <Icon logo="primary-logo" className={styles.primaryLogo} />
-            <h1 className="text-center">{this.state.locale.primary_title}</h1>
-            <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
-            <div className={styles.sec_title}>{this.state.locale.comming_soon}</div>
-            <div
-              role="button"
-              tabIndex={0}
-              className={styles.whitepaper_button}
-              onClick={downloadWhitePaper}
-            >
-              <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
-            </div>
-          </section>
-          <div className={styles.seperator} />
-          <section id="intro" className={styles.intro}>
-            <p className="text-center large m-b-3rem">{this.state.locale.intro}</p>
-            <ul>
-              <li className={styles.intro_block}>
+        <div className={styles.body}>
+          <div className={styles.content}>
+            <section id="token_sale" className={styles.token_sale}>
+              <Icon logo="primary-logo" className={styles.primaryLogo} />
+              <h1 className="text-center">{this.state.locale.primary_title}</h1>
+              <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
+              <div className={styles.sec_title}>{this.state.locale.comming_soon}</div>
+              <div
+                role="button"
+                tabIndex={0}
+                className={styles.whitepaper_button}
+                onClick={downloadWhitePaper}
+              >
+                <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
+              </div>
+            </section>
+            <div className={styles.seperator} />
+            <section id="intro" className={styles.intro}>
+              <p className="text-center large m-b-3rem">{this.state.locale.intro}</p>
+              <ul>
+                <li className={styles.intro_block}>
+                  <img
+                    src="/images/intro_01.png"
+                    alt=""
+                    className={styles.intro_img}
+                  />
+                  <div className={styles.intro_param}>{this.state.locale.intro_para_1}</div>
+                </li>
+                <li className={styles.intro_block}>
+                  <div className={styles.intro_param}>{this.state.locale.intro_para_2}</div>
+                  <img
+                    src="/images/intro_02.png"
+                    alt=""
+                    className={styles.intro_img}
+                  />
+                </li>
+                <li className={styles.intro_block}>
+                  <img
+                    src="/images/intro_03.png"
+                    alt=""
+                    className={styles.intro_img}
+                  />
+                  <div className={styles.intro_param}>{this.state.locale.intro_para_3}</div>
+                </li>
+              </ul>
+            </section>
+            <div className={styles.seperator} />
+            <section id="achievement" className={styles.achievement}>
+              <p className="text-center large m-b-3rem">{this.state.locale.achievement}</p>
+              <div className={styles.sec_title}>{this.state.locale.achiev_sub_title}</div>
+              <div className={styles.achievement_grid}>
+                <AchievementLogo index="01" text={this.state.locale.achiev_para_1} />
+                <AchievementLogo index="02" text={this.state.locale.achiev_para_2} />
+                <AchievementLogo index="03" text={this.state.locale.achiev_para_3} />
+              </div>
+              <div className={styles.achievement_grid}>
+                <AchievementLogo index="04" text={this.state.locale.achiev_para_4} />
+                <AchievementLogo index="05" text={this.state.locale.achiev_para_5} />
+                <AchievementLogo index="06" text={this.state.locale.achiev_para_6} />
+              </div>
+            </section>
+            <div className={styles.seperator} />
+            <section id="allocate" className={styles.allocate}>
+              <p className="text-center large m-b-3rem">{this.state.locale.allocate}</p>
+              <div className={styles.sec_title} style={{ fontSize: '1.3rem' }}>{this.state.locale.allocate_sub_title}</div>
+              <div className={styles.cre_container}>
                 <img
-                  src="/images/intro_01.png"
                   alt=""
-                  className={styles.intro_img}
+                  src="/images/cre.png"
+                  className={styles.cre_logo}
                 />
-                <div className={styles.intro_param}>{this.state.locale.intro_para_1}</div>
-              </li>
-              <li className={styles.intro_block}>
-                <div className={styles.intro_param}>{this.state.locale.intro_para_2}</div>
+                <div
+                  className={styles.allocate_span}
+                  style={{
+                    textAlign: 'right',
+                    top: '22px',
+                    left: '117px',
+                  }}
+                >{this.state.locale.allocate_para_1}</div>
+                <div
+                  className={styles.allocate_span}
+                  style={{
+                    top: '22px',
+                    right: '115px',
+                  }}
+                >{this.state.locale.allocate_para_2}</div>
+                <div
+                  className={styles.allocate_span}
+                  style={{
+                    textAlign: 'right',
+                    top: '161px',
+                    left: '122px',
+                  }}
+                >{this.state.locale.allocate_para_3}</div>
+                <div
+                  className={styles.allocate_span}
+                  style={{
+                    top: '160px',
+                    right: '113px',
+                  }}
+                >{this.state.locale.allocate_para_4}</div>
+              </div>
+              <div className="dis-flex">
                 <img
-                  src="/images/intro_02.png"
                   alt=""
-                  className={styles.intro_img}
+                  src="/images/token-allocate.png"
+                  className={styles.allocate_img}
                 />
-              </li>
-              <li className={styles.intro_block}>
                 <img
-                  src="/images/intro_03.png"
                   alt=""
-                  className={styles.intro_img}
+                  src="/images/money-allocate.png"
+                  className={styles.allocate_img}
                 />
-                <div className={styles.intro_param}>{this.state.locale.intro_para_3}</div>
-              </li>
-            </ul>
-          </section>
-          <div className={styles.seperator} />
-          <section id="achievement" className={styles.achievement}>
-            <p className="text-center large m-b-3rem">{this.state.locale.achievement}</p>
-            <div className={styles.sec_title}>{this.state.locale.achiev_sub_title}</div>
-            <div className={styles.achievement_grid}>
-              <AchievementLogo index="01" text={this.state.locale.achiev_para_1} />
-              <AchievementLogo index="02" text={this.state.locale.achiev_para_2} />
-              <AchievementLogo index="03" text={this.state.locale.achiev_para_3} />
-            </div>
-            <div className={styles.achievement_grid}>
-              <AchievementLogo index="04" text={this.state.locale.achiev_para_4} />
-              <AchievementLogo index="05" text={this.state.locale.achiev_para_5} />
-              <AchievementLogo index="06" text={this.state.locale.achiev_para_6} />
-            </div>
-          </section>
-          <div className={styles.seperator} />
-          <section id="allocate" className={styles.allocate}>
-            <p className="text-center large m-b-3rem">{this.state.locale.allocate}</p>
-            <div className={styles.sec_title} style={{ fontSize: '1.3rem' }}>{this.state.locale.allocate_sub_title}</div>
-            <div className={styles.cre_container}>
+              </div>
+            </section>
+            <section id="roadmap" className={styles.roadmap}>
+              <p className="text-center large m-b-3rem">{this.state.locale.roadmap}</p>
               <img
                 alt=""
-                src="/images/cre.png"
-                className={styles.cre_logo}
-              />
-              <div
-                className={styles.allocate_span}
+                src="/images/roadmap.png"
                 style={{
-                  textAlign: 'right',
-                  top: '22px',
-                  left: '117px',
+                  width: '98%',
                 }}
-              >{this.state.locale.allocate_para_1}</div>
-              <div
-                className={styles.allocate_span}
-                style={{
-                  top: '22px',
-                  right: '115px',
-                }}
-              >{this.state.locale.allocate_para_2}</div>
-              <div
-                className={styles.allocate_span}
-                style={{
-                  textAlign: 'right',
-                  top: '161px',
-                  left: '122px',
-                }}
-              >{this.state.locale.allocate_para_3}</div>
-              <div
-                className={styles.allocate_span}
-                style={{
-                  top: '160px',
-                  right: '113px',
-                }}
-              >{this.state.locale.allocate_para_4}</div>
+              />
+            </section>
+            <section id="team" className={styles.team}>
+              <p className="text-center large m-b-3rem">{this.state.locale.team}</p>
+              <div className="dis-flex">
+                <TeamMember
+                  img="tanbochao"
+                  title={this.state.locale.team_ceo_name}
+                  content={this.state.locale.team_ceo_intro}
+                />
+                <TeamMember
+                  img="xuyang"
+                  title={this.state.locale.team_cto_name}
+                  content={this.state.locale.team_cto_intro}
+                />
+                <TeamMember
+                  img="haojinyi"
+                  title={this.state.locale.team_coo_name}
+                  content={this.state.locale.team_coo_intro}
+                />
+                <TeamMember
+                  img="chendonghao"
+                  title={this.state.locale.team_cmo_name}
+                  content={this.state.locale.team_cmo_intro}
+                />
+              </div>
+            </section>
+            <section id="investors" className={styles.investors}>
+              <p className="text-center large m-b-3rem">{this.state.locale.early_investors}</p>
+              <div className="dis-flex">
+                <Investor
+                  img="jiuhe"
+                  title={this.state.locale.jiuhe}
+                  content={this.state.locale.jiuhe_intro}
+                />
+                <Investor
+                  img="lixiaolai"
+                  title={this.state.locale.lixiaolai}
+                  content={this.state.locale.lixiaolai_intro}
+                />
+                <Investor
+                  img="qidi"
+                  title={this.state.locale.qidi}
+                  content={this.state.locale.qidi_intro}
+                />
+              </div>
+            </section>
+            <section id="institution" className={styles.investors}>
+              <p className="text-center large m-b-3rem">{this.state.locale.institution_investors}</p>
+              <div className="dis-flex">
+                <Investor
+                  img="yingbiziben"
+                  title={this.state.locale.yingbiziben}
+                  content={this.state.locale.yingbiziben_intro}
+                />
+                <Investor
+                  img="linkvc"
+                  title={this.state.locale.linkvc}
+                  content={this.state.locale.linkvc_intro}
+                />
+                <Investor
+                  img="jiedianziben"
+                  title={this.state.locale.jiedianziben}
+                  content={this.state.locale.jiedianziben_intro}
+                />
+              </div>
+            </section>
+            <section id="consultant" className={styles.consultant}>
+              <p className="text-center large m-b-3rem">{this.state.locale.consultant}</p>
+              <div className="dis-flex">
+                <Consultant
+                  img="laomao"
+                  title={this.state.locale.consultant_laomao_name}
+                  content={this.state.locale.consultant_laomao_intro}
+                />
+                <Consultant
+                  img="huangminqiang"
+                  title={this.state.locale.consultant_hmq_name}
+                  content={this.state.locale.consultant_hmq_intro}
+                />
+                <Consultant
+                  img="wuyuanwen"
+                  title={this.state.locale.consultant_wyw_name}
+                  content={this.state.locale.consultant_wyw_intro}
+                />
+              </div>
+              <div className="dis-flex">
+                <Consultant
+                  img="lifeng"
+                  title={this.state.locale.consultant_lf_name}
+                  content={this.state.locale.consultant_lf_intro}
+                />
+                <Consultant
+                  img="tuguojun"
+                  title={this.state.locale.consultant_tgj_name}
+                  content={this.state.locale.consultant_tgj_intro}
+                />
+                <Consultant
+                  img="xiong"
+                  title={this.state.locale.consultant_xiong_name}
+                  content={this.state.locale.consultant_xiong_intro}
+                />
+              </div>
+            </section>
+            <section id="whitepaper" className={styles.whitepaper}>
+              <p className="text-center large m-b-3rem">{this.state.locale.whitepaper}</p>
+              <li className={styles.book}>
+                <figure className={pageStyles.book}>
+                  <ul className={pageStyles.hardcover_front}>
+                    <li>
+                      <div
+                        className={pageStyles.coverDesign}
+                        style={{
+                          backgroundImage: 'url(/images/white-paper-cover.png)',
+                        }}
+                      >
+                        <span className={pageStyles.ribbon}>v1.1</span>
+                      </div>
+                    </li>
+                    <li />
+                  </ul>
+                  <ul className={pageStyles.page}>
+                    <li />
+                    <li className="text-center">
+                      <a
+                        className={pageStyles.btn}
+                        href="docs/CYBEREITS_White_Paper_v1.1.0.pdf"
+                        target="_blank"
+                      >Download</a>
+                    </li>
+                    <li />
+                    <li />
+                    <li />
+                  </ul>
+                  <ul className={pageStyles.hardcover_back}>
+                    <li />
+                    <li />
+                  </ul>
+                  <ul className={pageStyles.book_spine}>
+                    <li />
+                    <li />
+                  </ul>
+                </figure>
+              </li>
+            </section>
+            <section id="community" className={styles.community}>
+              <p className="text-center large m-b-3rem">{this.state.locale.partner}</p>
+              <div className="dis-flex">
+                <Community img="bigone" />
+                <Community img="gongxinbao" />
+                <Community img="xstar" />
+                <Community img="jingtong" />
+              </div>
+            </section>
+          </div>
+          <footer className={styles.footer}>
+            <div className={styles.footer_logo_container}>
+              <a href="https://twitter.com/cybereits" target="blank">
+                <Icon logo="twitter" className={styles.footer_logo} />
+              </a>
+              <a>
+                <Icon
+                  logo="wechat"
+                  className={styles.footer_logo}
+                  onClick={() => { this.setState(({ showWechatQrcode }) => ({ showWechatQrcode: !showWechatQrcode })) }}
+                />
+                {
+                  this.state.showWechatQrcode
+                    ? <Icon logo="qrcode" className={`${styles.footer_logo_wechat} animated fadeInUp`} />
+                    : null
+                }
+              </a>
+              <a href="https://t.me/joinchat/HJivSA3RRwBtzkXvoqDHeA" target="blank">
+                <Icon logo="telegram" className={styles.footer_logo} />
+              </a>
+              <a href="mailto:info@mail.cybereits.com">
+                <Icon logo="mail" className={styles.footer_logo} />
+              </a>
             </div>
-            <div className="dis-flex">
-              <img
-                alt=""
-                src="/images/token-allocate.png"
-                className={styles.allocate_img}
-              />
-              <img
-                alt=""
-                src="/images/money-allocate.png"
-                className={styles.allocate_img}
-              />
+            <div className="text-center fore-gray small">
+              Copyright © 2017 Cybereits - All Rights Reserved
             </div>
-          </section>
-          <section id="roadmap" className={styles.roadmap}>
-            <p className="text-center large m-b-3rem">{this.state.locale.roadmap}</p>
-            <img
-              alt=""
-              src="/images/roadmap.png"
-              style={{
-                width: '98%',
-              }}
-            />
-          </section>
-          <section id="team" className={styles.team}>
-            <p className="text-center large m-b-3rem">{this.state.locale.team}</p>
-            <div className="dis-flex">
-              <TeamMember
-                img="tanbochao"
-                title={this.state.locale.team_ceo_name}
-                content={this.state.locale.team_ceo_intro}
-              />
-              <TeamMember
-                img="xuyang"
-                title={this.state.locale.team_cto_name}
-                content={this.state.locale.team_cto_intro}
-              />
-              <TeamMember
-                img="haojinyi"
-                title={this.state.locale.team_coo_name}
-                content={this.state.locale.team_coo_intro}
-              />
-              <TeamMember
-                img="chendonghao"
-                title={this.state.locale.team_cmo_name}
-                content={this.state.locale.team_cmo_intro}
-              />
-            </div>
-          </section>
-          <section id="investors" className={styles.investors}>
-            <p className="text-center large m-b-3rem">{this.state.locale.early_investors}</p>
-            <div className="dis-flex">
-              <Investor
-                img="jiuhe"
-                title={this.state.locale.jiuhe}
-                content={this.state.locale.jiuhe_intro}
-              />
-              <Investor
-                img="lixiaolai"
-                title={this.state.locale.lixiaolai}
-                content={this.state.locale.lixiaolai_intro}
-              />
-              <Investor
-                img="qidi"
-                title={this.state.locale.qidi}
-                content={this.state.locale.qidi_intro}
-              />
-            </div>
-          </section>
-          <section id="institution" className={styles.investors}>
-            <p className="text-center large m-b-3rem">{this.state.locale.institution_investors}</p>
-            <div className="dis-flex">
-              <Investor
-                img="yingbiziben"
-                title={this.state.locale.yingbiziben}
-                content={this.state.locale.yingbiziben_intro}
-              />
-              <Investor
-                img="linkvc"
-                title={this.state.locale.linkvc}
-                content={this.state.locale.linkvc_intro}
-              />
-              <Investor
-                img="jiedianziben"
-                title={this.state.locale.jiedianziben}
-                content={this.state.locale.jiedianziben_intro}
-              />
-            </div>
-          </section>
-          <section id="consultant" className={styles.consultant}>
-            <p className="text-center large m-b-3rem">{this.state.locale.consultant}</p>
-            <div className="dis-flex">
-              <Consultant
-                img="laomao"
-                title={this.state.locale.consultant_laomao_name}
-                content={this.state.locale.consultant_laomao_intro}
-              />
-              <Consultant
-                img="huangminqiang"
-                title={this.state.locale.consultant_hmq_name}
-                content={this.state.locale.consultant_hmq_intro}
-              />
-              <Consultant
-                img="wuyuanwen"
-                title={this.state.locale.consultant_wyw_name}
-                content={this.state.locale.consultant_wyw_intro}
-              />
-            </div>
-            <div className="dis-flex">
-              <Consultant
-                img="lifeng"
-                title={this.state.locale.consultant_lf_name}
-                content={this.state.locale.consultant_lf_intro}
-              />
-              <Consultant
-                img="tuguojun"
-                title={this.state.locale.consultant_tgj_name}
-                content={this.state.locale.consultant_tgj_intro}
-              />
-              <Consultant
-                img="xiong"
-                title={this.state.locale.consultant_xiong_name}
-                content={this.state.locale.consultant_xiong_intro}
-              />
-            </div>
-          </section>
-          <section id="whitepaper" className={styles.whitepaper}>
-            <p className="text-center large m-b-3rem">{this.state.locale.whitepaper}</p>
-            <li className={styles.book}>
-              <figure className={pageStyles.book}>
-                <ul className={pageStyles.hardcover_front}>
-                  <li>
-                    <div
-                      className={pageStyles.coverDesign}
-                      style={{
-                        backgroundImage: 'url(/images/white-paper-cover.png)',
-                      }}
-                    >
-                      <span className={pageStyles.ribbon}>v1.1</span>
-                    </div>
-                  </li>
-                  <li />
-                </ul>
-                <ul className={pageStyles.page}>
-                  <li />
-                  <li className="text-center">
-                    <a
-                      className={pageStyles.btn}
-                      href="docs/CYBEREITS_White_Paper_v1.1.0.pdf"
-                      target="_blank"
-                    >Download</a>
-                  </li>
-                  <li />
-                  <li />
-                  <li />
-                </ul>
-                <ul className={pageStyles.hardcover_back}>
-                  <li />
-                  <li />
-                </ul>
-                <ul className={pageStyles.book_spine}>
-                  <li />
-                  <li />
-                </ul>
-              </figure>
-            </li>
-          </section>
-          <section id="community" className={styles.community}>
-            <p className="text-center large m-b-3rem">{this.state.locale.partner}</p>
-            <div className="dis-flex">
-              <Community img="bigone" />
-              <Community img="gongxinbao" />
-              <Community img="xstar" />
-              <Community img="jingtong" />
-            </div>
-          </section>
+          </footer>
         </div>
-        <footer className={styles.footer}>
-          <div className={styles.footer_logo_container}>
-            <a href="https://twitter.com/cybereits" target="blank">
-              <Icon logo="twitter" className={styles.footer_logo} />
-            </a>
-            <a>
-              <Icon
-                logo="wechat"
-                className={styles.footer_logo}
-                onClick={() => { this.setState(({ showWechatQrcode }) => ({ showWechatQrcode: !showWechatQrcode })) }}
-              />
-              {
-                this.state.showWechatQrcode
-                  ? <Icon logo="qrcode" className={`${styles.footer_logo_wechat} animated fadeInUp`} />
-                  : null
-              }
-            </a>
-            <a href="https://t.me/joinchat/HJivSA3RRwBtzkXvoqDHeA" target="blank">
-              <Icon logo="telegram" className={styles.footer_logo} />
-            </a>
-            <a href="mailto:info@mail.cybereits.com">
-              <Icon logo="mail" className={styles.footer_logo} />
-            </a>
-          </div>
-          <div className="text-center fore-gray small">
-            Copyright © 2017 Cybereits - All Rights Reserved
-          </div>
-        </footer>
       </div>
     )
   }
