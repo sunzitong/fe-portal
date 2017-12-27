@@ -96,12 +96,6 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
-    var container = document.getElementById('globeContainer')
-    if (container.style.display !== 'none') {
-      var globe = new window.DAT.Globe(container)
-      globe.createPoints()
-      globe.animate()
-    }
   }
 
   switchLocale(type) {
@@ -118,8 +112,8 @@ export default class WhiteList extends React.Component {
   render() {
     return (
       <div className="container bg-darkblue fore-white" style={{ position: 'relative' }}>
+        <SmallTitleLogo className={styles.titleLogo} />
         <header className={styles.header}>
-          <SmallTitleLogo className={styles.titleLogo} />
           <ul className={styles.navHeader}>
             <Header actived={this.state.activedNav === 'token_sale'} text={this.state.locale.token_sale} anchor="token_sale" onClick={() => this.setState({ activedNav: 'token_sale' })} />
             <Header actived={this.state.activedNav === 'intro'} text={this.state.locale.intro} anchor="intro" onClick={() => this.setState({ activedNav: 'intro' })} />
@@ -137,12 +131,12 @@ export default class WhiteList extends React.Component {
               className={this.state.localeType === 'zh' ? styles.fore_lightblue : ''}
               onClick={() => this.switchLocale('zh')}
             >中文</a>
-            {/* <a
+            <a
               tabIndex={-1}
               role="button"
               className={this.state.localeType === 'en' ? styles.fore_lightblue : ''}
               onClick={() => this.switchLocale('en')}
-            >English</a> */}
+            >English</a>
           </div>
         </header>
         <div className={styles.content}>
@@ -160,10 +154,9 @@ export default class WhiteList extends React.Component {
               <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
             </div>
           </section>
-          <div id="globeContainer" className={styles.globe} />
           <div className={styles.seperator} />
           <section id="intro" className={styles.intro}>
-            <p className="text-center large">{this.state.locale.intro}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.intro}</p>
             <ul>
               <li className={styles.intro_block}>
                 <img
@@ -193,7 +186,7 @@ export default class WhiteList extends React.Component {
           </section>
           <div className={styles.seperator} />
           <section id="achievement" className={styles.achievement}>
-            <p className="text-center large">{this.state.locale.achievement}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.achievement}</p>
             <div className={styles.sec_title}>{this.state.locale.achiev_sub_title}</div>
             <div className={styles.achievement_grid}>
               <AchievementLogo index="01" text={this.state.locale.achiev_para_1} />
@@ -208,7 +201,7 @@ export default class WhiteList extends React.Component {
           </section>
           <div className={styles.seperator} />
           <section id="allocate" className={styles.allocate}>
-            <p className="text-center large">{this.state.locale.allocate}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.allocate}</p>
             <div className={styles.sec_title} style={{ fontSize: '1.3rem' }}>{this.state.locale.allocate_sub_title}</div>
             <div className={styles.cre_container}>
               <img
@@ -217,16 +210,34 @@ export default class WhiteList extends React.Component {
                 className={styles.cre_logo}
               />
               <div
-                style={{ position: 'absolute', top: '22px', left: '147px' }}
+                className={styles.allocate_span}
+                style={{
+                  textAlign: 'right',
+                  top: '22px',
+                  left: '117px',
+                }}
               >{this.state.locale.allocate_para_1}</div>
               <div
-                style={{ position: 'absolute', top: '26px', right: '66px' }}
+                className={styles.allocate_span}
+                style={{
+                  top: '22px',
+                  right: '115px',
+                }}
               >{this.state.locale.allocate_para_2}</div>
               <div
-                style={{ position: 'absolute', bottom: '24px', left: '182px' }}
+                className={styles.allocate_span}
+                style={{
+                  textAlign: 'right',
+                  top: '161px',
+                  left: '122px',
+                }}
               >{this.state.locale.allocate_para_3}</div>
               <div
-                style={{ position: 'absolute', bottom: '23px', right: '133px' }}
+                className={styles.allocate_span}
+                style={{
+                  top: '160px',
+                  right: '113px',
+                }}
               >{this.state.locale.allocate_para_4}</div>
             </div>
             <div className="dis-flex">
@@ -243,7 +254,7 @@ export default class WhiteList extends React.Component {
             </div>
           </section>
           <section id="roadmap" className={styles.roadmap}>
-            <p className="text-center large">{this.state.locale.roadmap}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.roadmap}</p>
             <img
               alt=""
               src="/images/roadmap.png"
@@ -253,7 +264,7 @@ export default class WhiteList extends React.Component {
             />
           </section>
           <section id="team" className={styles.team}>
-            <p className="text-center large">{this.state.locale.team}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.team}</p>
             <div className="dis-flex">
               <TeamMember
                 img="tanbochao"
@@ -355,7 +366,7 @@ export default class WhiteList extends React.Component {
             </div>
           </section>
           <section id="whitepaper" className={styles.whitepaper}>
-            <p className="text-center large">{this.state.locale.whitepaper}</p>
+            <p className="text-center large m-b-3rem">{this.state.locale.whitepaper}</p>
             <li className={styles.book}>
               <figure className={pageStyles.book}>
                 <ul className={pageStyles.hardcover_front}>

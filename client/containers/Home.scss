@@ -10,14 +10,13 @@
     color: var(--lightBlue) !important;
 }
 
-.globe {
-    top: 0;
-    display: block;
+.titleLogo {
+    height: 3.2rem !important;
+    width: 10rem !important;
+    margin-left: 20px !important;
     position: absolute;
-    left: 50%;
-    width: 1000px;
-    margin-left: -500px;
-    z-index: 0 !important;
+    left: 0;
+    top: 1rem;
 }
 
 .header {
@@ -32,14 +31,6 @@
     justify-content: center;
     align-items: center;
     z-index: 100;
-    .titleLogo {
-        height: 3.2rem;
-        min-width: 12rem;
-        margin-left: 20px;
-        position: absolute;
-        left: -5rem;
-        top: 0;
-    }
     .navHeader {
         height: 100%;
         display: flex;
@@ -92,6 +83,7 @@
             font-size: 1.1rem;
             text-align: center;
             color: var(--lightBlue);
+            margin: 1rem auto;
         }
         .whitepaper_icon {
             width: 2rem;
@@ -170,6 +162,11 @@
         .cre_container {
             margin: 8rem auto;
             position: relative;
+            .allocate_span {
+                position: absolute;
+                width: 15rem;
+                line-height: 1.3rem;
+            }
             .cre_logo {
                 display: block;
                 margin: 0 auto;
@@ -276,7 +273,6 @@
         color: #dedede;
         font-size: 1.6rem;
         text-align: center;
-        margin-top: 3rem;
     }
 }
 
@@ -309,9 +305,6 @@
 }
 
 @media (max-width:30em) {
-    .globe {
-        display: none;
-    }
     .header {
         .titleLogo {
             left: -2rem;
@@ -319,6 +312,13 @@
         .navHeader {
             display: none;
         }
+        .i18n {
+            margin: auto 0;
+        }
+    }
+    .token_sale,
+    .intro {
+        padding: 0 1rem;
     }
     .content {
         .allocate {
@@ -331,6 +331,18 @@
                     width: 80% !important;
                     margin: 3rem auto;
                 }
+            }
+        }
+        .investors {
+            .investor_container {
+                min-width: 16rem;
+            }
+        }
+        .team {
+            .team_member_container {
+                height: 22rem;
+                width: 16rem;
+                margin: 4rem auto;
             }
         }
     }
