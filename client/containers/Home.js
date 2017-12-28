@@ -13,8 +13,8 @@ import Icon from '../components/Icon'
 import styles from './Home.scss'
 import pageStyles from './Page.scss'
 
-const AchievementLogo = ({ index, text }) => (
-  <div className={styles.achievement_logo_container}>
+const AchievementLogo = ({ index, text, className = '' }) => (
+  <div className={`animated ${styles.achievement_logo_container} ${className}`}>
     <Icon logo={`acv-${index}`} className={styles.achievement_logo} />
     <div className="text-center big m-t-10 m-b-10">{text}</div>
   </div>
@@ -160,14 +160,14 @@ export default class WhiteList extends React.Component {
               <p className="text-center large m-b-3rem">{this.state.locale.achievement}</p>
               <div className={styles.sec_title}>{this.state.locale.achiev_sub_title}</div>
               <div className={styles.achievement_grid}>
-                <AchievementLogo index="01" text={this.state.locale.achiev_para_1} />
-                <AchievementLogo index="02" text={this.state.locale.achiev_para_2} />
-                <AchievementLogo index="03" text={this.state.locale.achiev_para_3} />
+                <AchievementLogo index="01" text={this.state.locale.achiev_para_1} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index="02" text={this.state.locale.achiev_para_2} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index="03" text={this.state.locale.achiev_para_3} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
               </div>
               <div className={styles.achievement_grid}>
-                <AchievementLogo index="04" text={this.state.locale.achiev_para_4} />
-                <AchievementLogo index="05" text={this.state.locale.achiev_para_5} />
-                <AchievementLogo index="06" text={this.state.locale.achiev_para_6} />
+                <AchievementLogo index="04" text={this.state.locale.achiev_para_4} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index="05" text={this.state.locale.achiev_para_5} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index="06" text={this.state.locale.achiev_para_6} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
               </div>
             </section>
             <div className={styles.seperator} />
@@ -351,9 +351,10 @@ export default class WhiteList extends React.Component {
                     <li />
                     <li className="text-center">
                       <a
+                        tabIndex={0}
+                        role="button"
                         className={pageStyles.btn}
-                        href="docs/CYBEREITS_White_Paper_v1.1.0.pdf"
-                        target="_blank"
+                        onClick={() => downloadWhitePaper()}
                       >Download</a>
                     </li>
                     <li />

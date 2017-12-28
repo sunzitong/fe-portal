@@ -12,9 +12,8 @@
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module",
-    "ecmaVersion": 6
-  },
-  "ecmaFeatures": {
+    "ecmaVersion": 6,
+
     "arrowFunctions": true,
     "destructuring": true,
     "classes": true,
@@ -29,7 +28,7 @@
     "spread": true,
     "forOf": true,
     "templateStrings": true,
-    "jsx": false
+    "jsx": true
   },
   "rules": {
     "accessor-pairs": 2,

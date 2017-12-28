@@ -218,7 +218,7 @@
                 align-items: center;
                 box-sizing: border-box;
                 transition: all .6s ease;
-                padding: 6rem 1rem 0 1rem;
+                padding: 4rem 1rem 0 1rem;
                 .team_avatar {
                     position: absolute;
                     height: 8rem;
@@ -226,7 +226,6 @@
                     transition: all .6s ease;
                 }
                 &:hover {
-                    padding: 4rem 1rem 0 1rem;
                     color: var(--lightBlue);
                     .team_avatar {
                         top: -6rem;

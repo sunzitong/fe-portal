@@ -15,15 +15,11 @@
   "dependencies": {
     "autoprefixer": "^6.7.7",
     "babel-core": "^6.24.1",
-    "babel-loader": "^6.4.1",
     "babel-register": "^6.24.1",
     "body-parser": "^1.18.2",
-    "css-loader": "^0.28.0",
     "ejs": "^2.5.7",
     "express": "^4.15.2",
-    "file-loader": "^0.11.1",
     "history": "^4.6.3",
-    "html-webpack-plugin": "^2.28.0",
     "ip": "^1.1.5",
     "isomorphic-fetch": "^2.2.1",
     "material-ui": "^0.17.4",
@@ -48,7 +44,6 @@
     "prop-types": "^15.6.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-hot-loader": "next",
     "react-redux": "^5.0.6",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.2.2",
@@ -58,7 +53,6 @@
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.4.5",
-    "style-loader": "^0.16.1",
     "uuid": "^3.0.1",
     "webpack": "^2.4.1",
     "webpack-dev-middleware": "^1.10.2",
@@ -66,11 +60,13 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
+    "babel-loader": "^6.4.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
-    "eslint": "^3.19.0",
+    "css-loader": "^0.28.0",
+    "eslint": "^4.14.0",
     "eslint-config-airbnb": "^15.0.0",
     "eslint-config-standard": "^6.2.1",
     "eslint-plugin-import": "^2.2.0",
@@ -78,7 +74,10 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^2.0.1",
-    "pre-commit": "^1.2.2"
+    "file-loader": "^0.11.1",
+    "pre-commit": "^1.2.2",
+    "react-hot-loader": "3.0.0",
+    "style-loader": "^0.16.1"
   },
   "pre-commit": [
     "lint"
