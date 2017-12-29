@@ -1,4 +1,5 @@
-import WhiteList from '../containers/Whitelist'
+// import WhiteList from '../containers/Whitelist'
+import WhitelistClosed from '../containers/WhitelistClosed'
 import Participate from '../containers/Participate'
 import HomePage from '../containers/Home'
 
@@ -6,7 +7,7 @@ export const WhitelistMaps = [
   {
     text: 'Whitelist',
     path: '/',
-    component: WhiteList,
+    component: WhitelistClosed,
   },
   {
     text: 'Participate',
