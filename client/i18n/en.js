@@ -3,6 +3,8 @@ export default {
   'intro': 'Project',
   'achievement': 'MVP Achievement',
   'allocate': 'Allocation',
+  'token_allocate': 'Token allocate',
+  'fund_allocate': 'Fund allocate',
   'roadmap': 'Roadmap',
   'team': 'Team',
   'community': 'Community',
@@ -90,4 +92,5 @@ export default {
   'jiedianziben': 'Node Capital',
   'jiedianziben_intro': 'Convergence node and link the future',
   'media': 'Associated Media',
+  'document': 'Documents',
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Scrollspy from 'react-scrollspy'
 import 'particles.js'
+import { Tooltip, PieChart, Pie, Legend } from 'recharts'
 
 import i18n from '../i18n'
 
@@ -70,6 +71,10 @@ const downloadWhitePaper = () => {
   window.open(`${window.location.origin}/docs/CYBEREITS_White_Paper_v1.1.0.pdf`, 'blank')
 }
 
+const downloadPPT = () => {
+  window.open(`${window.location.origin}/docs/CYBEREITS_PPT_v1.0.0.pdf`, 'blank')
+}
+
 const mapDispatchToProps = { alert, confirm }
 
 @connect(null, mapDispatchToProps)
@@ -103,22 +108,22 @@ export default class WhiteList extends React.Component {
         bg = '#196229'
         break
       case 'achievement':
-        bg = '#595210'
+        bg = '#393210'
         break
       case 'allocate':
-        bg = '#193249'
+        bg = '#190239'
         break
       case 'roadmap':
-        bg = '#233269'
+        bg = '#131245'
         break
       case 'team':
-        bg = '#194209'
+        bg = '#1a3209'
         break
       // case 'whitepaper':
       //   bg = '#55505f'
       //   break
       case 'community':
-        bg = '#193249'
+        bg = '#193229'
         break
     }
     this.setState({
@@ -244,16 +249,99 @@ export default class WhiteList extends React.Component {
                 >{this.state.locale.allocate_para_4}</div>
               </div>
               <div className="dis-flex">
-                <img
-                  alt=""
-                  src="/images/token-allocate.png"
-                  className={styles.allocate_img}
-                />
-                <img
-                  alt=""
-                  src="/images/money-allocate.png"
-                  className={styles.allocate_img}
-                />
+                <div className={styles.allocate_img}>
+                  <h2>{this.state.locale.token_allocate}</h2>
+                  <PieChart width={240} height={240}>
+                    <Tooltip />
+                    <Pie
+                      data={[
+                        {
+                          name: this.state.locale.allocate_token_sale,
+                          value: 40,
+                          fill: '#65d6e6',
+                        },
+                        {
+                          name: this.state.locale.allocate_community,
+                          value: 4,
+                          fill: '#e496f3',
+                        },
+                        {
+                          name: this.state.locale.allocate_early_investor,
+                          value: 8,
+                          fill: '#de7db9',
+                        },
+                        {
+                          name: this.state.locale.allocate_business,
+                          value: 10,
+                          fill: '#a961b7',
+                        },
+                        {
+                          name: this.state.locale.allocate_org_investor,
+                          value: 16,
+                          fill: '#8872e6',
+                        },
+                        {
+                          name: this.state.locale.allocate_team,
+                          value: 22,
+                          fill: '#9abcfc',
+                        },
+                      ]}
+                      dataKey="value"
+                      innerRadius={'90%'}
+                      outerRadius={'100%'}
+                    />
+                    <Legend
+                      align="center"
+                      verticalAlign="middle"
+                      layout="vertical"
+                      wrapperStyle={{ fontSize: '.8rem' }}
+                    />
+                  </PieChart>
+                </div>
+                <div className={styles.allocate_img}>
+                  <h2>{this.state.locale.fund_allocate}</h2>
+                  <PieChart width={240} height={240}>
+                    <Tooltip />
+                    <Pie
+                      data={[
+                        {
+                          name: this.state.locale.market,
+                          value: 54,
+                          fill: '#65d6e6',
+                        },
+                        {
+                          name: this.state.locale.other,
+                          value: 5,
+                          fill: '#e496f3',
+                        },
+                        {
+                          name: this.state.locale.operation,
+                          value: 9,
+                          fill: '#de7db9',
+                        },
+                        {
+                          name: this.state.locale.risk_management,
+                          value: 9,
+                          fill: '#a961b7',
+                        },
+                        {
+                          name: this.state.locale.development,
+                          value: 23,
+                          fill: '#8872e6',
+                        },
+                      ]}
+                      dataKey="value"
+                      innerRadius={'90%'}
+                      outerRadius={'100%'}
+                    />
+                    <Legend
+                      align="center"
+                      verticalAlign="middle"
+                      layout="vertical"
+                      wrapperStyle={{ fontSize: '.8rem' }}
+                    />
+                  </PieChart>
+                </div>
               </div>
             </section>
             <section id="roadmap" className={styles.roadmap}>
@@ -362,48 +450,89 @@ export default class WhiteList extends React.Component {
                 />
               </div>
             </section>
-            <section id="whitepaper" className={styles.whitepaper}>
-              <p className="text-center large m-b-3rem">{this.state.locale.whitepaper}</p>
-              <li className={styles.book}>
-                <figure className={pageStyles.book}>
-                  <ul className={pageStyles.hardcover_front}>
-                    <li>
-                      <div
-                        className={pageStyles.coverDesign}
-                        style={{
-                          backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
-                        }}
-                      >
-                        <span className={pageStyles.ribbon}>v1.1</span>
-                        <p>{this.state.locale.whitepaper}</p>
-                      </div>
-                    </li>
-                    <li />
-                  </ul>
-                  <ul className={pageStyles.page}>
-                    <li />
-                    <li className="text-center">
-                      <a
-                        tabIndex={0}
-                        role="button"
-                        className={pageStyles.btn}
-                        onClick={() => downloadWhitePaper()}
-                      >Download</a>
-                    </li>
-                    <li />
-                    <li />
-                    <li />
-                  </ul>
-                  <ul className={pageStyles.hardcover_back}>
-                    <li />
-                    <li />
-                  </ul>
-                  <ul className={pageStyles.book_spine}>
-                    <li />
-                    <li />
-                  </ul>
-                </figure>
-              </li>
+            <section id="document" className={styles.whitepaper}>
+              <p className="text-center large m-b-3rem">{this.state.locale.document}</p>
+              <div className="dis-flex">
+                <div className={styles.book}>
+                  <figure className={pageStyles.book}>
+                    <ul className={pageStyles.hardcover_front}>
+                      <li>
+                        <div
+                          className={pageStyles.coverDesign}
+                          style={{
+                            backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
+                          }}
+                        >
+                          <span className={pageStyles.ribbon}>v1.1</span>
+                          <p>{this.state.locale.whitepaper}</p>
+                        </div>
+                      </li>
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.page}>
+                      <li />
+                      <li className="text-center">
+                        <a
+                          tabIndex={0}
+                          role="button"
+                          className={pageStyles.btn}
+                          onClick={() => downloadWhitePaper()}
+                        >Download</a>
+                      </li>
+                      <li />
+                      <li />
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.hardcover_back}>
+                      <li />
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.book_spine}>
+                      <li />
+                      <li />
+                    </ul>
+                  </figure>
+                </div>
+                <div className={styles.book}>
+                  <figure className={pageStyles.book}>
+                    <ul className={pageStyles.hardcover_front}>
+                      <li>
+                        <div
+                          className={pageStyles.coverDesign}
+                          style={{
+                            backgroundImage: 'url(/images/ppt-cover-01.jpg)',
+                          }}
+                        >
+                          <p>PPT</p>
+                        </div>
+                      </li>
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.page}>
+                      <li />
+                      <li className="text-center">
+                        <a
+                          tabIndex={0}
+                          role="button"
+                          className={pageStyles.btn}
+                          onClick={() => downloadPPT()}
+                        >Download</a>
+                      </li>
+                      <li />
+                      <li />
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.hardcover_back}>
+                      <li />
+                      <li />
+                    </ul>
+                    <ul className={pageStyles.book_spine}>
+                      <li />
+                      <li />
+                    </ul>
+                  </figure>
+                </div>
+              </div>
             </section>
             <section id="community" className={styles.community}>
               <p className="text-center large m-b-3rem">{this.state.locale.partner}</p>
@@ -461,7 +590,7 @@ export default class WhiteList extends React.Component {
               'allocate',
               'roadmap',
               'team',
-              'whitepaper',
+              'document',
               'community',
             ]}
             currentClassName={styles.actived}
@@ -500,8 +629,8 @@ export default class WhiteList extends React.Component {
               </a>
             </li>
             <li className={styles.headerLink}>
-              <a href="#whitepaper" >
-                {this.state.locale.whitepaper}
+              <a href="#document" >
+                {this.state.locale.document}
               </a>
             </li>
             <li className={styles.headerLink}>

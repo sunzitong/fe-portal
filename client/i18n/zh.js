@@ -3,6 +3,8 @@ export default {
   'intro': '项目简介',
   'achievement': 'MVP成果',
   'allocate': '资金分配',
+  'token_allocate': '代币分配',
+  'fund_allocate': '资金分配',
   'roadmap': '历程与规划',
   'team': '团队介绍',
   'community': '合作与社区',
@@ -89,4 +91,5 @@ export default {
   'jiedianziben': '节点资本',
   'jiedianziben_intro': '汇聚节点链接未来',
   'media': '合作媒体',
+  'document': '相关文档',
 }
