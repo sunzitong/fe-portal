@@ -50,6 +50,7 @@
     "react-router-redux": "next",
     "react-scrollspy": "^3.3.4",
     "react-tap-event-plugin": "^2.0.1",
+    "recharts": "^1.0.0-beta.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
     "serve-favicon": "^2.4.5",
