@@ -86,12 +86,44 @@ export default class WhiteList extends React.Component {
       localeType: locale && i18n[locale] ? locale : 'zh',
       locale: locale && i18n[locale] ? i18n[locale] : i18n.zh,
       showWechatQrcode: false,
+      containerBg: '#13143f',
     }
     this.switchLocale = this.switchLocale.bind(this)
+    this.navChangedHandler = this.navChangedHandler.bind(this)
   }
 
   componentDidMount() {
-    window.particlesJS.load('home-container', 'plugin/particles.json')
+    // window.particlesJS.load('home-container', 'plugin/particles.json')
+  }
+
+  navChangedHandler(ele) {
+    let bg = '#13143f'
+    switch (ele.getAttribute('id')) {
+      case 'intro':
+        bg = '#196229'
+        break
+      case 'achievement':
+        bg = '#595210'
+        break
+      case 'allocate':
+        bg = '#193249'
+        break
+      case 'roadmap':
+        bg = '#233269'
+        break
+      case 'team':
+        bg = '#194209'
+        break
+      // case 'whitepaper':
+      //   bg = '#55505f'
+      //   break
+      case 'community':
+        bg = '#193249'
+        break
+    }
+    this.setState({
+      containerBg: bg,
+    })
   }
 
   switchLocale(type) {
@@ -107,7 +139,7 @@ export default class WhiteList extends React.Component {
 
   render() {
     return (
-      <div id="home-container" className="container bg-darkblue fore-white" style={{ position: 'relative' }}>
+      <div id="home-container" className="container fore-white" style={{ position: 'relative', backgroundColor: this.state.containerBg, transition: 'background-color .8s ease' }}>
         <SmallTitleLogo className={styles.titleLogo} />
         <div className={styles.body}>
           <div className={styles.content}>
@@ -160,14 +192,14 @@ export default class WhiteList extends React.Component {
               <p className="text-center large m-b-3rem">{this.state.locale.achievement}</p>
               <div className={styles.sec_title}>{this.state.locale.achiev_sub_title}</div>
               <div className={styles.achievement_grid}>
-                <AchievementLogo index="01" text={this.state.locale.achiev_para_1} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
-                <AchievementLogo index="02" text={this.state.locale.achiev_para_2} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
-                <AchievementLogo index="03" text={this.state.locale.achiev_para_3} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`01-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_1} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`02-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_2} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`03-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_3} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
               </div>
               <div className={styles.achievement_grid}>
-                <AchievementLogo index="04" text={this.state.locale.achiev_para_4} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
-                <AchievementLogo index="05" text={this.state.locale.achiev_para_5} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
-                <AchievementLogo index="06" text={this.state.locale.achiev_para_6} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`04-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_4} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`05-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_5} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
+                <AchievementLogo index={`06-${this.state.locale === i18n.en ? 'en' : 'zh'}`} text={this.state.locale.achiev_para_6} className={this.state.locale === i18n.en ? 'flipInY' : 'flipInX'} />
               </div>
             </section>
             <div className={styles.seperator} />
@@ -435,6 +467,7 @@ export default class WhiteList extends React.Component {
             currentClassName={styles.actived}
             className={styles.navHeader}
             rootEl={`.${styles.body}`}
+            onUpdate={this.navChangedHandler}
           >
             <li className={styles.headerLink}>
               <a href="#token_sale" >
