@@ -98,34 +98,36 @@ export default class WhiteList extends React.Component {
   }
 
   componentDidMount() {
-    // window.particlesJS.load('home-container', 'plugin/particles.json')
+    if (window.__INIT_STATE.dev !== 'true') {
+      window.particlesJS.load('home-container', 'plugin/particles.json')
+    }
   }
 
   navChangedHandler(ele) {
     let bg = '#13143f'
-    switch (ele.getAttribute('id')) {
-      case 'intro':
-        bg = '#196229'
-        break
-      case 'achievement':
-        bg = '#393210'
-        break
-      case 'allocate':
-        bg = '#190239'
-        break
-      case 'roadmap':
-        bg = '#131245'
-        break
-      case 'team':
-        bg = '#1a3209'
-        break
-      // case 'whitepaper':
-      //   bg = '#55505f'
-      //   break
-      case 'community':
-        bg = '#193229'
-        break
-    }
+    // switch (ele.getAttribute('id')) {
+    //   case 'intro':
+    //     bg = '#196229'
+    //     break
+    //   case 'achievement':
+    //     bg = '#393210'
+    //     break
+    //   case 'allocate':
+    //     bg = '#190239'
+    //     break
+    //   case 'roadmap':
+    //     bg = '#131245'
+    //     break
+    //   case 'team':
+    //     bg = '#1a3209'
+    //     break
+    //   case 'whitepaper':
+    //     bg = '#55505f'
+    //     break
+    //   case 'community':
+    //     bg = '#193229'
+    //     break
+    // }
     this.setState({
       containerBg: bg,
     })

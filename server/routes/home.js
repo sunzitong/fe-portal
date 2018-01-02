@@ -9,6 +9,7 @@ export default function (req, res) {
     main: config.globals.__DEV__ ? 'home.js' : mainFilePath,
     vendors: vendorsFilePath,
     apiServer: config.api_server,
+    DEV: config.globals.__DEV__,
   }
 
   res.set('content-type', 'text/html')
