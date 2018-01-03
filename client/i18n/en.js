@@ -7,7 +7,7 @@ export default {
   'fund_allocate': 'Fund allocate',
   'roadmap': 'Roadmap',
   'team': 'Team',
-  'community': 'Community',
+  'partners': 'Partners',
   'simple_chinese': 'Chinese',
   'primary_title': 'The NO.1 Global block chain online real estate trading platform',
   'sub_title': 'Achieving 200 trillion US dollars of global real estate digital transactions, opening up the digital currency payment channel',

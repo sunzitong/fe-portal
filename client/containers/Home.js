@@ -59,7 +59,7 @@ const Consultant = ({ img, title, content }) => (
   </div>
 )
 
-const Community = ({ img }) => (
+const Partners = ({ img }) => (
   <img
     alt=""
     src={`images/${img}.png`}
@@ -536,21 +536,21 @@ export default class WhiteList extends React.Component {
                 </div>
               </div>
             </section>
-            <section id="community" className={styles.community}>
+            <section id="partners" className={styles.partners}>
               <p className="text-center large m-b-3rem">{this.state.locale.partner}</p>
               <div className="dis-flex">
-                <Community img="bigone" />
-                <Community img="gongxinbao" />
+                <Partners img="bigone" />
+                <Partners img="gongxinbao" />
               </div>
               <div className="dis-flex">
-                <Community img="xstar" />
-                <Community img="jingtong" />
+                <Partners img="xstar" />
+                <Partners img="jingtong" />
               </div>
               <p className="text-center large m-b-3rem">{this.state.locale.media}</p>
               <div className="dis-flex">
-                <Community img="babicaijing" />
-                <Community img="jinsecaijing" />
-                <Community img="babite" />
+                <Partners img="babicaijing" />
+                <Partners img="jinsecaijing" />
+                <Partners img="babite" />
               </div>
             </section>
           </div>
@@ -593,7 +593,7 @@ export default class WhiteList extends React.Component {
               'roadmap',
               'team',
               'document',
-              'community',
+              'partners',
             ]}
             currentClassName={styles.actived}
             className={styles.navHeader}
@@ -636,8 +636,8 @@ export default class WhiteList extends React.Component {
               </a>
             </li>
             <li className={styles.headerLink}>
-              <a href="#community" >
-                {this.state.locale.community}
+              <a href="#partners" >
+                {this.state.locale.partners}
               </a>
             </li>
           </Scrollspy>
