@@ -31,13 +31,13 @@
 
 .header {
     position: fixed;
-    background-color: rgb(3, 3, 51);
+    background-color: rgba(3, 3, 51, .8);
     left: 0;
     right: 0;
     top: 0;
     height: 3.2rem;
     width: 100%;
-    padding: 1rem 0 2px 0;
+    padding: 1rem 0 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,8 +84,7 @@
     position: absolute;
     z-index: 1;
     background-color: transparent;
-    margin-top: 3rem;
-    height: calc(100% - 3.2rem);
+    height: 100%;
     width: 100%;
     overflow-x: hidden;
     overflow-y: auto;
@@ -93,6 +92,7 @@
     .content {
         max-width: 1000px;
         margin: 0 auto;
+        padding-top: 4rem;
         &>section {
             padding: 3.2rem 0 0 0;
         }

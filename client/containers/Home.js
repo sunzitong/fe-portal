@@ -72,7 +72,7 @@ const downloadWhitePaper = () => {
 }
 
 const downloadPPT = () => {
-  window.open(`${window.location.origin}/docs/CYBEREITS_PPT_v1.0.0.pdf`, 'blank')
+  window.open(`${window.location.origin}/docs/CYBEREITS_PPT_v1.0.1.pdf`, 'blank')
 }
 
 const mapDispatchToProps = { alert, confirm }
