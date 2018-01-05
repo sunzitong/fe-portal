@@ -29,6 +29,48 @@
     z-index: 101;
 }
 
+@keyframes rotate {
+    form {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg)
+    }
+}
+
+@keyframes rotate-inv {
+    form {
+        transform: translate(-50%, -50%) rotate(0deg)
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(-360deg)
+    }
+}
+
+.decoration {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    opacity: 1;
+    >svg {
+        max-height: 80%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(0deg);
+        transform-origin: 50% 50%;
+    }
+    .outerCircle {
+        animation: rotate 40s linear infinite;
+    }
+    .innerCircle {
+        animation: rotate-inv 55s linear infinite;
+    }
+}
+
 .header {
     position: fixed;
     background-color: rgba(3, 3, 51, .8);

@@ -5,37 +5,9 @@ import { ConnectedRouter } from 'react-router-redux'
 import uuid from 'uuid/v4'
 
 import App from '../containers/App'
-import { WhitelistMaps, HomeMaps } from './maps'
+import HomeMaps from './maps'
 
-export const WhitelistRouteMaps = ({ history, setTitle }) => (
-  <App history={history} >
-    <ConnectedRouter history={history}>
-      <div className="container">
-        {
-          WhitelistMaps.map(({ path, text, component: Component, ...rest }) => (
-            <Route
-              exact
-              path={path}
-              key={uuid()}
-              {...rest}
-              render={(props) => {
-                setTimeout(() => setTitle(text))
-                return (<Component {...props} />)
-              }}
-            />
-          ))
-        }
-      </div>
-    </ConnectedRouter>
-  </App>
-)
-
-WhitelistRouteMaps.propTypes = {
-  history: PropTypes.object.isRequired,
-  setTitle: PropTypes.func.isRequired,
-}
-
-export const HomeRouteMaps = ({ history, setTitle }) => (
+const HomeRouteMaps = ({ history, setTitle }) => (
   <App history={history} >
     <ConnectedRouter history={history}>
       <div className="container">
@@ -62,3 +34,5 @@ HomeRouteMaps.propTypes = {
   history: PropTypes.object.isRequired,
   setTitle: PropTypes.func.isRequired,
 }
+
+export default HomeRouteMaps

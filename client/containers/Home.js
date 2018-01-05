@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Scrollspy from 'react-scrollspy'
-import 'particles.js'
 import { Tooltip, PieChart, Pie, Legend } from 'recharts'
 
 import i18n from '../i18n'
@@ -94,43 +93,13 @@ export default class WhiteList extends React.Component {
       containerBg: '#13143f',
     }
     this.switchLocale = this.switchLocale.bind(this)
-    this.navChangedHandler = this.navChangedHandler.bind(this)
+    this.goToWhiteList = this.goToWhiteList.bind(this)
   }
 
   componentDidMount() {
     if (window.__INIT_STATE.dev !== 'true') {
       window.particlesJS.load('home-container', 'plugin/particles.json')
     }
-  }
-
-  navChangedHandler(ele) {
-    let bg = '#13143f'
-    // switch (ele.getAttribute('id')) {
-    //   case 'intro':
-    //     bg = '#196229'
-    //     break
-    //   case 'achievement':
-    //     bg = '#393210'
-    //     break
-    //   case 'allocate':
-    //     bg = '#190239'
-    //     break
-    //   case 'roadmap':
-    //     bg = '#131245'
-    //     break
-    //   case 'team':
-    //     bg = '#1a3209'
-    //     break
-    //   case 'whitepaper':
-    //     bg = '#55505f'
-    //     break
-    //   case 'community':
-    //     bg = '#193229'
-    //     break
-    // }
-    this.setState({
-      containerBg: bg,
-    })
   }
 
   switchLocale(type) {
@@ -144,17 +113,78 @@ export default class WhiteList extends React.Component {
     }
   }
 
+  goToWhiteList() {
+    this.props.history.push('/wl')
+  }
+
   render() {
     return (
       <div id="home-container" className="container fore-white" style={{ position: 'relative', backgroundColor: this.state.containerBg, transition: 'background-color .8s ease' }}>
         <SmallTitleLogo className={styles.titleLogo} />
         <div className={styles.body}>
+          <div className={styles.decoration}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="846" height="846" viewBox="0 0 846 846" className={styles.outerCircle}>
+              <circle
+                cx="720.117"
+                cy="451.117"
+                r="420.867"
+                fill="none"
+                fillRule="evenodd"
+                stroke="#656be8"
+                strokeDasharray="2,40"
+                strokeWidth="3.5"
+                opacity=".5"
+                transform="rotate(4 972.525 -3815.366)" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="804" height="804" viewBox="0 0 804 804" className={styles.innerCircle}>
+              <circle
+                cx="720.117"
+                cy="451.117"
+                r="395.617"
+                fill="none"
+                fillRule="evenodd"
+                stroke="#656be8"
+                strokeDasharray="2,20"
+                strokeOpacity=".329"
+                strokeWidth="11.5"
+                opacity=".7"
+                transform="translate(-318 -49)" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="656" height="656" viewBox="0 0 656 656">
+              <circle
+                cx="721"
+                cy="452"
+                r="327"
+                fill="none"
+                fillRule="evenodd"
+                stroke="#505a58"
+                strokeWidth=".4"
+                transform="translate(-393 -124)"
+              />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="545" height="545" viewBox="0 0 545 545">
+              <circle
+                cx="720.5"
+                cy="451.5"
+                r="271.5"
+                fill="none"
+                fillRule="evenodd"
+                stroke="#3c3f3e"
+                strokeWidth=".4"
+                transform="translate(-448 -179)" />
+            </svg>
+          </div>
           <div className={styles.content}>
             <section id="token_sale" className={styles.token_sale}>
               <Icon logo="primary-logo" className={styles.primaryLogo} />
               <h1 className="text-center">{this.state.locale.primary_title}</h1>
               <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
-              <div className={styles.sec_title}>{this.state.locale.comming_soon}</div>
+              <div
+                role="button"
+                tabIndex={-1}
+                className={styles.sec_title}
+                onClick={this.goToWhiteList}
+              >{this.state.locale.comming_soon}</div>
               <div
                 role="button"
                 tabIndex={0}
@@ -598,7 +628,6 @@ export default class WhiteList extends React.Component {
             currentClassName={styles.actived}
             className={styles.navHeader}
             rootEl={`.${styles.body}`}
-            onUpdate={this.navChangedHandler}
           >
             <li className={styles.headerLink}>
               <a href="#token_sale" >
