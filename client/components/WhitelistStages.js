@@ -11,6 +11,7 @@ import Overdrive from 'react-overdrive'
 
 import Checkbox from '../components/Checkbox'
 import Icon from '../components/Icon'
+import Loading from '../components/Loading'
 
 import { downloadWhitePaper } from '../common/resource'
 
@@ -299,7 +300,7 @@ export class StepThree extends React.Component {
         title: '警告',
         msg: '请填写您邮箱收到的验证码',
       })
-    } else if (!this.state.amount || isNaN(+this.state.amount) || +this.state.amount > 5 || +this.state.amount <= 1) {
+    } else if (!this.state.amount || isNaN(+this.state.amount) || +this.state.amount > 5 || +this.state.amount < 1) {
       this.props.alert({
         title: '警告',
         msg: '请填写正确的投资数量',
@@ -511,10 +512,7 @@ export class StepFive extends React.Component {
           </div>
         </StageContainer>
         : <StageContainer>
-          <div className={styles.loadingContainer}>
-            <div className={styles.loading} />
-            <div className={styles.loadingContent}>Loading</div>
-          </div>
+          <Loading content="Loading" />
         </StageContainer>
     )
   }

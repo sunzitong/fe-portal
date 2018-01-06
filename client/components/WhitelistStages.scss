@@ -5,7 +5,7 @@
 .container {
     .button {
         flex: 1;
-        margin: 3rem 1rem 0 1rem !important;
+        margin: 3rem auto 0 auto !important;
         color: white !important;
         background-color: var(--green) !important;
         height: 2.4rem !important;
@@ -76,41 +76,5 @@
     &>h3 {
         text-align: center;
         color: black;
-    }
-}
-
-@keyframes loading {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.loadingContainer {
-    position: relative;
-    margin: 10rem auto;
-    text-align: center;
-    height: 8rem;
-    width: 8rem;
-    .loading {
-        height: 100%;
-        width: 100%;
-        border: 3px solid var(--green);
-        border-right: 3px solid #fff;
-        border-bottom: 3px solid #fff;
-        border-radius: 50%;
-        animation: loading 1s infinite linear;
-    }
-    .loadingContent {
-        color: var(--green);
-        position: absolute;
-        text-align: center;
-        width: 3rem;
-        top: 50%;
-        left: 50%;
-        margin-top: -.5rem;
-        margin-left: -1.5rem;
     }
 }
