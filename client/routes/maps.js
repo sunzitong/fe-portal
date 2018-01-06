@@ -1,4 +1,4 @@
-import WhiteList from '../containers/Whitelist'
+import PublicWhitelistRegStage from '../containers/PublicWhitelistRegStage'
 import WhitelistClosed from '../containers/WhitelistClosed'
 import Participate from '../containers/Participate'
 import HomePage from '../containers/Home'
@@ -15,9 +15,9 @@ export default [
     component: WhitelistClosed,
   },
   {
-    text: 'EarlyStageWhiteList',
-    path: '/eswl',
-    component: WhiteList,
+    text: 'PublicWhiteList',
+    path: '/pwl',
+    component: PublicWhitelistRegStage,
   },
   {
     text: 'Participate',

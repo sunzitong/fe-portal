@@ -4,7 +4,7 @@ import notFound from './404'
 
 const router = Express.Router()
 
-router.get(['/', '/wl', '/eswl'], home)
+router.get(['/', '/wl', '/pwl'], home)
 router.get(/^(?!.*(webpack|\.))/ig, notFound)
 
 export default router

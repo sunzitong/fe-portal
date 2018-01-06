@@ -1,4 +1,6 @@
 {
-  "earlyStageEnableTime": "2018-01-09T12:00:00",
-  "officialEmail": "info@mail.cybereits.com"
+  "officialEmail": "info@mail.cybereits.com",
+  "saleBeginTime": "2018年1月15日 10:00:00",
+  "saleBeginFormatTime": "2018-01-09T12:00:00",
+  "saleEndTime": "2018年1月21日 24:00:00"
 }

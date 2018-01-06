@@ -13,6 +13,7 @@ import Icon from '../components/Icon'
 
 import styles from './Home.scss'
 import pageStyles from './Page.scss'
+import { downloadPPT, downloadWhitePaper } from '../common/resource'
 
 const AchievementLogo = ({ index, text, className = '' }) => (
   <div className={`animated ${styles.achievement_logo_container} ${className}`}>
@@ -67,14 +68,6 @@ const Partners = ({ img }) => (
   />
 )
 
-const downloadWhitePaper = () => {
-  window.open(`${window.location.origin}/docs/CYBEREITS_White_Paper_v1.1.0.pdf`, 'blank')
-}
-
-const downloadPPT = () => {
-  window.open(`${window.location.origin}/docs/CYBEREITS_PPT_v1.0.1.pdf`, 'blank')
-}
-
 const mapDispatchToProps = { alert, confirm }
 
 @connect(null, mapDispatchToProps)
@@ -115,7 +108,7 @@ export default class WhiteList extends React.Component {
   }
 
   goToWhiteList() {
-    this.props.history.push('/wl')
+    this.props.history.push('/pwl')
   }
 
   render() {
@@ -181,10 +174,7 @@ export default class WhiteList extends React.Component {
               <h1 className="text-center">{this.state.locale.primary_title}</h1>
               <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
               <div
-                role="button"
-                tabIndex={-1}
                 className={styles.sec_title}
-                onClick={this.goToWhiteList}
               >{this.state.locale.comming_soon}</div>
               <div
                 role="button"
@@ -496,7 +486,7 @@ export default class WhiteList extends React.Component {
                             backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
                           }}
                         >
-                          <span className={pageStyles.ribbon}>v1.1</span>
+                          <span className={pageStyles.ribbon}>v1.2</span>
                           <p>{this.state.locale.whitepaper}</p>
                         </div>
                       </li>

@@ -10,15 +10,7 @@ import TitleLogo from '../components/TitleLogo'
 import whitelistApis from '../apis/whitelist'
 import { officialEmail } from '../../config/runtime.json'
 
-const copy = (ele, callback) => {
-  if (document.execCommand) {
-    ele.focus()
-    ele.setSelectionRange(0, ele.value.length)
-    document.execCommand('copy', true)
-    ele.blur()
-    callback()
-  }
-}
+import { copy } from '../common/dom'
 
 const Notice = ({ text, ...rest }) => (
   <span {...rest} className="fore-blue bold">{text}</span>
