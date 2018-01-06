@@ -6,7 +6,7 @@ import createBrowserHistory from 'history/createBrowserHistory'
 import './common/polyfill'
 import reducers from './reducers'
 import configureStore from './store'
-import { HomeRoot } from './containers/Root'
+import HomeRoot from './containers/Root'
 import './styles/main.scss'
 
 // inject react tab event

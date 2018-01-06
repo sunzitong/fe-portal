@@ -7,8 +7,7 @@ import TitleLogo from '../components/TitleLogo'
 import whitelistApis from '../apis/whitelist'
 import { alert, confirm } from '../actions/dialog'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
-
-const OFFICIAL_EMAIL = 'info@mail.cybereits.com'
+import { officialEmail } from '../../config/runtime.json'
 
 const UnderLineStyle = {
   borderColor: '#004990',
@@ -247,7 +246,7 @@ export default class WhiteList extends React.Component {
 
   render() {
     return (
-      <div className="container form-container bg-gray fore-blue">
+      <div className="container form-container fore-blue">
         <ConfirmDialog
           open={this.state.openConfirm}
           walletAddr={this.state.walletAddr}
@@ -326,11 +325,11 @@ export default class WhiteList extends React.Component {
               <div className="bg-white" style={{ boxSizing: 'border-box', padding: '1.5rem' }}>
                 <div style={{ marginBottom: '1.5rem', fontSize: '1.2rem' }} className="fore-black bold text-center">私募开始时间</div>
                 <div className="fore-black text-center m-b-10">北京时间 <Notice text="2017年12月27日 12:00:00" /></div>
-                <div className="fore-gray">届时我们会依照白名单投资序列依次从 <Notice text={OFFICIAL_EMAIL} /> 发放私募邀请邮件，请按照邮件中的指示完成投资。</div>
+                <div className="fore-gray">届时我们会依照白名单投资序列依次从 <Notice text={officialEmail} /> 发放私募邀请邮件，请按照邮件中的指示完成投资。</div>
               </div>
               <div className="text-center fore-gray" style={{ position: 'absolute', bottom: '1rem', left: '50%', width: '80%', marginLeft: '-40%', fontSize: '.8rem' }}>
                 所有 Cybereits ® 2017 的官方行为都会由<br />
-                <Notice text={OFFICIAL_EMAIL} /><br />
+                <Notice text={officialEmail} /><br />
                 邮箱进行发送，<Danger text={'并且官方并不会在邮件中提供ETH收币地址'} />，除此之外的一切关于 Cybereits 的投资邮件均可能为诈骗，<Danger text={'请当心留意！'} />
               </div>
             </div>

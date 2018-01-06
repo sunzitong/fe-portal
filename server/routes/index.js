@@ -1,7 +1,10 @@
-import whitelist from './whitelist'
+import Express from 'express'
 import home from './home'
+import notFound from './404'
 
-export default function (app) {
-  app.get('/wl', whitelist)
-  app.get(['/', '/index'], home)
-}
+const router = Express.Router()
+
+router.get(['/', '/wl', '/pwl'], home)
+router.get(/^(?!.*(webpack|\.))/ig, notFound)
+
+export default router

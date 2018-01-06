@@ -6,6 +6,10 @@
     background-image: url(../images/title-logo.png)
 }
 
+:global(.icon-title-logo-blue) {
+    background-image: url(../images/title-logo-blue.png)
+}
+
 :global(.icon-qrcode) {
     background-image: url(../images/qrcode.png)
 }
@@ -80,4 +84,20 @@
 
 :global(.icon-mail) {
     background-image: url(../images/mail.png)
+}
+
+:global(.icon-bg-banner) {
+    background-image: url(../images/bg-banner.png)
+}
+
+:global(.icon-close) {
+    background-image: url(../images/close.png)
+}
+
+:global(.icon-close-gray) {
+    background-image: url(../images/close-gray.png)
+}
+
+:global(.icon-checked) {
+    background-image: url(../images/checked.png)
 }

@@ -8,18 +8,9 @@ import Icon from '../components/Icon'
 import TitleLogo from '../components/TitleLogo'
 
 import whitelistApis from '../apis/whitelist'
+import { officialEmail } from '../../config/runtime.json'
 
-const OFFICIAL_EMAIL = 'info@mail.cybereits.com'
-
-const copy = (ele, callback) => {
-  if (document.execCommand) {
-    ele.focus()
-    ele.setSelectionRange(0, ele.value.length)
-    document.execCommand('copy', true)
-    ele.blur()
-    callback()
-  }
-}
+import { copy } from '../common/dom'
 
 const Notice = ({ text, ...rest }) => (
   <span {...rest} className="fore-blue bold">{text}</span>
@@ -189,7 +180,7 @@ export default class Participate extends React.Component {
           <h2 className="text-center">投资状态</h2>
           <Paragraph className="text-center" style={{ marginBottom: '1.5rem', lineHeight: '1.3rem', fontSize: '1rem' }}>
             如果您成功地参与了此次投资，您会收到<br />
-            <Notice text={OFFICIAL_EMAIL} /><br />
+            <Notice text={officialEmail} /><br />
             发送的投资确认邮件
           </Paragraph>
           <hr />

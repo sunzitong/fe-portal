@@ -15,12 +15,6 @@ module.exports = {
   target: 'web',
   entry: __DEBUG__
     ? {
-      'whitelist': [
-        'react-hot-loader/patch',
-        'webpack-hot-middleware/client',
-        'webpack/hot/only-dev-server',
-        paths.web('whitelist.js'),
-      ],
       'home': [
         'react-hot-loader/patch',
         'webpack-hot-middleware/client',
@@ -29,7 +23,6 @@ module.exports = {
       ],
     }
     : {
-      'whitelist': paths.web('whitelist.js'),
       'home': paths.web('home.js'),
     },
   output: {
