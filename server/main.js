@@ -10,7 +10,7 @@ import favicon from 'serve-favicon'
 
 import config from '../config/env'
 import webpackClientConfig from '../config/webpack.config'
-import routeIniter from './routes'
+import router from './routes'
 
 // init chatroom socket service
 const app = new Express()
@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
   extended: false,
 }))
 
-routeIniter(app)
+app.use(router)
 
 if (config.globals.__DEV__) {
   let compiler = webpack(webpackClientConfig)

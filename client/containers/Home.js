@@ -4,6 +4,7 @@ import Scrollspy from 'react-scrollspy'
 import { Tooltip, PieChart, Pie, Legend } from 'recharts'
 
 import i18n from '../i18n'
+import { officialEmail } from '../../config/runtime.json'
 
 import { alert, confirm } from '../actions/dialog'
 
@@ -604,7 +605,7 @@ export default class WhiteList extends React.Component {
               <a href="https://t.me/joinchat/HJivSA3RRwBtzkXvoqDHeA" target="blank">
                 <Icon logo="telegram" className={styles.footer_logo} />
               </a>
-              <a href="mailto:info@mail.cybereits.com">
+              <a href={`mailto:${officialEmail}`}>
                 <Icon logo="mail" className={styles.footer_logo} />
               </a>
             </div>
