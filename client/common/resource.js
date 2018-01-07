@@ -3,7 +3,7 @@ export const downloadWhitePaper = () => {
 }
 
 export const downloadTerm = () => {
-  window.open(`${window.location.origin}/docs/CYBEREITS_Term_v1.0.0.pdf`, 'blank')
+  window.open(`${window.location.origin}/docs/CYBEREITS_Term_v1.0.1.pdf`, 'blank')
 }
 
 export const downloadPPT = () => {

@@ -18,6 +18,7 @@ import PublicWhitelistRegStage from './PublicWhitelistRegStage'
 
 const {
   officialEmail,
+  whitelistEnableFormatTime,
   saleBeginFormatTime,
   saleEndFormatTime,
 } = window.__INIT_STATE
@@ -78,6 +79,7 @@ const Partners = ({ img }) => (
 const mapDispatchToProps = { alert, confirm }
 const saleBeginDateTime = new Date(saleBeginFormatTime)
 const saleEndDateTime = new Date(saleEndFormatTime)
+const whitelistEnableDateTime = new Date(whitelistEnableFormatTime)
 
 @connect(null, mapDispatchToProps)
 export default class WhiteList extends React.Component {
@@ -97,6 +99,7 @@ export default class WhiteList extends React.Component {
       openWhitelist: false,
       saleBegan: saleBeginDateTime - Date.now() < 0,
       saleEnded: saleEndDateTime - Date.now() < 0,
+      whitelistEnable: whitelistEnableDateTime - Date.now() < 0,
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)
@@ -106,30 +109,47 @@ export default class WhiteList extends React.Component {
     if (window.__INIT_STATE.dev !== 'true') {
       window.particlesJS.load('home-container', 'plugin/particles.json')
     }
-    if (!this.state.saleBegan) {
-      window
-        .jQuery('#countdown')
-        .countdown({
-          image: '/images/digits.png',
-          endTime: saleBeginDateTime,
-          timerEnd: () => {
-            this.setState({
-              saleBegan: true,
-            })
-          },
-        })
-    } else if (!this.state.saleEnded) {
-      window
-        .jQuery('#countdown')
-        .countdown({
-          image: '/images/digits.png',
-          endTime: saleEndDateTime,
-          timerEnd: () => {
-            this.setState({
-              saleEnded: true,
-            })
-          },
-        })
+    if (this.state.whitelistEnable) {
+      if (!this.state.saleBegan) {
+        window
+          .jQuery('#countdown')
+          .countdown({
+            image: '/images/digits.png',
+            endTime: saleBeginDateTime,
+            timerEnd: () => {
+              this.setState({
+                saleBegan: true,
+              }, () => {
+                window
+                  .jQuery('#countdown')
+                  .empty()
+                  .attr('started', false)
+                  .countdown({
+                    image: '/images/digits.png',
+                    start: true,
+                    endTime: saleEndDateTime,
+                    timerEnd: () => {
+                      this.setState({
+                        saleEnded: true,
+                      })
+                    },
+                  })
+              })
+            },
+          })
+      } else if (!this.state.saleEnded) {
+        window
+          .jQuery('#countdown')
+          .countdown({
+            image: '/images/digits.png',
+            endTime: saleEndDateTime,
+            timerEnd: () => {
+              this.setState({
+                saleEnded: true,
+              })
+            },
+          })
+      }
     }
   }
 
@@ -232,26 +252,24 @@ export default class WhiteList extends React.Component {
               <Icon logo="primary-logo" className={styles.primaryLogo} />
               <h1 className="text-center">{this.state.locale.primary_title}</h1>
               <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
-              <div className={styles.sec_title}>{
-                this.state.saleEnded
-                  ? this.state.locale.saleEnded
-                  : this.state.saleBegan
-                    ? this.state.locale.endCountdown
-                    : this.state.locale.countdown
-              }</div>
-              {/* countdown panel */}
+              <div className={styles.sec_title}>
+                {
+                  this.state.saleEnded
+                    ? this.state.locale.saleEnded
+                    : this.state.saleBegan
+                      ? this.state.locale.endCountdown
+                      : this.state.locale.countdown
+                }
+              </div>
               {
-                this.state.saleEnded
+                this.state.saleEnded || !this.state.whitelistEnable
                   ? null
                   : <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <div
-                      id="countdown"
-                      className={`dis-flex ${styles.countdown}`}
-                    />
+                    <div id="countdown" className={`dis-flex ${styles.countdown}`} />
                   </div>
               }
               {
-                !this.state.saleBegan
+                !this.state.saleBegan && this.state.whitelistEnable
                   ? <div>
                     <div
                       tabIndex={0}
