@@ -11,10 +11,9 @@ import {
   StepFive,
 } from '../components/WhitelistStages'
 
-const {
-  whitelistEnded,
-} = window.__INIT_STATE
-const whitelistEndedDateTime = new Date(whitelistEnded)
+const { whitelistEndedFormatTime } = window.__INIT_STATE
+
+const whitelistEndedDateTime = new Date(whitelistEndedFormatTime)
 const mapDispatchToProps = { alert, confirm }
 
 @connect(null, mapDispatchToProps)

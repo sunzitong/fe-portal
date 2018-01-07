@@ -22,14 +22,13 @@ import styles from './WhitelistStages.scss'
 
 const {
   officialEmail,
-  saleBeginTime,
 } = window.__INIT_STATE
 
 const CustomizedContainerStyle = {
   color: 'gray',
   height: '50px',
   justifyContent: 'space-around',
-  margin: '1.5rem 0',
+  margin: '1rem 0',
 }
 
 const CustomizedSpan = {
@@ -499,9 +498,8 @@ export class StepFive extends React.Component {
             <h2>恭喜您注册成功!</h2>
           </div>
           <div className={styles.succContent}>
-            <h3>{saleBeginTime}</h3>
             <p>
-              <span className="fore-green">{officialEmail}</span> 会依照白名单投资序列依次发放邀请邮件，请按照邮件中的指示完成投资。
+              次日十点 <span className="fore-green">{officialEmail}</span> 会依照白名单投资序列依次发放邀请邮件，请按照邮件中的指示完成投资。
             </p>
           </div>
           <div
