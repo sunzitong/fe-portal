@@ -9,9 +9,12 @@ import { HorizontalTitleLogo } from '../components/TitleLogo'
 import Loading from '../components/Loading'
 
 import whitelistApis from '../apis/whitelist'
-import { officialEmail } from '../../config/runtime.json'
 
 import { copy } from '../common/dom'
+
+const {
+  officialEmail,
+} = window.__INIT_STATE
 
 const Notice = ({ text, ...rest }) => (
   <span {...rest} className="fore-blue bold">{text}</span>

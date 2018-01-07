@@ -13,19 +13,23 @@ import Checkbox from '../components/Checkbox'
 import Icon from '../components/Icon'
 import Loading from '../components/Loading'
 
-import { downloadWhitePaper } from '../common/resource'
+import { downloadWhitePaper, downloadTerm } from '../common/resource'
 
 import whitelistApis from '../apis/whitelist'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
-import { officialEmail, saleBeginTime } from '../../config/runtime.json'
 
 import styles from './WhitelistStages.scss'
+
+const {
+  officialEmail,
+  saleBeginTime,
+} = window.__INIT_STATE
 
 const CustomizedContainerStyle = {
   color: 'gray',
   height: '50px',
   justifyContent: 'space-around',
-  margin: '.5rem 0',
+  margin: '1.5rem 0',
 }
 
 const CustomizedSpan = {
@@ -94,8 +98,6 @@ const TermLink = ({ content, ...rest }) => (
   </div>
 )
 
-const goToTerm = () => { }
-
 export class StepOne extends React.Component {
 
   static propTypes = {
@@ -132,7 +134,7 @@ export class StepOne extends React.Component {
         <StageContent>
           <TermLink
             content="CYBEREITS 条款"
-            onClick={goToTerm}
+            onClick={downloadTerm}
           />
           <TermLink
             content="CYBEREITS 白皮书"
