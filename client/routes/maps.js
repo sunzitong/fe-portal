@@ -1,6 +1,6 @@
 import PublicWhitelistRegStage from '../containers/PublicWhitelistRegStage'
 import WhitelistClosed from '../containers/WhitelistClosed'
-import Participate from '../containers/Participate'
+import PublicParticipate from '../containers/PublicParticipate'
 import HomePage from '../containers/Home'
 
 export default [
@@ -22,6 +22,6 @@ export default [
   {
     text: 'Participate',
     path: ['/pt/:token', '/pt'],
-    component: Participate,
+    component: PublicParticipate,
   },
 ]

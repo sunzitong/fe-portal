@@ -7,7 +7,6 @@ import TitleLogo from '../components/TitleLogo'
 import whitelistApis from '../apis/whitelist'
 import { alert, confirm } from '../actions/dialog'
 import { chk_id, chk_email, chk_mobile, chk_eth_address } from '../common/validator'
-import { officialEmail } from '../../config/runtime.json'
 
 const UnderLineStyle = {
   borderColor: '#004990',
@@ -26,6 +25,10 @@ const CustomizedSpan = {
   boxSizing: 'border-box',
   width: '5.5rem',
 }
+
+const {
+  officialEmail,
+} = window.__INIT_STATE
 
 const Notice = ({ text, ...rest }) => (
   <span {...rest} className="fore-blue">{text}</span>

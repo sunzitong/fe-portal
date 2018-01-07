@@ -20,10 +20,17 @@
         window.__INIT_STATE = {
             apiServer: "<%= apiServer %>",
             dev: "<%= DEV %>",
+            officialEmail: "<%= runtimeData.officialEmail %>",
+            whitelistEnded: "<%= runtimeData.whitelistEnded %>",
+            saleBeginTime: "<%= runtimeData.saleBeginTime %>",
+            saleBeginFormatTime: "<%= runtimeData.saleBeginFormatTime %>",
+            saleEndTime: "<%= runtimeData.saleEndTime %>",
+            saleEndFormatTime: "<%= runtimeData.saleEndFormatTime %>",
         }
     </script>
     <script src="https://cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/plugin/jquery.countdown.min.js"></script>
     <script src='/build/<%= vendors %>.min.js'></script>
     <script src="/static/<%= main %>"></script>
 </body>

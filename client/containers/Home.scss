@@ -70,6 +70,19 @@
     }
 }
 
+.dialogContainer {
+    width: 100%;
+    height: 38rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.countdown {
+    margin-top: 3rem;
+    min-width: 40rem;
+}
+
 .header {
     position: fixed;
     background-color: rgba(3, 3, 51, .8);
@@ -152,16 +165,16 @@
                 margin: 1rem auto;
             }
             .whitepaper_icon {
-                width: 2rem;
-                height: 2rem;
-                margin-right: 6px;
+                width: 1.2rem;
+                height: 1.2rem;
+                margin-right: 3px;
             }
             .whitepaper_button {
                 cursor: pointer;
-                width: 16rem;
-                margin: 8rem auto;
+                width: 19rem;
+                margin: 6rem auto .8rem auto;
                 box-sizing: border-box;
-                padding: .8rem 2.4rem;
+                padding: .4rem 2.4rem;
                 background-color: rgba(230, 230, 230, .1);
                 display: flex;
                 justify-content: center;
@@ -385,6 +398,9 @@
 }
 
 @media (max-width:30em) {
+    .dialogContainer {
+        height: 32rem;
+    }
     .titleLogo {
         position: absolute;
     }
@@ -403,6 +419,11 @@
         .content {
             &>section {
                 padding: 0 1rem;
+            }
+            .token_sale {
+                .whitepaper_button {
+                    margin-top: 1.2rem;
+                }
             }
             .allocate {
                 .cre_container {
@@ -427,5 +448,9 @@
     }
     .decoration>svg {
         max-height: 60%;
+    }
+    .countdown {
+        margin-top: 1rem;
+        transform: scale(.5);
     }
 }

@@ -12,3 +12,7 @@ export default () => (
 export const SmallTitleLogo = ({ ...props }) => (
   <Icon logo="title-logo" {...props} />
 )
+
+export const HorizontalTitleLogo = ({ ...props }) => (
+  <Icon logo="title-logo-blue" {...props} />
+)

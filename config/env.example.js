@@ -6,7 +6,7 @@ const PORT = 8001
 let config = {
   env: process.env.NODE_ENV || 'development',
   path_base: path.resolve(__dirname, '..'),
-  api_server: 'http://192.168.3.11:8000',
+  api_server: 'https://api.id-cloud.org',
   dir_web: 'client',
   dir_dist: 'dist',
   dir_server: 'server',

@@ -11,6 +11,10 @@ import {
   StepFive,
 } from '../components/WhitelistStages'
 
+const {
+  whitelistEnded,
+} = window.__INIT_STATE
+const whitelistEndedDateTime = new Date(whitelistEnded)
 const mapDispatchToProps = { alert, confirm }
 
 @connect(null, mapDispatchToProps)
@@ -24,6 +28,7 @@ export default class WhiteList extends React.Component {
     super(props)
     this.state = {
       currStep: 1,
+      whitelistEnd: whitelistEndedDateTime - Date.now() < 0,
       formData: {
         wechat: '',
         community_id: '1',
@@ -68,52 +73,57 @@ export default class WhiteList extends React.Component {
 
   render() {
     return (
-      <div className="container form-container fore-blue">
-        {
-          this.state.currStep === 1
-            ? <StepOne
-              alert={this.props.alert}
-              nextStep={this.moveNext}
-            />
-            : null
-        }
-        {
-          this.state.currStep === 2
-            ? <StepTwo
-              alert={this.props.alert}
-              nextStep={this.moveNext}
-            />
-            : null
-        }
-        {
-          this.state.currStep === 3
-            ? <StepThree
-              alert={this.props.alert}
-              nextStep={this.moveNext}
-              formData={this.state.formData}
-            />
-            : null
-        }
-        {
-          this.state.currStep === 4
-            ? <StepFour
-              alert={this.props.alert}
-              formData={this.state.formData}
-              nextStep={this.moveNext}
-              lastStep={this.movePrev}
-            />
-            : null
-        }
-        {
-          this.state.currStep === 5
-            ? <StepFive
-              alert={this.props.alert}
-              formData={this.state.formData}
-              lastStep={this.movePrev}
-            />
-            : null
-        }
-      </div>
+      this.state.whitelistEnd
+        ? <div className="container dis-flex fore-blue" style={{ justifyContent: 'center', flexDirection: 'column' }}>
+          <h2>白名单注册已关闭</h2>
+          <h4>Whitelist register entrance has been closed</h4>
+        </div>
+        : <div className="container form-container fore-blue">
+          {
+            this.state.currStep === 1
+              ? <StepOne
+                alert={this.props.alert}
+                nextStep={this.moveNext}
+              />
+              : null
+          }
+          {
+            this.state.currStep === 2
+              ? <StepTwo
+                alert={this.props.alert}
+                nextStep={this.moveNext}
+              />
+              : null
+          }
+          {
+            this.state.currStep === 3
+              ? <StepThree
+                alert={this.props.alert}
+                nextStep={this.moveNext}
+                formData={this.state.formData}
+              />
+              : null
+          }
+          {
+            this.state.currStep === 4
+              ? <StepFour
+                alert={this.props.alert}
+                formData={this.state.formData}
+                nextStep={this.moveNext}
+                lastStep={this.movePrev}
+              />
+              : null
+          }
+          {
+            this.state.currStep === 5
+              ? <StepFive
+                alert={this.props.alert}
+                formData={this.state.formData}
+                lastStep={this.movePrev}
+              />
+              : null
+          }
+        </div>
     )
   }
 }

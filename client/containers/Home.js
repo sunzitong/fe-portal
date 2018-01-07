@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Scrollspy from 'react-scrollspy'
+import { Dialog } from 'material-ui'
 import { Tooltip, PieChart, Pie, Legend } from 'recharts'
 
 import i18n from '../i18n'
-import { officialEmail } from '../../config/runtime.json'
 
 import { alert, confirm } from '../actions/dialog'
 
@@ -14,6 +14,13 @@ import Icon from '../components/Icon'
 import styles from './Home.scss'
 import pageStyles from './Page.scss'
 import { downloadPPT, downloadWhitePaper } from '../common/resource'
+import PublicWhitelistRegStage from './PublicWhitelistRegStage'
+
+const {
+  officialEmail,
+  saleBeginFormatTime,
+  saleEndFormatTime,
+} = window.__INIT_STATE
 
 const AchievementLogo = ({ index, text, className = '' }) => (
   <div className={`animated ${styles.achievement_logo_container} ${className}`}>
@@ -69,6 +76,8 @@ const Partners = ({ img }) => (
 )
 
 const mapDispatchToProps = { alert, confirm }
+const saleBeginDateTime = new Date(saleBeginFormatTime)
+const saleEndDateTime = new Date(saleEndFormatTime)
 
 @connect(null, mapDispatchToProps)
 export default class WhiteList extends React.Component {
@@ -85,6 +94,9 @@ export default class WhiteList extends React.Component {
       locale: locale && i18n[locale] ? i18n[locale] : i18n.zh,
       showWechatQrcode: false,
       containerBg: '#13143f',
+      openWhitelist: false,
+      saleBegan: saleBeginDateTime - Date.now() < 0,
+      saleEnded: saleEndDateTime - Date.now() < 0,
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)
@@ -93,6 +105,31 @@ export default class WhiteList extends React.Component {
   componentDidMount() {
     if (window.__INIT_STATE.dev !== 'true') {
       window.particlesJS.load('home-container', 'plugin/particles.json')
+    }
+    if (!this.state.saleBegan) {
+      window
+        .jQuery('#countdown')
+        .countdown({
+          image: '/images/digits.png',
+          endTime: saleBeginDateTime,
+          timerEnd: () => {
+            this.setState({
+              saleBegan: true,
+            })
+          },
+        })
+    } else if (!this.state.saleEnded) {
+      window
+        .jQuery('#countdown')
+        .countdown({
+          image: '/images/digits.png',
+          endTime: saleEndDateTime,
+          timerEnd: () => {
+            this.setState({
+              saleEnded: true,
+            })
+          },
+        })
     }
   }
 
@@ -114,6 +151,28 @@ export default class WhiteList extends React.Component {
   render() {
     return (
       <div id="home-container" className="container fore-white" style={{ position: 'relative', backgroundColor: this.state.containerBg, transition: 'background-color .8s ease' }}>
+        <Dialog
+          open={this.state.openWhitelist}
+          autoScrollBodyContent
+          contentStyle={{ width: '100%', maxWidth: '41rem' }}
+        >
+          <Icon
+            tabIndex={0}
+            role="button"
+            logo="close"
+            style={{
+              position: 'absolute',
+              top: '.4rem',
+              right: '.4rem',
+              cursor: 'pointer',
+              zIndex: '100',
+            }}
+            onClick={() => this.setState({ openWhitelist: false })}
+          />
+          <div className={styles.dialogContainer}>
+            <PublicWhitelistRegStage />
+          </div>
+        </Dialog>
         <SmallTitleLogo className={styles.titleLogo} />
         <div className={styles.body}>
           <div className={styles.decoration}>
@@ -173,17 +232,65 @@ export default class WhiteList extends React.Component {
               <Icon logo="primary-logo" className={styles.primaryLogo} />
               <h1 className="text-center">{this.state.locale.primary_title}</h1>
               <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
-              <div
-                className={styles.sec_title}
-              >{this.state.locale.comming_soon}</div>
-              <div
-                role="button"
-                tabIndex={0}
-                className={styles.whitepaper_button}
-                onClick={downloadWhitePaper}
-              >
-                <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
-              </div>
+              <div className={styles.sec_title}>{
+                this.state.saleEnded
+                  ? this.state.locale.saleEnded
+                  : this.state.saleBegan
+                    ? this.state.locale.endCountdown
+                    : this.state.locale.countdown
+              }</div>
+              {/* countdown panel */}
+              {
+                this.state.saleEnded
+                  ? null
+                  : <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <div
+                      id="countdown"
+                      className={`dis-flex ${styles.countdown}`}
+                    />
+                  </div>
+              }
+              {
+                !this.state.saleBegan
+                  ? <div>
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className={styles.whitepaper_button}
+                      onClick={() => this.setState({ openWhitelist: true })}
+                    >
+                      {this.state.locale.request_to_invest}
+                    </div>
+                    <div className="label text-center fore-lightness">{this.state.locale.invest_warning}</div>
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={downloadWhitePaper}
+                      className="dis-flex"
+                      style={{
+                        cursor: 'pointer',
+                        margin: '4rem auto',
+                        width: '6rem',
+                        fontSize: '.8rem',
+                        textDecoration: 'underline',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
+                    </div>
+                  </div>
+                  : <div
+                    tabIndex={0}
+                    role="button"
+                    className={styles.whitepaper_button}
+                    style={{
+                      margin: '4rem auto',
+                    }}
+                    onClick={downloadWhitePaper}
+                  >
+                    <Icon logo="white-paper-small" className={styles.whitepaper_icon} />{this.state.locale.whitepaper}
+                  </div>
+              }
             </section>
             <div className={styles.seperator} />
             <section id="intro" className={styles.intro}>
