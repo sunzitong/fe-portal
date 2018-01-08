@@ -239,14 +239,12 @@ export default class WhiteList extends React.Component {
               {
                 this.state.whitelistEnable && !this.state.saleEnded
                   ? <div>
-                    <div
-                      tabIndex={0}
-                      role="button"
+                    <a
                       className={styles.whitepaper_button}
-                      onClick={() => this.setState({ openWhitelist: true })}
+                      href="/pwl"
                     >
                       {this.state.locale.request_to_invest}
-                    </div>
+                    </a>
                     <div className="label text-center fore-lightness">{this.state.locale.invest_warning}</div>
                     <div
                       role="button"
