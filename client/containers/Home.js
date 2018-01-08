@@ -18,7 +18,6 @@ import PublicWhitelistRegStage from './PublicWhitelistRegStage'
 
 const {
   officialEmail,
-  whitelistStartFormatTime,
   saleEndFormatTime,
 } = window.__INIT_STATE
 
@@ -77,7 +76,6 @@ const Partners = ({ img }) => (
 
 const mapDispatchToProps = { alert, confirm }
 const saleEndDateTime = new Date(saleEndFormatTime)
-const whitelistStartDateTime = new Date(whitelistStartFormatTime)
 
 @connect(null, mapDispatchToProps)
 export default class WhiteList extends React.Component {
@@ -96,7 +94,7 @@ export default class WhiteList extends React.Component {
       containerBg: '#13143f',
       openWhitelist: false,
       saleEnded: saleEndDateTime < new Date(),
-      whitelistEnable: whitelistStartDateTime < new Date(),
+      whitelistEnable: true,
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)
