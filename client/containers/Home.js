@@ -95,8 +95,8 @@ export default class WhiteList extends React.Component {
       showWechatQrcode: false,
       containerBg: '#13143f',
       openWhitelist: false,
-      saleEnded: saleEndDateTime - Date.now() < 0,
-      whitelistEnable: whitelistStartDateTime - Date.now() < 0,
+      saleEnded: saleEndDateTime < new Date(),
+      whitelistEnable: whitelistStartDateTime < new Date(),
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)

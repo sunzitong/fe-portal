@@ -27,7 +27,7 @@ export default class WhiteList extends React.Component {
     super(props)
     this.state = {
       currStep: 1,
-      whitelistEnd: whitelistEndedDateTime - Date.now() < 0,
+      whitelistEnd: whitelistEndedDateTime < new Date(),
       formData: {
         wechat: '',
         community_id: '1',
