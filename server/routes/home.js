@@ -12,6 +12,8 @@ export default function (req, res) {
     apiServer: config.api_server,
     DEV: config.globals.__DEV__,
     runtimeData: runtimeData,
+    whitelistDisabled: runtimeData.forceSaleEnded || (Date.now() > new Date(runtimeData.whitelistEndedFormatTime)),
+    saleEnded: runtimeData.forceSaleEnded || (Date.now() >= new Date(runtimeData.saleEndFormatTime)),
   }
 
   res.set('content-type', 'text/html')

@@ -19,6 +19,7 @@ import PublicWhitelistRegStage from './PublicWhitelistRegStage'
 const {
   officialEmail,
   saleEndFormatTime,
+  saleEnded,
 } = window.__INIT_STATE
 
 const AchievementLogo = ({ index, text, className = '' }) => (
@@ -93,8 +94,8 @@ export default class WhiteList extends React.Component {
       showWechatQrcode: false,
       containerBg: '#13143f',
       openWhitelist: false,
-      saleEnded: saleEndDateTime < new Date(),
-      whitelistEnable: true,
+      saleEnded: saleEnded,
+      whitelistDisabled: false,
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)
@@ -104,7 +105,7 @@ export default class WhiteList extends React.Component {
     if (window.__INIT_STATE.dev !== 'true') {
       window.particlesJS.load('home-container', 'plugin/particles.json')
     }
-    if (this.state.whitelistEnable) {
+    if (!this.state.whitelistDisabled) {
       if (!this.state.saleEnded) {
         window
           .jQuery('#countdown')
@@ -224,20 +225,20 @@ export default class WhiteList extends React.Component {
                 {
                   this.state.saleEnded
                     ? this.state.locale.saleEnded
-                    : this.state.whitelistEnable
+                    : !this.state.whitelistDisabled
                       ? this.state.locale.endCountdown
                       : this.state.locale.countdown
                 }
               </div>
               {
-                this.state.saleEnded || !this.state.whitelistEnable
+                this.state.saleEnded || this.state.whitelistDisabled
                   ? null
                   : <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div id="countdown" className={`dis-flex ${styles.countdown}`} />
                   </div>
               }
               {
-                this.state.whitelistEnable && !this.state.saleEnded
+                !this.state.whitelistDisabled && !this.state.saleEnded
                   ? <div>
                     <a
                       className={styles.whitepaper_button}

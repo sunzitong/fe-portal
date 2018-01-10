@@ -144,6 +144,7 @@ export default class Participate extends React.Component {
                       role="button"
                       className="bold m-t-10 m-b-10 text-center"
                       style={{
+                        width: '100%',
                         overflow: 'visible',
                         padding: '6px 0',
                         fontSize: '.8rem',
@@ -159,10 +160,6 @@ export default class Participate extends React.Component {
                       readOnly
                       value={this.state.address}
                     />
-                    <div className="dis-flex small">
-                      <div className="fore-gray m-t-10">建议 Gas Limit: 200000</div>
-                      <div className="fore-gray m-t-10">建议 Gas Price: 20 gwei</div>
-                    </div>
                     <h4 className="text-center" style={{ marginBottom: '0' }}>剩余投资时间</h4>
                     <div style={{ display: 'flex', justifyContent: 'center' }}>
                       <div

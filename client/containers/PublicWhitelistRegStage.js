@@ -11,9 +11,8 @@ import {
   StepFive,
 } from '../components/WhitelistStages'
 
-const { whitelistEndedFormatTime } = window.__INIT_STATE
+const { whitelistDisabled } = window.__INIT_STATE
 
-const whitelistEndedDateTime = new Date(whitelistEndedFormatTime)
 const mapDispatchToProps = { alert, confirm }
 
 @connect(null, mapDispatchToProps)
@@ -26,8 +25,8 @@ export default class WhiteList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      whitelistDisabled,
       currStep: 1,
-      whitelistEnd: whitelistEndedDateTime < new Date(),
       formData: {
         wechat: '',
         community_id: '1',
@@ -72,7 +71,7 @@ export default class WhiteList extends React.Component {
 
   render() {
     return (
-      this.state.whitelistEnd
+      this.state.whitelistDisabled
         ? <div className="container dis-flex fore-blue" style={{ justifyContent: 'center', flexDirection: 'column' }}>
           <h2>白名单注册已关闭</h2>
           <h4>Whitelist register entrance has been closed</h4>

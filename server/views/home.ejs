@@ -21,9 +21,9 @@
             apiServer: "<%= apiServer %>",
             dev: "<%= DEV %>",
             officialEmail: "<%= runtimeData.officialEmail %>",
-            whitelistEndedFormatTime: "<%= runtimeData.whitelistEndedFormatTime %>",
-            saleEndTime: "<%= runtimeData.saleEndTime %>",
+            whitelistDisabled: "<%= whitelistDisabled %>" === 'true',
             saleEndFormatTime: "<%= runtimeData.saleEndFormatTime %>",
+            saleEnded: "<%= saleEnded %>" === 'true',
         }
     </script>
     <script src="https://cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>

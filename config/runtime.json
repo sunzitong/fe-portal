@@ -1,6 +1,6 @@
 {
   "officialEmail": "info@mail.cybereits.com",
-  "whitelistEndedFormatTime": "2018-01-15T00:00:00",
-  "saleEndTime": "2018年1月16日 00:00:00",
-  "saleEndFormatTime": "2018-01-16T00:00:00"
+  "whitelistEndedFormatTime": "2018-01-11T00:00:00",
+  "saleEndFormatTime": "2018-01-16T00:00:00",
+  "forceSaleEnded": true
 }
