@@ -221,7 +221,7 @@ export default class WhiteList extends React.Component {
               <Icon logo="primary-logo" className={styles.primaryLogo} />
               <h1 className="text-center">{this.state.locale.primary_title}</h1>
               <div className={styles.sub_title}>{this.state.locale.sub_title}</div>
-              <div className={styles.sec_title}>
+              <div className={styles.sec_title} style={{ margin: '4rem auto' }}>
                 {
                   this.state.saleEnded
                     ? this.state.locale.saleEnded
@@ -269,7 +269,7 @@ export default class WhiteList extends React.Component {
                     role="button"
                     className={styles.whitepaper_button}
                     style={{
-                      margin: '4rem auto',
+                      margin: '8rem auto',
                     }}
                     onClick={downloadWhitePaper}
                   >
