@@ -154,9 +154,9 @@
             position: relative;
             z-index: 1;
             .primaryLogo {
-                width: 12rem;
-                height: 12rem;
-                margin: 0 auto;
+                width: 15rem !important;
+                height: 15rem !important;
+                margin: 4rem auto 6rem auto;
             }
             .sub_title {
                 font-size: 1.1rem;
@@ -423,6 +423,11 @@
             .token_sale {
                 .whitepaper_button {
                     margin-top: 1.2rem;
+                }
+                .primaryLogo {
+                    width: 12rem !important;
+                    height: 12rem !important;
+                    margin: 3rem auto;
                 }
             }
             .allocate {
