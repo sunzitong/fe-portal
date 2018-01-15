@@ -578,7 +578,7 @@ export default class WhiteList extends React.Component {
                             backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
                           }}
                         >
-                          <span className={pageStyles.ribbon}>v1.2</span>
+                          <span className={pageStyles.ribbon}>v1.2.2</span>
                           <p>{this.state.locale.whitepaper}</p>
                         </div>
                       </li>
