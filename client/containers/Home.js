@@ -224,7 +224,7 @@ export default class WhiteList extends React.Component {
               <div className={styles.sec_title} style={{ margin: '2rem auto' }}>
                 {
                   this.state.saleEnded
-                    ? this.state.locale.saleEnded
+                    ? null
                     : !this.state.whitelistDisabled
                       ? this.state.locale.endCountdown
                       : this.state.locale.countdown
@@ -578,7 +578,7 @@ export default class WhiteList extends React.Component {
                             backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
                           }}
                         >
-                          <span className={pageStyles.ribbon}>v1.2.2</span>
+                          <span className={pageStyles.ribbon}>v1.2.0</span>
                           <p>{this.state.locale.whitepaper}</p>
                         </div>
                       </li>

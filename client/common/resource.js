@@ -1,5 +1,5 @@
 export const downloadWhitePaper = () => {
-  window.open(`${window.location.origin}/docs/CYBEREITS_White_Paper_v1.2.2.pdf`, 'blank')
+  window.open(`${window.location.origin}/docs/CYBEREITS_White_Paper_v1.2.0.pdf`, 'blank')
 }
 
 export const downloadTerm = () => {
