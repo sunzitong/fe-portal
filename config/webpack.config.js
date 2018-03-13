@@ -37,7 +37,6 @@ module.exports = {
         loader: 'babel-loader',
         include: [
           paths.base(),
-
         ],
         exclude: /node_modules/,
         query: {
@@ -130,7 +129,6 @@ module.exports = {
       manifest: manifest,
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.ProvidePlugin({
       React: 'react',
       PropTypes: 'prop-types',
@@ -165,9 +163,4 @@ module.exports = {
         },
       ],
   ],
-  node: {
-    fs: 'empty',
-    net: 'empty',
-    tls: 'empty',
-  },
 }

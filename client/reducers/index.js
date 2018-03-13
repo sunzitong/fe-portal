@@ -9,10 +9,6 @@ const rootReducer = combineReducers({
   toastMessage: toastMessage,
   alertMessage: dialogReducers.alertMessage,
   confirmMessage: dialogReducers.confirmMessage,
-  loginDialogOpened: globalReducers.loginDialog,
-  userInfoDialogOpened: globalReducers.userInfoDialog,
-  sideMenuOpened: globalReducers.sideMenu,
-  platforms: globalReducers.platforms,
   title: globalReducers.title,
   router,
 })
