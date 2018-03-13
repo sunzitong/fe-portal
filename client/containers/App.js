@@ -10,7 +10,6 @@ import {
 // import SideMenus from './SideMenus'
 import Toast from './Toast'
 
-import { toggleSideMenu, toggleLoginDialog } from '../actions/global'
 import { closeDialog } from '../actions/dialog'
 
 class App extends React.Component {
@@ -21,13 +20,10 @@ class App extends React.Component {
   }
 
   static propTypes = {
-    // title: PropTypes.string.isRequired,
     children: PropTypes.node.isRequired,
-    // toggleSideMenu: PropTypes.func.isRequired,
     alertMessagePayload: PropTypes.object,
     confirmMessagePayload: PropTypes.object,
     closeDialog: PropTypes.func.isRequired,
-    // history: PropTypes.object.isRequired,
   }
 
   constructor() {
@@ -137,8 +133,6 @@ export default connect(
     alertMessagePayload: state.alertMessage,
     confirmMessagePayload: state.confirmMessage,
   }), {
-    toggleLoginDialog,
-    toggleSideMenu,
     closeDialog,
   },
 )(App)
