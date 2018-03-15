@@ -36,6 +36,4 @@ switch (NODE_ENV) {
 
 const exportConfig = Object.assign({}, baseConfig, mergeConfig)
 
-console.log(exportConfig)
-
 module.exports = exportConfig
