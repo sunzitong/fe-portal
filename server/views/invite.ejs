@@ -3,7 +3,7 @@
 
 <head>
     <title>
-        邀请
+        Cybereits邀请你来发糖果
     </title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0"
@@ -256,6 +256,9 @@
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
     <script>
+        window.__INIT_STATE = {
+            dataService: "<%= dataService %>"
+        }
         let ethRex = /^0x[A-Fa-f0-9]{40}$/
         //To telegram
         $(document).on("click", "#toTelegram", function (e) {
@@ -301,7 +304,7 @@
                 return false;
             }
 
-            fetch('http://112.126.71.91:8003/http/activities/create_temp', {
+            fetch(window.__INIT_STATE.dataService, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

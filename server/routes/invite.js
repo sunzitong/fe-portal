@@ -8,6 +8,7 @@ export default function (req, res) {
     main: config.globals.__DEV__ ? 'invite.js' : mainFilePath,
     apiServer: config.api_server,
     DEV: config.globals.__DEV__,
+    dataService: config.data_service,
   }
 
   res.set('content-type', 'text/html')

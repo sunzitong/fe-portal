@@ -12,6 +12,7 @@ let config = {
   dir_server: 'server',
   server_host: ip.address(),
   server_port: process.env.PORT || PORT,
+  data_service: '',
 }
 
 function base(...args) {
