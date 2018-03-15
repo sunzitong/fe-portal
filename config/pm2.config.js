@@ -21,9 +21,7 @@ let mergeConfig = {}
  */
 switch (NODE_ENV) {
   case 'production':
-    mergeConfig = {
-      instances: 2,
-    }
+    mergeConfig = {}
     break
   case 'development':
   default:
