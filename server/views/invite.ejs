@@ -515,7 +515,7 @@
             var copyDom = document.getElementById("candyCode");
             copyDom.focus();
             copyDom.setSelectionRange(0, copyDom.value.length);
-            copyDom.execCommand('copy', true);
+            document.execCommand('copy', true);
             copyDom.blur();
             swal("复制糖果码成功");
         }
