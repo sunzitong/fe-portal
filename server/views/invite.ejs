@@ -481,18 +481,18 @@
                     <img src="../../images/invite/officalWebsite.png" class="icon-init" data-href="https://cybereits.com/" id="officalWebsite"
                     />
                     <br>
-                    <span style="color:white;text-decoration: underline;font-weight:300;">官网</span>
+                    <span style="color:white;text-decoration: underline;font-weight:300;" data-href="https://cybereits.com/" id="officalLink">官网</span>
                 </div>
                 <div class="div-contact">
                     <img src="../../images/invite/whitePaper.png" class="icon-init" data-href="https://cybereits.com/docs/CYBEREITS_White_Paper_v1.2.0.pdf"
                         id="whitePaper" />
                     <br>
-                    <span style="color:white;text-decoration: underline;font-weight:300;">白皮书</span>
+                    <span style="color:white;text-decoration: underline;font-weight:300;" data-href="https://cybereits.com/docs/CYBEREITS_White_Paper_v1.2.0.pdf" id="whitePaperLink">白皮书</span>
                 </div>
                 <div class="div-contact">
-                    <img src="../../images/invite/telegram.png" class="icon-init" data-href="https://t.me/cybereits" id="telegramLink" />
+                    <img src="../../images/invite/telegram.png" class="icon-init" data-href="https://t.me/cybereits" id="telegramIcon" />
                     <br>
-                    <span style="color:white;text-decoration: underline;font-weight:300;">电报群</span>
+                    <span style="color:white;text-decoration: underline;font-weight:300;" data-href="https://t.me/cybereits" id="telegramLink">电报群</span>
                 </div>
             </div>
         </div>
@@ -507,8 +507,8 @@
                 <input type="text" class="input-clip-board copybtn1" value="/A12345678" id="candyCode">
             </div>
             <div class="form-group div-copy-code">
-                <input type="button" id="toClipBoard" class="form-control bg-size btn-try btn-copy" value="复制糖果码" readonly style="font-weight: bold;height: 2.5rem;margin-top:0rem"
-                    onclick="myFunction()" readonly />
+                <input type="button" id="toClipBoard" class="form-control bg-size btn-try btn-copy" value="复制糖果码" style="font-weight: bold;height: 2.5rem;margin-top:0rem"
+                    onclick="myFunction()" readonly="readonly" />
             </div>
             <div style="display:flex;">
                 <input type="button" id="toTelegram" class="form-control bg-size-second btn-to-telegram" value="去Telegram领取" />
@@ -572,7 +572,7 @@
         });
 
         //office website
-        $(document).on("click", "#officalWebsite,#whitePaper,#telegramLink", function (e) {
+        $(document).on("click", "#officalWebsite,#whitePaper,#telegramLink,#telegramIcon,#whitePaperLink,#officalLink", function (e) {
             e.preventDefault();
             window.open($(this).data("href"));
         });
