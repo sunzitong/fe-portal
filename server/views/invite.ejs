@@ -331,6 +331,10 @@
             display: none;
         }
 
+        .body-noscroll {
+            overflow: hidden;
+        }
+
         /***** mobile device ******/
 
         @media only screen and (min-width:320px) {
@@ -683,6 +687,28 @@
             -webkit-animation-duration: 2s !important;
             animation-name: tida;
         }
+
+        .w3-modal-content {
+            margin: auto;
+            background-color: transparent !important;
+            position: relative;
+            padding: 0;
+            outline: 0;
+            width: 600px;
+        }
+
+        .w3-modal {
+            z-index: 3;
+            display: none;
+            padding-top: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0, 0.7) !important;
+        }
     </style>
 </head>
 
@@ -821,16 +847,12 @@
         </div>
         <!-- modal -->
         <div id="myModal" class="w3-modal">
-            <div class="w3-modal-content">
-                <div class="w3-container" style="opacity: 0.9;text-align: center;">
-                    <div style="padding: 10px;">
-                        <button type="button" class="btn btn-primary" onclick="document.getElementById('myModal').style.display='none'" style="text-align: center;">
-                            <i class="fa fa-close"></i> 关闭</button>
-                    </div>
-                    <div>
-                        <img id="myPersonalPage" style="width:270px;">
-                        <p class="form-control" style="border:none;">保存图片并发送给微信好友</p>
-                    </div>
+            <div class="w3-modal-content" style="margin-top: 20%;">
+                <div class="w3-container" style="opacity: 1;text-align: center;">
+                    <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('myModal').style.display='none'" style="text-align: center;">
+                                <i class="fa fa-close"></i> 关闭</button> -->
+                    <img id="myPersonalPage" class="modal-ele-except" style="width:270px;">
+                    <p class="form-control" style="border:none;background-color: transparent;color: white;font-style: italic;font-weight: lighter;">保存图片并发送给微信好友</p>
                 </div>
             </div>
         </div>
@@ -936,8 +958,7 @@
                                         return false;
                                     }
                                     //display percent
-                                    $("#invitePercent").text(result.result.rewardViaInvite + "%");
-                                    console.log(result.result.inviteDetails.length);
+                                    $("#invitePercent").text(result.result.rewardViaInvite);
                                     if (result.result.inviteDetails.length > 0) {
                                         $(".div-hostory").removeClass("div-display-none");
                                         var tempArray = result.result.inviteDetails;
@@ -963,12 +984,22 @@
                 var url = "https://cybereits.com/" + "inviteRule";
                 window.open(url, "_self");
             });
+
+            //modal close
+            $(document).on("click", ".w3-modal", function (e) {
+                e.preventDefault();
+                if (e.target.classList[0] === "modal-ele-except") {
+                    return false;
+                }
+                document.getElementById('myModal').style.display = 'none';
+                $("body").removeClass("body-noscroll");
+            });
         });
 
         //我的邀请函
         function myPage() {
+            $("body").addClass("body-noscroll");
             var finalCanvasBase64 = document.getElementById("finalCanvas").toDataURL();
-            console.log(finalCanvasBase64);
             $("#myPersonalPage").attr("src", finalCanvasBase64);
             document.getElementById('myModal').style.display = 'block';
         }
