@@ -257,6 +257,9 @@
         .historyDom {
             display: flex;
             border-bottom: 2px solid rgba(222, 222, 222, 0.3);
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 10px;
         }
 
         .history-info {
@@ -788,7 +791,7 @@
             <!-- my invitation history -->
             <div class="div-hostory div-display-none">
                 <div class="div-margin-5-percent">
-                    <div class="form-group div-margin-5-percent">
+                    <div class="form-group div-margin-5-percent" style="margin-bottom: 20px;">
                         <img src="../../images/invite/inviteHistory.png" style="width:100%;">
                     </div>
                 </div>
@@ -934,6 +937,7 @@
                                     }
                                     //display percent
                                     $("#invitePercent").text(result.result.rewardViaInvite + "%");
+                                    console.log(result.result.inviteDetails.length);
                                     if (result.result.inviteDetails.length > 0) {
                                         $(".div-hostory").removeClass("div-display-none");
                                         var tempArray = result.result.inviteDetails;
