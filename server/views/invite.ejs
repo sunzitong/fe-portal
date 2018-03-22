@@ -975,7 +975,7 @@
 
         //init user's invite image
         function initMyInviteImage(webHost, myInviteCode) {
-            var myUrl = "http://192.168.3.143:8001" + "/invite?invite_code=" + myInviteCode;
+            var myUrl = webHost + "/invite?invite_code=" + myInviteCode;
             $("#qrcode").qrcode({
                 text: myUrl,
                 width: 390,
