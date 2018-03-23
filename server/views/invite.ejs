@@ -1188,6 +1188,11 @@
                                             $(".div-hostory").append(tempHTMLDom);
                                         }
                                     }
+                                    else{
+                                        $(".div-hostory").removeClass("div-display-none");
+                                        var tempHTMLDom = $("#itemEmptyDom").clone();
+                                        $(".div-hostory").append(tempHTMLDom);
+                                    }
                                 })
                         }
                     })
