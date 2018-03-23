@@ -113,7 +113,7 @@
             height: 5rem;
             background-color: transparent !important;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 1rem;
             padding-top: 5px;
         }
 
@@ -126,7 +126,7 @@
             height: 5rem;
             background-color: transparent !important;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 1rem;
             padding-top: 5px;
         }
 
@@ -261,6 +261,13 @@
             padding-bottom: 10px;
         }
 
+        .historyEmptyDom {
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
         .history-info {
             width: 60%;
             padding-left: 10px;
@@ -317,16 +324,18 @@
 
         .tida-rule {
             text-align: right;
-            left: 77%;
             position: fixed;
-            top: 42%;
-            left: 80%;
+            top: 43%;
             float: left;
+            right: 0%;
         }
 
         .img-tida {
-            width: 50px;
-            margin-right: 10px;
+            background: url(../../images/invite/activityRules.png) no-repeat;
+            width: 60px;
+            height: 60px;
+            background-size: cover;
+            border: none;
         }
 
         .div-display-none {
@@ -335,6 +344,19 @@
 
         .body-noscroll {
             overflow: hidden;
+        }
+
+        .sweet-alert h2 {
+            color: #575757;
+            font-size: 15px;
+            text-align: center;
+            font-weight: 600;
+            text-transform: none;
+            position: relative;
+            margin: 25px 0;
+            padding: 0;
+            line-height: 40px;
+            display: block;
         }
 
         /***** mobile device ******/
@@ -415,11 +437,10 @@
             }
             .tida-rule {
                 text-align: right;
-                left: 77%;
                 position: fixed;
-                top: 42%;
-                left: 80%;
+                top: 43%;
                 float: left;
+                right: 0%;
             }
             .div-mypage {
                 margin-left: 12%;
@@ -618,7 +639,7 @@
                 background-size: contain;
                 height: 340px;
             }
-            .div-mypage{
+            .div-mypage {
                 margin-bottom: 0% !important;
             }
             .div-candy-num {
@@ -672,11 +693,10 @@
             }
             .tida-rule {
                 text-align: right;
-                left: 77%;
                 position: fixed;
-                top: 42%;
-                left: 80%;
+                top: 43%;
                 float: left;
+                right: 0%;
             }
             .btn-share {
                 font-weight: bold;
@@ -886,6 +906,10 @@
             overflow: auto;
             background-color: rgb(0, 0, 0, 0.7) !important;
         }
+
+        .swal2-popup {
+            max-width: 60% !important;
+        }
     </style>
 </head>
 
@@ -893,7 +917,7 @@
     <div class="box">
         <!-- tida Activity Rule -->
         <div class="tida-rule">
-            <img src="../../images/invite/activityRules.png" class="img-tida tida" />
+            <button src="../../images/invite/activityRules.png" class="img-tida tida"></button>
         </div>
         <!-- input ETH address -->
         <div class="input-container div-input">
@@ -1003,6 +1027,10 @@
         <div class="form-group" style="display:none;">
             <div id="qrcode"></div>
             <img id="emptyInvitePage" src="../../images/invite/inviteBill.jpg">
+            <!-- invitation empty -->
+            <div class="form-group historyEmptyDom" id="itemEmptyDom">
+                <label style="color: white;font-weight:lighter;font-size: 0.9rem;">还没有好友加成你的红包，快去邀请呦~</label>
+            </div>
             <!-- invitation item -->
             <div class="form-group historyDom" id="itemDom">
                 <div class="history-avatar">
@@ -1059,7 +1087,7 @@
             copyDom.setSelectionRange(0, copyDom.value.length);
             document.execCommand('copy', true);
             copyDom.blur();
-            swal("复制糖果码成功");
+            swal({ text: "复制糖果码成功", confirmButtonText: "确定" });
         }
 
         $(document).ready(function () {
@@ -1089,7 +1117,7 @@
 
                 var ethAddress = $(".input-address").val();
                 if (!ethRegex.test(ethAddress)) {
-                    swal('请输入正确的eth地址');
+                    swal({ text: '请输入正确的eth地址', confirmButtonText: "确定" });
                     return false;
                 }
 
@@ -1106,7 +1134,7 @@
                 }).then((res) => res.json())
                     .then(res => {
                         if (res.error) {
-                            swal(res.error);
+                            swal({ text: res.error, confirmButtonText: "确定" });
                         }
                         else {
                             //Dom display or hide, then set value
@@ -1118,7 +1146,10 @@
 
                             ///先判断是否激活
                             if (!res.result.actived) {
-                                swal("请进入官方社区激活");
+                                $(".div-hostory").removeClass("div-display-none");
+                                var tempHTMLDom = $("#itemEmptyDom").clone();
+                                $(".div-hostory").append(tempHTMLDom);
+                                swal({ text: "请进入官方社区激活", confirmButtonText: "确定" });
                                 return false;
                             }
                             //invitation percent and invitation history
@@ -1129,8 +1160,7 @@
                                     swal.close();
                                     //错误
                                     if (result.error) {
-                                        swal(result.error);
-                                        return false;
+                                        swal({ text: result.error, confirmButtonText: "确定" });
                                     }
                                     //display percent
                                     $("#invitePercent").text(result.result.rewardViaInvite);
