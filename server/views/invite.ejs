@@ -459,7 +459,7 @@
                 margin-top: 4%;
             }
             .div-candy-num {
-                margin-top: 2% !important;
+                margin-top: 0% !important;
             }
             .div-candy-titles {
                 margin-top: 0px !important;
@@ -565,6 +565,9 @@
             }
             .div-mypage {
                 margin-bottom: 0% !important;
+            }
+            .btn-to-telegram, .btn-to-biyong{
+                font-size: 0.9rem;
             }
         }
 
@@ -900,7 +903,7 @@
         .w3-modal {
             z-index: 3;
             display: none;
-            padding-top: 100px;
+            padding-top: 40px !important;
             position: fixed;
             left: 0;
             top: 0;
@@ -912,6 +915,11 @@
 
         .swal2-popup {
             max-width: 60% !important;
+        }
+
+        .swal2-popup:focus, .swal2-styled:focus {
+            outline: none;
+            box-shadow: none;
         }
     </style>
 </head>
@@ -1054,7 +1062,7 @@
         </div>
         <!-- modal -->
         <div id="myModal" class="w3-modal">
-            <div class="w3-modal-content" style="margin-top: 20%;">
+            <div class="w3-modal-content">
                 <div class="w3-container" style="opacity: 1;text-align: center;">
                     <img id="myPersonalPage" class="modal-ele-except" style="width:270px;">
                     <p class="form-control" style="border:none;background-color: transparent;color: white;font-style: italic;font-weight: lighter;">保存图片并发送给微信好友</p>
