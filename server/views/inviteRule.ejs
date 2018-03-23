@@ -21,6 +21,17 @@
             padding: 0;
         }
 
+        .img-tida {
+            background: url(../images/invite/back.png) no-repeat;
+            width: 25px;
+            height: 60px;
+            top: 42%;
+            left: 89%;
+            position: fixed;
+            background-size: cover;
+            border: none;
+        }
+
         @keyframes tida {
             0% {
                 transform: scale3d(1, 1, 1);
@@ -91,7 +102,7 @@
 
 <body>
     <img src="../../images/invite/activityRule.jpg" style="width:100%;">
-    <img src="../images/invite/back.png" class="tida" style="width: 25px;top:42%;left:89%;position: fixed;" id="btnBack">
+    <button src="../images/invite/back.png" class="img-tida tida" id="btnBack"></button>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
