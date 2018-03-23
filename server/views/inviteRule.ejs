@@ -11,7 +11,6 @@
     <meta content="telephone=no" name="format-detection" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
     <link rel="icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
-    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         html,
         body {
@@ -100,13 +99,13 @@
     </style>
 </head>
 
-<body>
-    <img src="../../images/invite/activityRule.jpg" style="width:100%;">
-    <button src="../images/invite/back.png" class="img-tida tida" id="btnBack"></button>
+<body style="display:grid;">
+    <img src="../../images/invite/activityRule.jpg" id="activityRuleImg" style="width:100%;">
+    <button src="../images/invite/back.png" class="img-tida" id="btnBack"></button>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            $(document).on("click", ".tida", function (e) {
+            $(document).on("click", ".img-tida", function (e) {
                 e.preventDefault();
                 window.open("/invite", "_self");
             })
