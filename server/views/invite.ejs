@@ -15,6 +15,7 @@
     <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <style>
         html,
         body {
@@ -52,31 +53,20 @@
         }
 
         .input-address {
-            width: 17rem;
+            width: 100%;
             height: 3rem;
             margin-left: 18%;
             margin-top: 8%;
+            font-weight: lighter !important;
         }
 
         .btn-try {
             margin-left: 18%;
-            margin-top: 8%;
-            width: 17rem;
+            width: 100%;
             background: url(../../images/invite/btn_try.png);
             border: none;
             height: 3rem;
             background-color: transparent !important;
-        }
-
-        .paragraph-bg {
-            text-align: center;
-            background-color: gray;
-            opacity: 1;
-            color: white;
-            font-weight: bold;
-            font-size: 0.8rem;
-            width: 22rem;
-            margin-left: 7.8%;
         }
 
         .icon-init {
@@ -89,11 +79,9 @@
         #creNumber {
             width: 17rem;
             height: 3rem;
-            margin-left: 29%;
-            margin-top: 3%;
             color: #FDE044;
             font-weight: bolder;
-            font-size: 3rem;
+            font-size: 2rem;
         }
 
         .lbl-candy-code {
@@ -119,7 +107,7 @@
         }
 
         .btn-to-telegram {
-            margin-left: 11%;
+            margin-left: 12%;
             margin-top: 0%;
             width: 17rem;
             background: url(../../images/invite/toTelegram.png);
@@ -128,11 +116,11 @@
             background-color: transparent !important;
             font-weight: bold;
             font-size: 0.8rem;
-            padding-top: 0px;
+            padding-top: 5px;
         }
 
         .btn-to-biyong {
-            margin-left: 3%;
+            margin-left: 0%;
             margin-top: 0%;
             width: 17rem;
             background: url(../../images/invite/toBiyong.png);
@@ -141,11 +129,10 @@
             background-color: transparent !important;
             font-weight: bold;
             font-size: 0.8rem;
-            padding-top: 0px;
+            padding-top: 5px;
         }
 
         .div-paragraph {
-            padding: 10px;
             color: white;
             font-size: 0.8rem;
         }
@@ -178,53 +165,208 @@
             outline: 0 !important;
         }
 
+        .div-margin-15-percent {
+            margin-left: 15%;
+            margin-right: 15%;
+        }
+
+        .div-margin-10-percent {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .div-margin-5-percent {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        .div-input-title {
+            text-align: center;
+            width: 100%;
+            margin-top: 20px;
+            color: white;
+        }
+
+        .paragraph-bg {
+            text-align: left;
+            background-color: rgba(136, 127, 127, 0.3);
+            opacity: 1;
+            color: white;
+            font-weight: bold;
+            font-size: 0.7rem;
+            width: 100%;
+            margin-left: 0%;
+            margin-top: 3%;
+            padding: 5px 10% 5px 10%;
+        }
+
+        .div-paragraph-tips {
+            margin-left: 8.7%;
+            margin-right: 8.7%;
+        }
+
+        .lbl-invitation-title-top {
+            text-align: center;
+            width: 100%;
+            margin-top: 10px;
+            color: #693b36;
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+
+        .lbl-invitation-title-bottom {
+            text-align: center;
+            width: 100%;
+            color: #693b36;
+            font-weight: lighter;
+        }
+
+        .lbl-current-percnet {
+            text-align: center;
+            width: 100%;
+            color: #693b36;
+            font-weight: lighter;
+            font-size: 0.8rem;
+        }
+
+        .lbl-notice {
+            text-align: center;
+            width: 100%;
+            color: #693b36;
+            font-weight: lighter;
+            font-size: 0.6rem;
+        }
+
+        #invitePercent,
+        #invitePlusSymbol {
+            width: 17rem;
+            height: 3rem;
+            margin-top: 3%;
+            color: #e22665;
+            font-weight: bolder;
+            font-size: 2.5rem;
+        }
+
+        .div-final-percent {
+            margin-left: 15%;
+            margin-right: 15%;
+            width: 70%;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .historyDom {
+            display: flex;
+            border-bottom: 2px solid rgba(222, 222, 222, 0.3);
+            margin-left: 10%;
+            margin-right: 10%;
+            padding-bottom: 10px;
+        }
+
+        .history-info {
+            width: 60%;
+            padding-left: 10px;
+        }
+
+        .history-avatar {
+            width: 14%;
+        }
+
+        .img-avatar {
+            border-radius: 50%;
+            width: 100%;
+        }
+
+        .history-percent {
+            width: 26%;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .sp-percent {
+            text-align: center;
+            width: 100%;
+            color: #fbd147;
+            font-weight: lighter;
+            font-size: 0.8rem;
+            vertical-align: -webkit-baseline-middle;
+        }
+
+        .lbl-history-username {
+            text-align: left;
+            width: 100%;
+            color: white;
+            font-weight: bold;
+            font-size: 0.6rem;
+            vertical-align: text-top;
+        }
+
+        .lbl-history-time {
+            text-align: left;
+            width: 100%;
+            color: white;
+            font-weight: lighter;
+            font-size: 0.6rem;
+            vertical-align: text-bottom;
+        }
+
+        .div-contact {
+            width: 25%;
+            text-align: center;
+            margin-left: 4.16%;
+            margin-right: 4.16%;
+        }
+
+        .tida-rule {
+            margin-top: 14rem;
+            text-align: right;
+            margin-left: 10px;
+        }
+
+        .img-tida {
+            width: 50px;
+            margin-right: 10px;
+        }
+
+        .div-display-none {
+            display: none;
+        }
+
+        .body-noscroll {
+            overflow: hidden;
+        }
+
         /***** mobile device ******/
 
         @media only screen and (min-width:320px) {
-            .div-input-address {
-                margin-left: 15%;
-                margin-right: 15%;
-            }
-
             .input-address {
-                width: 14rem;
+                width: 100%;
                 height: 3rem;
                 margin-left: 0% !important;
                 margin-top: 8%;
+                font-weight: lighter !important;
             }
             .input-container {
-                margin-top: 17rem;
+                margin-top: 0.5rem;
             }
 
             .candy-container {
-                margin-top: 14rem;
+                margin-top: 0.5rem;
             }
             .btn-try {
                 margin-left: 0%;
-                margin-top: 8%;
                 width: 100%;
                 background: url(../../images/invite/btn_try.png);
                 border: none;
-                height: 2.43rem;
+                height: 2.59rem;
                 background-color: transparent !important;
                 background-size: contain !important;
                 padding-bottom: 15px;
                 font-weight: bold;
             }
-            .paragraph-bg {
-                text-align: center;
-                background-color: rgba(136, 127, 127, 0.3);
-                opacity: 1;
-                color: white;
-                font-weight: bold;
-                font-size: 0.8rem;
-                width: 17rem;
-                margin-left: 7.8%;
-                margin-top: 1.8%;
-            }
             .btn-copy {
                 font-weight: bold;
-                height: 2.66rem !important;
+                height: 2.85rem !important;
                 margin-top: 0rem;
                 padding-bottom: 30px !important;
                 margin-left: 12%;
@@ -235,45 +377,29 @@
             }
             .div-try {
                 margin-bottom: 0% !important;
-                margin-left: 15%;
-                margin-right: 15%;
             }
             .box {
                 min-height: 1000px;
             }
-        }
+            .div-input-item {
+                background: url(../../images/invite/inviteResult.png) no-repeat;
+                background-position: top center;
+                background-size: contain;
+                height: 340px;
+            }
 
-        .div-contact {
-            width: 25%;
-            text-align: center;
-            margin-left: 4.16%;
-            margin-right: 4.16%;
-        }
-
-        @media only screen and (min-width:360px) {
-            .input-address {
+            .div-invitation-detail-item {
+                background: url(../../images/invite/invitePercent.png) no-repeat;
+                background-position: top center;
+                background-size: contain;
+                height: 340px;
+            }
+            .div-input-title {
+                text-align: center;
                 width: 100%;
-                height: 3rem;
-                margin-top: 8%;
-            }
-            .input-container {
-                margin-top: 20rem;
-            }
-
-            .candy-container {
-                margin-top: 17rem;
-            }
-            .btn-try {
-                margin-left: 0%;
-                margin-top: 8%;
-                width: 100%;
-                background: url(../../images/invite/btn_try.png);
-                border: none;
-                height: 2.74rem;
-                background-color: transparent !important;
-                background-size: contain !important;
-                padding-bottom: 15px;
-                font-weight: bold;
+                margin-top: 20px;
+                color: white;
+                font-size: 0.9rem;
             }
             .paragraph-bg {
                 text-align: left;
@@ -281,14 +407,60 @@
                 opacity: 1;
                 color: white;
                 font-weight: bold;
-                font-size: 0.8rem;
+                font-size: 0.7rem;
                 width: 100%;
                 margin-left: 0%;
-                margin-top: 3%;
+                margin-top: 5% !important;
+                padding: 5px 10% 5px 10%;
+            }
+            .tida-rule {
+                margin-top: 13rem;
+                text-align: right;
+                margin-left: 10px;
+            }
+            .div-mypage {
+                margin-left: 12%;
+                margin-right: 12%;
+            }
+            .btn-share {
+                font-weight: bold;
+                margin-top: 0rem;
+                padding-bottom: 30px;
+                background: url(../../images/invite/inviteBillButton.png) no-repeat !important;
+                height: 3.4rem !important;
+                color: white;
+                background-size: contain !important;
+            }
+        }
+
+        @media only screen and (min-width:360px) {
+            .input-address {
+                width: 100%;
+                height: 3rem;
+                margin-top: 36px;
+                font-weight: lighter !important;
+            }
+            .input-container {
+                margin-top: 0.5rem;
+            }
+
+            .candy-container {
+                margin-top: 0.5rem;
+            }
+            .btn-try {
+                margin-left: 0%;
+                width: 100%;
+                background: url(../../images/invite/btn_try.png);
+                border: none;
+                height: 2.92rem;
+                background-color: transparent !important;
+                background-size: contain !important;
+                padding-bottom: 15px;
+                font-weight: bold;
             }
             .btn-copy {
                 font-weight: bold;
-                height: 2.95rem !important;
+                height: 3.17rem !important;
                 margin-top: 0rem;
                 padding-bottom: 30px !important;
             }
@@ -297,111 +469,102 @@
                 margin-left: 12%;
                 margin-right: 12%;
             }
-            .div-paragraph {
-                margin-left: 0%;
-                margin-right: 0%;
+            .div-input-item {
+                background: url(../../images/invite/inviteResult.png) no-repeat;
+                background-position: top center;
+                background-size: contain;
+                height: 340px;
             }
-            .div-paragraph-tips {
-                margin-left: 8%;
-                margin-right: 8%;
+
+            .div-invitation-detail-item {
+                background: url(../../images/invite/invitePercent.png) no-repeat;
+                background-position: top center;
+                background-size: contain;
+                height: 340px;
             }
-            .box {
-                min-height: 1290px;
+            .btn-share {
+                font-weight: bold;
+                margin-top: 0rem;
+                padding-bottom: 30px;
+                background: url(../../images/invite/inviteBillButton.png) no-repeat !important;
+                height: 3.4rem !important;
+                color: white;
+                background-size: contain !important;
             }
         }
 
         @media screen and (min-width: 375px) {
             .input-address {
-                width: 17rem;
+                width: 100%;
                 height: 3rem;
                 margin-left: 0% !important;
-                margin-top: 8%;
+                margin-top: 17%;
+                font-weight: lighter !important;
             }
             .btn-try {
                 margin-left: 0%;
-                margin-top: 8%;
-                width: 17rem;
+                width: 100%;
                 background: url(../../images/invite/btn_try.png);
                 border: none;
-                height: 2.95rem;
+                height: 3.04rem;
                 background-color: transparent !important;
                 background-size: contain !important;
                 padding-bottom: 15px;
                 font-weight: bold;
             }
-            .paragraph-bg {
-                text-align: left;
-                background-color: rgba(136, 127, 127, 0.3);
-                opacity: 1;
-                color: white;
-                font-weight: bold;
-                font-size: 0.8rem;
-                width: 100%;
-                margin-left: 0%;
-                margin-top: 3%;
-            }
             .btn-copy {
                 font-weight: bold;
-                height: 3.1rem !important;
+                height: 3.3rem !important;
                 margin-top: 0rem;
                 padding-bottom: 11px !important;
                 width: 100%;
             }
             .candy-container {
-                margin-top: 18rem;
+                margin-top: 0.5rem;
             }
-            .box {
-                min-height: 1340px;
+            .btn-share {
+                font-weight: bold;
+                margin-top: 0rem;
+                padding-bottom: 30px;
+                background: url(../../images/invite/inviteBillButton.png) no-repeat !important;
+                height: 3.4rem !important;
+                color: white;
+                background-size: contain !important;
             }
         }
 
         @media only screen and (min-width:411px) {
             .input-container {
-                margin-top: 23rem;
+                margin-top: 3rem;
             }
             .input-address {
                 width: 100%;
                 height: 3rem;
                 margin-left: 0% !important;
-                margin-top: 8%;
-            }
-            .div-input-address {
-                margin-left: 15%;
-                margin-right: 15%;
+                margin-top: 15%;
+                font-weight: lighter !important;
             }
             .btn-try {
                 margin-left: 0%;
-                margin-top: 8%;
                 width: 100%;
                 background: url(../../images/invite/btn_try.png);
                 border: none;
-                height: 3.1rem;
+                height: 3.32rem;
                 background-color: transparent !important;
                 background-size: contain !important;
                 font-size: 1.1rem !important;
                 padding-bottom: 15px;
                 font-weight: bold;
             }
-            .paragraph-bg {
-                text-align: left;
-                background-color: rgba(136, 127, 127, 0.3);
-                opacity: 1;
-                color: white;
-                font-weight: bold;
-                font-size: 0.8rem;
-                width: 100%;
-                margin-left: 0%;
-                margin-top: 3%;
-            }
             .candy-container {
-                margin-top: 21rem;
+                margin-top: 0.5rem;
             }
             .div-copy-code {
                 margin-bottom: 0rem !important;
             }
             .btn-copy {
                 font-weight: bold;
-                height: 3.39rem !important;
+                height: 3.6rem !important;
                 margin-top: 0rem;
                 padding-bottom: 15px !important;
             }
@@ -414,25 +577,36 @@
                 font-size: 1rem !important;
                 padding-top: 10px;
             }
-            .box {
-                min-height: 1470px;
+            .tida-rule {
+                margin-top: 14rem;
+                text-align: right;
+                margin-left: 10px;
+            }
+            .btn-share {
+                font-weight: bold;
+                margin-top: 0rem;
+                padding-bottom: 30px;
+                background: url(../../images/invite/inviteBillButton.png) no-repeat !important;
+                height: 3.4rem !important;
+                color: white;
+                background-size: contain !important;
             }
         }
 
         @media only screen and (min-width:414px) {
             .input-address {
-                width: 18rem;
+                width: 100%;
                 height: 3rem;
                 margin-left: 0% !important;
-                margin-top: 8%;
+                margin-top: 17%;
+                font-weight: lighter !important;
             }
             .btn-try {
                 margin-left: 0%;
-                margin-top: 8%;
                 width: 100%;
                 background: url(../../images/invite/btn_try.png);
                 border: none;
-                height: 3.15rem;
+                height: 3.36rem;
                 background-color: transparent !important;
                 background-size: contain !important;
                 font-size: 1.1rem !important;
@@ -441,37 +615,136 @@
             }
             .btn-copy {
                 font-weight: bold;
-                height: 3.4rem !important;
+                height: 3.6rem !important;
                 margin-top: 0rem;
                 padding-bottom: 15px !important;
             }
-            .box {
-                min-height: 1480px;
+            .btn-share {
+                font-weight: bold;
+                margin-top: 0rem;
+                padding-bottom: 30px;
+                background: url(../../images/invite/inviteBillButton.png) no-repeat !important;
+                height: 3.4rem !important;
+                color: white;
+                background-size: contain !important;
             }
+        }
+
+        /***** animation ******/
+
+        @keyframes tida {
+            0% {
+                transform: scale3d(1, 1, 1);
+            }
+            3.3%,
+            6.5% {
+                transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+            }
+            10%,
+            16.5%,
+            23%,
+            30% {
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+            }
+            13%,
+            19.8%,
+            26% {
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+            }
+            33% {
+                transform: scale3d(1, 1, 1);
+            }
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @-webkit-keyframes tida {
+            0% {
+                transform: scale3d(1, 1, 1);
+            }
+            3.3%,
+            6.5% {
+                transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+            }
+            10%,
+            16.5%,
+            23%,
+            30% {
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+            }
+            13%,
+            19.8%,
+            26% {
+                transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+            }
+            33% {
+                transform: scale3d(1, 1, 1);
+            }
+            100% {
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        .tida {
+            animation-duration: 2s !important;
+            -o-animation-duration: 2s !important;
+            -moz-animation-duration: 2s !important;
+            -webkit-animation-duration: 2s !important;
+            animation-name: tida;
+        }
+
+        .w3-modal-content {
+            margin: auto;
+            background-color: transparent !important;
+            position: relative;
+            padding: 0;
+            outline: 0;
+            width: 600px;
+        }
+
+        .w3-modal {
+            z-index: 3;
+            display: none;
+            padding-top: 100px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0, 0.7) !important;
         }
     </style>
 </head>
 
 <body>
     <div class="box">
+        <!-- tida Activity Rule -->
+        <div class="tida-rule">
+            <img src="../../images/invite/activityRules.png" class="img-tida tida" />
+        </div>
         <!-- input ETH address -->
         <div class="input-container div-input">
-            <div class="form-group div-input-address">
-                <input type="text" class="form-control input-address" placeholder="请输入ETH钱包地址" />
-            </div>
-            <div class="form-group div-try">
-                <input type="button" class="form-control bg-size btn-try" id="winPrize" value="试试手气" />
-            </div>
-            <div class="form-group div-paragraph div-paragraph-tips">
-                <div class="paragraph-bg">
-                    <div>
+            <div class="form-group div-input-item">
+                <div class="form-group div-margin-15-percent">
+                    <label class="div-input-title">输入ETH钱包地址即可参与抽奖</label>
+                </div>
+                <div class="form-group div-input-address div-margin-15-percent">
+                    <input type="text" class="form-control input-address" placeholder="请输入ETH钱包地址" />
+                </div>
+                <div class="form-group div-try div-margin-15-percent">
+                    <input type="button" class="form-control bg-size btn-try" id="winPrize" value="试试手气" />
+                </div>
+                <div class="form-group div-paragraph div-paragraph-tips">
+                    <div class="paragraph-bg">
                         *请不要拿我们的糖果和空气币去比。就算是发糖果我们也是
                         <span style="color:#feee41;">有节操的</span>。
                     </div>
                 </div>
             </div>
             <div class="form-group div-margin">
-                <img src="../../images/invite/intro.png" style="width:100%;margin-top: 5rem;">
+                <img src="../../images/invite/intro.png" style="width:100%;">
             </div>
             <div class="form-group div-margin">
                 <img src="../../images/invite/tradingExchanges.png" style="width:100%;margin-top: 2rem;">
@@ -487,7 +760,8 @@
                     <img src="../../images/invite/whitePaper.png" class="icon-init" data-href="https://cybereits.com/docs/CYBEREITS_White_Paper_v1.2.0.pdf"
                         id="whitePaper" />
                     <br>
-                    <span style="color:white;text-decoration: underline;font-weight:300;" data-href="https://cybereits.com/docs/CYBEREITS_White_Paper_v1.2.0.pdf" id="whitePaperLink">白皮书</span>
+                    <span style="color:white;text-decoration: underline;font-weight:300;" data-href="https://cybereits.com/docs/CYBEREITS_White_Paper_v1.2.0.pdf"
+                        id="whitePaperLink">白皮书</span>
                 </div>
                 <div class="div-contact">
                     <img src="../../images/invite/telegram.png" class="icon-init" data-href="https://t.me/cybereits" id="telegramIcon" />
@@ -498,84 +772,116 @@
         </div>
         <!-- candy result -->
         <div class="candy-container div-candy" style="display:none;">
-            <div class="form-group" style="margin-bottom: 0rem;">
-                <span id="creNumber">0.00</span>
-                <span style="color:white;font: size 2rem;">CRE</span>
+            <!-- receive candy detail -->
+            <div class="form-group div-input-item">
+                <div class="form-group div-margin-15-percent" style="margin-bottom: 0rem;">
+                    <label class="div-input-title">输入ETH钱包地址即可参与抽奖</label>
+                </div>
+                <div class="form-group" style="margin-bottom: 0rem;text-align: center;margin-top: 5%;">
+                    <span id="creNumber">0</span>
+                    <span style="color:white;font: size 2rem;">CRE</span>
+                </div>
+                <div class="form-group">
+                    <span class="lbl-candy-code">糖果码</span>
+                    <input type="text" class="input-clip-board copybtn1" value="/A12345678" id="candyCode">
+                </div>
+                <div class="form-group div-copy-code">
+                    <input type="button" id="toClipBoard" class="form-control bg-size btn-try btn-copy" value="复制糖果码" style="font-weight: bold;height: 2.5rem;margin-top:0rem"
+                        onclick="myFunction()" readonly="readonly" />
+                </div>
+                <div style="display:flex;">
+                    <input type="button" id="toTelegram" class="form-control bg-size-second btn-to-telegram" value="去Telegram领取" />
+                    <input type="button" id="toBiyong" class="form-control bg-size-second btn-to-biyong" value="去币用领取" />
+                </div>
             </div>
-            <div class="form-group">
-                <span class="lbl-candy-code">糖果码</span>
-                <input type="text" class="input-clip-board copybtn1" value="/A12345678" id="candyCode">
+            <!-- my invitation benefit -->
+            <div class="form-group div-invitation-detail-item">
+                <div class="form-group div-margin-15-percent" style="margin-bottom: 0rem;">
+                    <label class="lbl-invitation-title-top">暴击加成</label>
+                </div>
+                <div class="form-group div-margin-15-percent" style="margin-bottom: 0rem;">
+                    <label class="lbl-invitation-title-bottom">邀请你的好友使你的红包变大</label>
+                </div>
+                <div class="form-group" style="margin-bottom: 0rem;">
+                    <div class="div-final-percent">
+                        <span id="invitePlusSymbol">+</span>
+                        <span id="invitePercent">0.00</span>
+                        <span style="color: #693b36;font: size 2rem;">%</span>
+                    </div>
+                </div>
+                <div class="form-group div-margin-15-percent" style="margin-bottom: 0rem;">
+                    <label class="lbl-current-percnet">当前暴击加成</label>
+                </div>
+                <div class="form-group div-mypage">
+                    <input type="button" id="toClipBoard" class="form-control bg-size btn-try btn-share" value="分享专属邀请海报" style="font-weight: bold;height: 2.5rem;margin-top:0rem"
+                        onclick="myPage()" readonly="readonly" />
+                </div>
+                <div class="form-group div-margin-15-percent" style="margin-bottom: 0rem;">
+                    <label class="lbl-notice">温馨提示：好友完成红包领取才能加成红包</label>
+                </div>
             </div>
-            <div class="form-group div-copy-code">
-                <input type="button" id="toClipBoard" class="form-control bg-size btn-try btn-copy" value="复制糖果码" style="font-weight: bold;height: 2.5rem;margin-top:0rem"
-                    onclick="myFunction()" readonly="readonly" />
-            </div>
-            <div style="display:flex;">
-                <input type="button" id="toTelegram" class="form-control bg-size-second btn-to-telegram" value="去Telegram领取" />
-                <input type="button" id="toBiyong" class="form-control bg-size-second btn-to-biyong" value="去币用领取" />
-            </div>
-            <div class="form-group">
-                <img src="../../images/invite/howGetPrize.png" style="width: 84%;margin-top: 8rem;margin-left: 8%;margin-right: 8%;">
-            </div>
-            <div class="form-group">
-                <div class="panel panel-default" style="border: 1px dashed white;width:80%;margin-left:10%;margin-top: 4rem;">
-                    <div class="panel-body">
-                        <div class="div-paragraph">
-                            <div class="cols-sm-6">
-                                <span style="color:white;font-weight: 500">提示：</span>
-                            </div>
-                            <div class="cols-sm-6">
-                                <span style="color:white;font-weight: 500;font-size: 0.8rem;">没有安装Telegram可通过goolge应用市场搜索进行下载。
-                                    <br/>
-                                </span>
-                                <span style="color:white;font-weight: 500;font-size: 0.8rem;">无法翻墙可通过www.biyong.io下载【币用】进入社区。
-                                    <br/>
-                                </span>
-                            </div>
-                        </div>
+            <!-- my invitation history -->
+            <div class="div-hostory div-display-none">
+                <div class="div-margin-5-percent">
+                    <div class="form-group div-margin-5-percent" style="margin-bottom: 20px;">
+                        <img src="../../images/invite/inviteHistory.png" style="width:100%;">
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-                <img src="../../images/invite/activityNotification.png" style="width: 80%;margin-top: 3rem;margin-left: 10%;margin-right: 10%;">
+        </div>
+        <div class="form-group" style="display:none;">
+            <div id="qrcode"></div>
+            <img id="emptyInvitePage" src="../../images/invite/inviteBill.jpg">
+            <!-- invitation item -->
+            <div class="form-group historyDom" id="itemDom">
+                <div class="history-avatar">
+                    <img src="../../images/invite/avatar.png" class="img-avatar" />
+                </div>
+                <div class="history-info">
+                    <label class="lbl-history-username">Cybereits</label>
+                    <label class="lbl-history-time">2018-03-20 18:30</label>
+                </div>
+                <div class="history-percent">
+                    <span class="sp-percent">+</span>
+                    <span class="sp-percent sp-this-percent">60</span>
+                    <span class="sp-percent">%</span>
+                </div>
             </div>
-            <div class="form-group" style="margin-top: 2.5rem;margin-bottom: 2.5rem;">
-                <p class="div-paragrash-notice" style="color:white">1.所有加入官方社区的成员皆具备领取资格；</p>
-                <p class="div-paragrash-notice" style="color:white">2.参加抽奖的ETH地址仅限ETH钱包地址、Bit-Z与Bigone的CRE充值地址，输入其他地址可能接收不到糖果；</p>
-                <p class="div-paragrash-notice" style="color:white">3.每个钱包地址仅限抽奖一次；</p>
-                <p class="div-paragrash-notice" style="color:white">4.每个telegram账号仅限领取一次糖果；</p>
-                <p class="div-paragrash-notice" style="color:white">5.糖果码发送到Cybereits群聊中请勿携带其它字符；</p>
-                <p class="div-paragrash-notice" style="color:white">6.活动期间退出Cybereits官方社区群将视为领取资格无效；</p>
-                <p class="div-paragrash-notice" style="color:white">7.活动结束后1~2工作日完成CRE糖果发放；</p>
-                <p class="div-paragrash-notice" style="color:white">8.本次活动的最终解释权归Cybereits官方所有。</p>
+        </div>
+        <div class="form-group" style="display:none;">
+            <canvas id="finalCanvas" width="1080" height="1920"></canvas>
+        </div>
+        <!-- modal -->
+        <div id="myModal" class="w3-modal">
+            <div class="w3-modal-content" style="margin-top: 20%;">
+                <div class="w3-container" style="opacity: 1;text-align: center;">
+                    <!-- <button type="button" class="btn btn-primary" onclick="document.getElementById('myModal').style.display='none'" style="text-align: center;">
+                                <i class="fa fa-close"></i> 关闭</button> -->
+                    <img id="myPersonalPage" class="modal-ele-except" style="width:270px;">
+                    <p class="form-control" style="border:none;background-color: transparent;color: white;font-style: italic;font-weight: lighter;">保存图片并发送给微信好友</p>
+                </div>
             </div>
         </div>
     </div>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
-    <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.15.1/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.17.0/sweetalert2.all.js"></script>
+    <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.21.0/moment.js"></script>
     <script>
         window.__INIT_STATE = {
             dataService: "<%= dataService %>"
         }
-        let ethRex = /^0x[A-Fa-f0-9]{40}$/
-        //To telegram
-        $(document).on("click", "#toTelegram", function (e) {
-            e.preventDefault();
-            window.open("https://t.me/cybereits");
-        });
 
-        //To biyong
-        $(document).on("click", "#toBiyong", function (e) {
-            e.preventDefault();
-            window.open("https://0.plus/cybereits");
-        });
+        //other people's invite code
+        var url = new URL(window.location.href);
+        var inviteCode = url.searchParams.get("invite_code");
+        if (inviteCode === null || inviteCode === "") {
+            inviteCode = undefined;
+        };
 
-        //office website
-        $(document).on("click", "#officalWebsite,#whitePaper,#telegramLink,#telegramIcon,#whitePaperLink,#officalLink", function (e) {
-            e.preventDefault();
-            window.open($(this).data("href"));
-        });
+        //eth address formate Regex
+        let ethRegex = /^0x[A-Fa-f0-9]{40}$/
 
         //copy function
         function myFunction() {
@@ -587,40 +893,146 @@
             swal("复制糖果码成功");
         }
 
-        //participe reward
-        $(document).on("click", "#winPrize", function (e) {
-            e.preventDefault();
-            swal('请稍候')
-            swal.showLoading()
+        $(document).ready(function () {
+            //To telegram
+            $(document).on("click", "#toTelegram", function (e) {
+                e.preventDefault();
+                window.open("https://t.me/cybereits");
+            });
 
-            var ethAddress = $(".input-address").val();
-            if (!ethRex.test(ethAddress)) {
-                swal('请输入正确的eth地址');
-                return false;
-            }
+            //To biyong
+            $(document).on("click", "#toBiyong", function (e) {
+                e.preventDefault();
+                window.open("https://0.plus/cybereits");
+            });
 
-            fetch(window.__INIT_STATE.dataService + '/http/activities/create_temp', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    eth_address: ethAddress
-                })
-            }).then((res) => res.json())
-                .then(res => {
-                    swal.close();
-                    if (res.error) {
-                        swal(res.error);
-                    }
-                    else {
-                        $(".div-input").hide();
-                        $(".div-candy").removeAttr("style");
-                        $("#candyCode").val('/A' + res.result.code);
-                        $("#creNumber").text(res.result.amount);
-                    }
-                })
+            //office website
+            $(document).on("click", "#officalWebsite,#whitePaper,#telegramLink,#telegramIcon,#whitePaperLink,#officalLink", function (e) {
+                e.preventDefault();
+                window.open($(this).data("href"));
+            });
+
+            //participe reward
+            $(document).on("click", "#winPrize", function (e) {
+                e.preventDefault();
+                swal('请稍候')
+                swal.showLoading()
+
+                var ethAddress = $(".input-address").val();
+                if (!ethRegex.test(ethAddress)) {
+                    swal('请输入正确的eth地址');
+                    return false;
+                }
+
+                //get my CRE count
+                fetch(window.__INIT_STATE.dataService + '/http/activities/create_temp', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        eth_address: ethAddress,
+                        invite_code: inviteCode,
+                    })
+                }).then((res) => res.json())
+                    .then(res => {
+                        if (res.error) {
+                            swal(res.error);
+                        }
+                        else {
+                            //Dom display or hide, then set value
+                            $(".div-input").hide();
+                            $(".div-candy").removeAttr("style");
+                            $("#candyCode").val('/A' + res.result.code);
+                            $("#creNumber").text(res.result.amount);
+                            initMyInviteImage(window.location.host, res.result.myInviteCode);
+
+                            ///先判断是否激活
+                            if (!res.result.actived) {
+                                swal("请进入官方社区激活");
+                                return false;
+                            }
+                            //invitation percent and invitation history
+                            fetch(window.__INIT_STATE.dataService + '/http/activities/query_reward_via_invite_code?invite_code=' + res.result.myInviteCode, {
+                                method: 'GET',
+                            }).then((result) => result.json())
+                                .then(result => {
+                                    swal.close();
+                                    //错误
+                                    if (result.error) {
+                                        swal(result.error);
+                                        return false;
+                                    }
+                                    //display percent
+                                    $("#invitePercent").text(result.result.rewardViaInvite);
+                                    if (result.result.inviteDetails.length > 0) {
+                                        $(".div-hostory").removeClass("div-display-none");
+                                        var tempArray = result.result.inviteDetails;
+                                        for (let index = 0; index < tempArray.length; index++) {
+                                            const element = tempArray[index];
+                                            //display history
+                                            var tempHTMLDom = $("#itemDom").clone();
+                                            tempHTMLDom.find("label[class='lbl-history-username']").text(element.username);
+                                            var createTime = moment(element.createAt).format("YYYY-MM-DD HH:mm");
+                                            tempHTMLDom.find("label[class='lbl-history-time']").text(createTime);
+                                            tempHTMLDom.find("span[class='sp-this-percent']").text(element.bonusRate);
+                                            $(".div-hostory").append(tempHTMLDom);
+                                        }
+                                    }
+                                })
+                        }
+                    })
+            });
+
+            //tida to InviteRule page
+            $(document).on("click", ".tida", function (e) {
+                e.preventDefault();
+                var url = "https://cybereits.com/" + "inviteRule";
+                window.open(url, "_self");
+            });
+
+            //modal close
+            $(document).on("click", ".w3-modal", function (e) {
+                e.preventDefault();
+                if (e.target.classList[0] === "modal-ele-except") {
+                    return false;
+                }
+                document.getElementById('myModal').style.display = 'none';
+                $("body").removeClass("body-noscroll");
+            });
         });
+
+        //我的邀请函
+        function myPage() {
+            $("body").addClass("body-noscroll");
+            var finalCanvasBase64 = document.getElementById("finalCanvas").toDataURL();
+            $("#myPersonalPage").attr("src", finalCanvasBase64);
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        //init user's invite image
+        function initMyInviteImage(webHost, myInviteCode) {
+            var myUrl = webHost + "/invite?invite_code=" + myInviteCode;
+            $("#qrcode").qrcode({
+                text: myUrl,
+                width: 390,
+                height: 390,
+            });
+            //init cavas
+            var myCanvas = document.getElementById('finalCanvas');
+            var bgContent = myCanvas.getContext('2d');
+            var emptyInvitePage = document.getElementById("emptyInvitePage");
+            bgContent.drawImage(emptyInvitePage, 0, 0);
+
+            //load qrcode
+            $("#qrcode >canvas").eq(0).prop("id", "qrcanvas");
+            var qrcodeBase64 = document.getElementById("qrcanvas").toDataURL();
+            var qrcodeImg = new Image();
+            qrcodeImg.onload = function () {
+                bgContent.drawImage(qrcodeImg, 340, 1281, 390, 390);
+            };
+            qrcodeImg.src = qrcodeBase64;
+        }
     </script>
 </body>
 
