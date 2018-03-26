@@ -910,7 +910,10 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0, 0, 0, 0.7) !important;
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity = 90)" !important;
+            filter: alpha(opacity = 90) !important;
+            opacity: 0.9 !important;
         }
 
         .swal2-popup {
@@ -1052,7 +1055,7 @@
                 </div>
                 <div class="history-percent">
                     <span class="sp-percent">+</span>
-                    <span class="sp-percent sp-this-percent">60</span>
+                    <span class="sp-percent sp-this-percent">0</span>
                     <span class="sp-percent">%</span>
                 </div>
             </div>
@@ -1065,7 +1068,7 @@
             <div class="w3-modal-content">
                 <div class="w3-container" style="opacity: 1;text-align: center;">
                     <img id="myPersonalPage" class="modal-ele-except" style="width:270px;">
-                    <p class="form-control" style="border:none;background-color: transparent;color: white;font-style: italic;font-weight: lighter;">保存图片并发送给微信好友</p>
+                    <p class="form-control" style="border:none;background-color: transparent;color: white;font-style: italic;font-weight: lighter;">长按保存图片转发给好友</p>
                 </div>
             </div>
         </div>
@@ -1180,12 +1183,10 @@
                                         for (let index = 0; index < tempArray.length; index++) {
                                             const element = tempArray[index];
                                             //display history
-                                            var tempHTMLDom = $("#itemDom").clone();
-                                            tempHTMLDom.find("label[class='lbl-history-username']").text(element.username);
                                             var createTime = moment(element.createAt).format("YYYY-MM-DD HH:mm");
-                                            tempHTMLDom.find("label[class='lbl-history-time']").text(createTime);
-                                            tempHTMLDom.find("span[class='sp-percent sp-this-percent']").text(element.bonusRate);
-                                            $(".div-hostory").append(tempHTMLDom);
+                                            var html = "<div class='form-group historyDom'><div class='history-avatar'><img src='../../images/invite/avatar.png' class='img-avatar' /></div><div class='history-info'><label class='lbl-history-username'>"+ element.username +"</label><label class='lbl-history-time'>"+ createTime +"</label></div><div class='history-percent'><span class='sp-percent'>+</span><span class='sp-percent sp-this-percent'>"+ element.bonusRate +"</span><span class='sp-percent'>%</span></div></div>";
+                                            
+                                            $(".div-hostory").append(html);
                                         }
                                     }
                                     else{
@@ -1207,9 +1208,6 @@
             //modal close
             $(document).on("click", ".w3-modal", function (e) {
                 e.preventDefault();
-                if (e.target.classList[0] === "modal-ele-except") {
-                    return false;
-                }
                 document.getElementById('myModal').style.display = 'none';
                 $("body").removeClass("body-noscroll");
             });
