@@ -1,5 +1,4 @@
 const path = require('path')
-const ip = require('ip')
 
 const PORT = 8001
 
@@ -10,7 +9,6 @@ let config = {
   dir_web: 'client',
   dir_dist: 'dist',
   dir_server: 'server',
-  server_host: ip.address(),
   server_port: process.env.PORT || PORT,
   data_service: 'http://112.126.71.91:8003',
 }
