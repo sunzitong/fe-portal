@@ -6,8 +6,7 @@
         Cybereits邀请你来发糖果
     </title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,initial-scale=1.0" />
     <meta content="telephone=no" name="format-detection" />
     <link rel="shortcut icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
     <link rel="icon" href="images/favicon.ico" type="image/vnd.microsoft.icon" />
@@ -19,7 +18,7 @@
             margin: 0;
             padding: 0;
         }
-
+        
         .img-tida {
             background: url(../images/invite/back.png) no-repeat;
             width: 25px;
@@ -30,7 +29,7 @@
             background-size: cover;
             border: none;
         }
-
+        
         @keyframes tida {
             0% {
                 transform: scale3d(1, 1, 1);
@@ -57,7 +56,7 @@
                 transform: scale3d(1, 1, 1);
             }
         }
-
+        
         @-webkit-keyframes tida {
             0% {
                 transform: scale3d(1, 1, 1);
@@ -84,7 +83,7 @@
                 transform: scale3d(1, 1, 1);
             }
         }
-
+        
         .tida {
             animation: infinite;
             -o-animation: infinite;
@@ -100,12 +99,12 @@
 </head>
 
 <body style="display:grid;">
-    <img src="../../images/invite/activityRule.jpg" id="activityRuleImg" style="width:100%;">
+    <img src="../../images/invite/activityRule.png" id="activityRuleImg" style="width:100%;">
     <button src="../images/invite/back.png" class="img-tida" id="btnBack"></button>
     <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script>
-        $(document).ready(function () {
-            $(document).on("click", ".img-tida", function (e) {
+        $(document).ready(function() {
+            $(document).on("click", ".img-tida", function(e) {
                 e.preventDefault();
                 window.open("/invite", "_self");
             })

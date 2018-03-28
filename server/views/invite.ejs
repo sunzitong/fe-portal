@@ -1067,6 +1067,7 @@
     <script src="https://cdn.bootcss.com/limonte-sweetalert2/7.17.0/sweetalert2.all.js"></script>
     <script src="https://cdn.bootcss.com/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
     <script src="https://cdn.bootcss.com/moment.js/2.21.0/moment.js"></script>
+    <script href="../../plugin/fetch.polyfill.min.js"></script>
     <script>
         window.__INIT_STATE = {
             dataService: "<%= dataService %>"
@@ -1097,13 +1098,13 @@
 
         $(document).ready(function() {
             //To telegram
-            $(document).on("click", "#toTelegram", function(e) {
+            $('#toTelegram').on("click", function(e) {
                 e.preventDefault();
                 window.open("https://t.me/cybereits");
             });
 
             //To biyong
-            $(document).on("click", "#toBiyong", function(e) {
+            $('#toBiyong').on("click", function(e) {
                 e.preventDefault();
                 window.open("https://0.plus/cybereits");
             });
@@ -1115,7 +1116,7 @@
             });
 
             //participe reward
-            $(document).on("click", "#winPrize", function(e) {
+            $('#winPrize').on('click', function(e) {
                 e.preventDefault();
                 swal('请稍候')
                 swal.showLoading()
