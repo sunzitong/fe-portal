@@ -939,12 +939,17 @@
                 <div class="form-group div-margin-15-percent">
                     <label class="div-input-title">输入ETH钱包地址即可参与抽奖</label>
                 </div>
-                <div class="form-group div-input-address div-margin-15-percent">
+                <!-- activity close -->
+                <div class="form-group div-input-address div-margin-15-percent" style="margin-top: 19%;margin-bottom: 10%;text-align: center;color: white;">
+                    <label>CRE红包已被抢光，活动已结束！</label>
+                </div>
+                <!-- activity open -->
+                <!-- <div class="form-group div-input-address div-margin-15-percent">
                     <input type="text" class="form-control input-address" placeholder="请输入ETH钱包地址" />
                 </div>
                 <div class="form-group div-try div-margin-15-percent">
                     <input type="button" class="form-control bg-size btn-try" id="winPrize" value="试试手气" />
-                </div>
+                </div> -->
                 <div class="form-group div-paragraph div-paragraph-tips">
                     <div class="paragraph-bg">
                         *请不要拿我们的糖果和空气币去比。就算是发糖果，我们也是<span style="color:#feee41;">有节操的</span>。
@@ -1125,6 +1130,7 @@
             //participe reward
             $(document).on("click", "#winPrize", function (e) {
                 e.preventDefault();
+                return false;
                 swal('请稍候')
                 swal.showLoading()
 
