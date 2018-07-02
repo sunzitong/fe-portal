@@ -13,7 +13,7 @@ import webpackClientConfig from '../config/webpack.config'
 import router from './routes'
 
 // init chatroom socket service
-const app = new Express()
+const app = Express()
 const server = http.createServer(app)
 const utilsPaths = config.utils_paths
 
