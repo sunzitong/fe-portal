@@ -22,7 +22,6 @@ pipeline {
         steps {
           // 复制项目所需的配置文件
           sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/env.js ./config/env.js"
-          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/config.json ./database/config.json"
         }
       }
   
