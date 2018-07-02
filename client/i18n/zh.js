@@ -6,7 +6,7 @@ export default {
   'token_allocate': '代币分配',
   'fund_allocate': '资金分配',
   'roadmap': '历程与规划',
-  'team': '团队介绍',
+  'team': '创始人介绍',
   'partners': '合作与社区',
   'simple_chinese': '中文',
   'primary_title': '全球区块链线上不动产交易第一平台',

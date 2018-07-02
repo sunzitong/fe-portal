@@ -6,7 +6,7 @@ export default {
   'token_allocate': 'Token allocate',
   'fund_allocate': 'Fund allocate',
   'roadmap': 'Roadmap',
-  'team': 'Team',
+  'team': 'Founder',
   'partners': 'Partners',
   'simple_chinese': 'Chinese',
   'primary_title': 'The NO.1 Global block chain online real estate trading platform',

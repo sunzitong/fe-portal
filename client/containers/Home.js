@@ -477,7 +477,7 @@ export default class WhiteList extends React.Component {
                   title={this.state.locale.team_ceo_name}
                   content={this.state.locale.team_ceo_intro}
                 />
-                <TeamMember
+                {/* <TeamMember
                   img="xuyang"
                   title={this.state.locale.team_cto_name}
                   content={this.state.locale.team_cto_intro}
@@ -491,7 +491,7 @@ export default class WhiteList extends React.Component {
                   img="chendonghao"
                   title={this.state.locale.team_cmo_name}
                   content={this.state.locale.team_cmo_intro}
-                />
+                /> */}
               </div>
               <p className="text-center large m-b-3rem">{this.state.locale.early_investors}</p>
               <div className="dis-flex">
@@ -578,7 +578,7 @@ export default class WhiteList extends React.Component {
                             backgroundImage: 'url(/images/white-paper-cover-01.jpg)',
                           }}
                         >
-                          <span className={pageStyles.ribbon}>v1.2.0</span>
+                          <span className={pageStyles.ribbon}>v1.3.0</span>
                           <p>{this.state.locale.whitepaper}</p>
                         </div>
                       </li>
