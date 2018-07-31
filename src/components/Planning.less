@@ -1,0 +1,38 @@
+.container {
+  background-image: url('../assets/images/bg3.jpg');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-color: #07358a;
+  height: 1842px;
+  padding-top: 58px;
+  padding-bottom: 58px;
+  .title_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .title {
+      color: white;
+      margin: 30px 0px 2px 0px;
+    }
+    .en_title {
+      color: #6de9f7;
+    }
+  }
+  .row {
+    width: 900px;
+    margin-top: 20px;
+  }
+  .text {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 1169px) {
+  .container {
+    height: 2000px !important;
+  }
+}

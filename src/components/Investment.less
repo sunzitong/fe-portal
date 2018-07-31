@@ -1,0 +1,227 @@
+.container {
+  padding-top: 58px;
+  padding-bottom: 58px;
+  flex-direction: column;
+  display: flex;
+  background-image: url('../assets/images/bg4.jpg');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-color: #3e90e3;
+  height: 430px;
+  .button_container {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .button_group {
+      font-size: 20px;
+      display: flex;
+      font-weight: 500;
+      height: 42px;
+      &.active_left {
+        margin-left: -32px;
+      }
+      &.active_right {
+        margin-right: -32px;
+      }
+      .button {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px 21px;
+        border-radius: 21px;
+        border: 1px solid #1c7ae0;
+        color: rgb(38, 134, 227);
+        &.active_left {
+          background-color: #1c7ae0;
+          color: white;
+          position: relative;
+          left: 32px;
+        }
+        &.active_right {
+          background-color: #1c7ae0;
+          color: white;
+          position: relative;
+          right: 32px;
+        }
+      }
+    }
+  }
+  .content_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    .pic_group {
+      display: flex;
+      width: 800px;
+      justify-content: space-between;
+      .item_container {
+        box-shadow: 1px 0px 12px -1px grey;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        transform: none;
+        // transform:rotateY(270deg);
+        // transform:rotateY(45deg);
+        // -webkit-transform:rotateY(45deg); /* Safari and Chrome */
+        // -moz-transform:rotateY(45deg); /* Firefox */
+        // transform:rotateY(60deg)
+        // animation: myfirst 3s linear;
+        &.active{
+          &.investorsRotate {
+            animation: investorsRotate .3s linear;
+          }
+        }
+        &.active {
+          &.organizationRotate {
+            animation: organizationRotate .3s linear;
+          }
+        }
+        &.nintyDeg {
+          transform:rotateY(-90deg);
+          -webkit-transform:rotateY(-90deg); /* Safari and Chrome */
+          -moz-transform:rotateY(-90deg); /* Firefox */
+        }
+        .pic {
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+          height: 155px;
+          width: 189px;
+          background-repeat: no-repeat;
+          background-position: center;
+          border-bottom: 1px solid rgb(165, 166, 167);
+        }
+        .text_container {
+          background-color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          border-bottom-left-radius: 5px;
+          border-bottom-right-radius: 5px;
+          .title {
+            font-weight: 500;
+            font-size: 16px;
+            margin: 10px 0px;
+            color: rgb(44, 136, 228)
+          }
+          .sub_title {
+            color: rgb(90, 91, 93);
+            font-size: 12px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      // .item_container,.active,.investorsRotate {
+      //   animation: investorsRotate 3s linear;
+      // }
+      // .item_container,.active,.organizationRotate {
+      //   animation: organizationRotate 3s linear;
+      // }
+    }
+  }
+  .Investors1 {
+    background-image: url('../assets/images/investors1.png');
+    background-color: #0f222f;
+    background-size: contain;
+  }
+
+  .Investors2 {
+    background-image: url('../assets/images/investors2.png');
+    background-color: white;
+    background-size: 60%;
+  }
+
+  .Investors3 {
+    background-image: url('../assets/images/investors3.png');
+    background-color: white;
+    background-size: 70%;
+  }
+
+  .Investors1 {
+    background-image: url('../assets/images/investors1.png');
+    background-color: #0f222f;
+    background-size: contain;
+  }
+
+  .organization1 {
+    background-image: url('../assets/images/organization1.png');
+    background-color: white;
+    background-size: 60%;
+  }
+
+  .organization2 {
+    background-image: url('../assets/images/organization2.png');
+    background-color: white;
+    background-size: 70%;
+  }
+
+  .organization3 {
+    background-image: url('../assets/images/organization3.png');
+    background-color: white;
+    background-size: 70%;
+  }
+}
+
+@media screen and (max-width: 858px) {
+  .container {
+    height: 900px !important;
+    background-color: #40c9f9 !important;
+  }
+  .pic_group {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .item_container {
+    margin-bottom: 25px !important;
+  }
+  .content_container {
+    margin-top: 0px !important;
+  }
+}
+@media screen and (max-width: 575px) {
+  .row {
+    width: 200px !important;
+  }
+  .centent_container {
+    height: 1255px !important;
+  }
+}
+
+@-webkit-keyframes investorsRotate /* Safari 和 Chrome */
+{
+  0% {
+    transform:rotateY(0deg);
+    -webkit-transform:rotateY(0deg); /* Safari and Chrome */
+    -moz-transform:rotateY(0deg); /* Firefox */
+  }
+  50% {
+    transform:rotateY(45deg);
+    -webkit-transform:rotateY(45deg); /* Safari and Chrome */
+    -moz-transform:rotateY(45deg); /* Firefox */
+  }
+  100% {
+    transform:rotateY(90deg);
+    -webkit-transform:rotateY(90deg); /* Safari and Chrome */
+    -moz-transform:rotateY(90deg); /* Firefox */
+  }
+}
+
+@-webkit-keyframes organizationRotate /* Safari 和 Chrome */
+{
+  0% {
+    transform:rotateY(-90deg);
+    -webkit-transform:rotateY(-90deg); /* Safari and Chrome */
+    -moz-transform:rotateY(-90deg); /* Firefox */
+  }
+  50% {
+    transform:rotateY(-45deg);
+    -webkit-transform:rotateY(-45deg); /* Safari and Chrome */
+    -moz-transform:rotateY(-45deg); /* Firefox */
+  }
+  100% {
+    transform:rotateY(0deg);
+    -webkit-transform:rotateY(0deg); /* Safari and Chrome */
+    -moz-transform:rotateY(0deg); /* Firefox */
+  }
+}

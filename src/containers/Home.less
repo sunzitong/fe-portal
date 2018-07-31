@@ -1,0 +1,40 @@
+.container {
+  height: 100%;
+}
+
+.footer {
+  background-color: rgb(35, 132, 228);
+  .footer_logo_container {
+      text-align: center;
+      padding-top: 41px;
+      padding-bottom: 31px;
+      &>a {
+          display: inline-block;
+          position: relative;
+          .footer_logo {
+              cursor: pointer;
+              display: inline-block;
+              width: 3rem;
+              height: 3rem;
+              margin: 0 3rem;
+          }
+          .footer_logo_wechat {
+              position: absolute;
+              width: 7rem;
+              height: 7rem;
+              top: -7.5rem;
+              left: 50%;
+              margin-left: -3.5rem;
+          }
+      }
+  }
+}
+
+.Copyright {
+  height: 70px;
+  border-top: 1px solid rgb(56, 144, 230);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
