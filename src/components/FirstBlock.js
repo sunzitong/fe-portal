@@ -19,7 +19,7 @@ export default class extends React.Component {
     this.state = {}
   }
   render() {
-    const { title, subTitle, id } = this.props
+    const { title, subTitle, id, whitepaper, subscribe, placeholder } = this.props
     return (
       <div className={styles.container} id={id}>
         <div className={styles.logo_container}>
@@ -29,7 +29,10 @@ export default class extends React.Component {
           <h1 className={styles.title}>{title}</h1>
           <h2 className={styles.sub_title}>{subTitle}</h2>
         </div>
-        <Subscribe />
+        <Subscribe
+          subscribe={subscribe}
+          placeholder={placeholder}
+        />
         <div className={styles.whitepaper_container}>
           <div className={styles.whitepaper_button_container}>
             <Icon logo="white-paper" />
@@ -40,7 +43,7 @@ export default class extends React.Component {
               onClick={() => {
                 window.open('https://cybereits.com/docs/CYBEREITS_White_Paper_v1.3.0.pdf')
               }}
-            >下载白皮书</div>
+            >{whitepaper}</div>
           </div>
         </div>
       </div>

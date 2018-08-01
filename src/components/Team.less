@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 624px;
+  min-height: 624px;
   padding-top: 58px;
   padding-bottom: 58px;
   .title_container{
@@ -36,6 +36,7 @@
       .title {
         display: flex;
         .name,.position {
+          padding: 0px 20px;
           color:rgb(0, 89, 180)  !important ;
           &.position {
             margin-left: 17px;
@@ -46,13 +47,16 @@
           }
         }
       }
+      .content {
+        padding: 0px 20px;
+      }
     }
   }
 }
 
 @media screen and (max-width: 873px) {
   .container {
-    height: 710px !important;
+    min-height: 710px !important;
   }
   .centent_container {
     flex-direction: column;

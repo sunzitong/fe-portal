@@ -91,8 +91,160 @@ export default class CreAssignment extends React.Component {
     super(props)
     this.state = {}
   }
+
+  componentWillReceiveProps(props) {
+    const {
+      token_allocate,
+      fund_allocate,
+      allocate_token_sale,
+      allocate_team,
+      allocate_early_investor,
+      allocate_community,
+      allocate_business,
+      allocate_org_investor,
+      operation,
+      market,
+      risk_management,
+      other,
+      development,
+    } = props
+    CRE_ASSIGNMENT_OPTIONS.title.text = token_allocate
+    CRE_ASSIGNMENT_OPTIONS.legend.data = [allocate_token_sale, allocate_team, allocate_org_investor, allocate_business, allocate_early_investor, allocate_community]
+    CRE_ASSIGNMENT_OPTIONS.series[0].name = token_allocate
+    CRE_ASSIGNMENT_OPTIONS.series[0].data = [
+      {
+        value: 40,
+        name: allocate_token_sale,
+      },
+      {
+        value: 22,
+        name: allocate_team,
+      },
+      {
+        value: 16,
+        name: allocate_org_investor,
+      },
+      {
+        value: 10,
+        name: allocate_business,
+      },
+      {
+        value: 8,
+        name: allocate_early_investor,
+      },
+      {
+        value: 4,
+        name: allocate_community,
+      },
+    ]
+    FUND_ASSIGNMENT_OPTIONS.title.text = fund_allocate
+    FUND_ASSIGNMENT_OPTIONS.legend.data = [market, development, risk_management, operation, other]
+    FUND_ASSIGNMENT_OPTIONS.series[0].name = fund_allocate
+    FUND_ASSIGNMENT_OPTIONS.series[0].data = [
+      {
+        value: 54,
+        name: market,
+      },
+      {
+        value: 23,
+        name: development,
+      },
+      {
+        value: 9,
+        name: risk_management,
+      },
+      {
+        value: 9,
+        name: operation,
+      },
+      {
+        value: 5,
+        name: other,
+      },
+    ]
+    this.cre_echart_react.getEchartsInstance().setOption(CRE_ASSIGNMENT_OPTIONS, true, false)
+    this.fund_echart_react.getEchartsInstance().setOption(FUND_ASSIGNMENT_OPTIONS, true, false)
+  }
+
   render() {
-    const { id } = this.props
+    const {
+      id,
+      token_allocate,
+      fund_allocate,
+      allocate_token_sale,
+      allocate_team,
+      allocate_early_investor,
+      allocate_community,
+      allocate_business,
+      allocate_org_investor,
+      operation,
+      market,
+      risk_management,
+      other,
+      development,
+    } = this.props
+    // const NEW_CRE_ASSIGNMENT_OPTIONS = {
+    //   ...CRE_ASSIGNMENT_OPTIONS,
+    //   title: { ...CRE_ASSIGNMENT_OPTIONS.title, text: token_allocate},
+    //   legend: { ...CRE_ASSIGNMENT_OPTIONS.legend, data: [allocate_token_sale, allocate_team, allocate_org_investor, allocate_business, allocate_early_investor, allocate_community]},
+    //   series: []
+    // }
+
+    CRE_ASSIGNMENT_OPTIONS.title.text = token_allocate
+    CRE_ASSIGNMENT_OPTIONS.legend.data = [allocate_token_sale, allocate_team, allocate_org_investor, allocate_business, allocate_early_investor, allocate_community]
+    CRE_ASSIGNMENT_OPTIONS.series[0].name = token_allocate
+    CRE_ASSIGNMENT_OPTIONS.series[0].data = [
+      {
+        value: 40,
+        name: allocate_token_sale,
+      },
+      {
+        value: 22,
+        name: allocate_team,
+      },
+      {
+        value: 16,
+        name: allocate_org_investor,
+      },
+      {
+        value: 10,
+        name: allocate_business,
+      },
+      {
+        value: 8,
+        name: allocate_early_investor,
+      },
+      {
+        value: 4,
+        name: allocate_community,
+      },
+    ]
+    FUND_ASSIGNMENT_OPTIONS.title.text = fund_allocate
+    FUND_ASSIGNMENT_OPTIONS.legend.data = [market, development, risk_management, operation, other]
+    FUND_ASSIGNMENT_OPTIONS.series[0].name = fund_allocate
+    FUND_ASSIGNMENT_OPTIONS.series[0].data = [
+      {
+        value: 54,
+        name: market,
+      },
+      {
+        value: 23,
+        name: development,
+      },
+      {
+        value: 9,
+        name: risk_management,
+      },
+      {
+        value: 9,
+        name: operation,
+      },
+      {
+        value: 5,
+        name: other,
+      },
+    ]
+    console.log(234234234)
     return (
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>
@@ -105,6 +257,7 @@ export default class CreAssignment extends React.Component {
             <Col {...col}>
               <div className={styles.charts_container}>
                 <ReactEcharts
+                  ref={(e) => { this.cre_echart_react = e }}
                   style={{ width: '100%', height: '500px', marginTop: '-70px' }}
                   option={CRE_ASSIGNMENT_OPTIONS}
                 />
@@ -113,6 +266,7 @@ export default class CreAssignment extends React.Component {
             <Col {...col}>
               <div className={styles.charts_container}>
                 <ReactEcharts
+                  ref={(e) => { this.fund_echart_react = e }}
                   style={{ width: '100%', height: '500px', marginTop: '-70px' }}
                   option={FUND_ASSIGNMENT_OPTIONS}
                 />

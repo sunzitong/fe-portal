@@ -110,19 +110,125 @@ export default class WhiteList extends React.Component {
         />
         <div className={styles.container}>
           <FirstBlock
+            whitepaper={this.state.locale.whitepaper}
             title={this.state.locale.primary_title}
             subTitle={this.state.locale.sub_title}
+            subscribe={this.state.locale.subscribe}
+            placeholder={this.state.locale.placeholder}
           />
           <Introduction
             id="intro"
+            intro_para_1_title={this.state.locale.intro_para_1_title}
+            intro_para_1={this.state.locale.intro_para_1}
+            intro_para_2_title={this.state.locale.intro_para_2_title}
+            intro_para_2={this.state.locale.intro_para_2}
+            intro_para_3_title={this.state.locale.intro_para_3_title}
+            intro_para_3={this.state.locale.intro_para_3}
           />
-          <ProjectDone id="product_done" />
-          <TokenValue id="token_value" />
-          <CreAssignment id="cre_assignment" />
-          <Planning id="roadmap" />
-          <Team id="team_intro" />
-          <Investment id="early_investors" />
-          <ProjectAdviser id="project_adviser" />
+          <ProjectDone
+            id="product_done"
+            achiev_sub_title={this.state.locale.achiev_sub_title}
+            achiev_para_1={this.state.locale.achiev_para_1}
+            achiev_para_2={this.state.locale.achiev_para_2}
+            achiev_para_3={this.state.locale.achiev_para_3}
+            achiev_para_4={this.state.locale.achiev_para_4}
+            achiev_para_5={this.state.locale.achiev_para_5}
+            achiev_para_6={this.state.locale.achiev_para_6}
+            localeType={this.state.localeType}
+          />
+          <TokenValue
+            id="token_value"
+            allocate_sub_title={this.state.locale.allocate_sub_title}
+            allocate_para_1={this.state.locale.allocate_para_1}
+            allocate_para_2={this.state.locale.allocate_para_2}
+            allocate_para_3={this.state.locale.allocate_para_3}
+            allocate_para_4={this.state.locale.allocate_para_4}
+            localeType={this.state.localeType}
+          />
+          <CreAssignment
+            id="cre_assignment"
+            token_allocate={this.state.locale.token_allocate}
+            fund_allocate={this.state.locale.fund_allocate}
+            allocate_token_sale={this.state.locale.allocate_token_sale}
+            allocate_team={this.state.locale.allocate_team}
+            allocate_early_investor={this.state.locale.allocate_early_investor}
+            allocate_community={this.state.locale.allocate_community}
+            allocate_business={this.state.locale.allocate_business}
+            allocate_org_investor={this.state.locale.allocate_org_investor}
+            operation={this.state.locale.operation}
+            market={this.state.locale.market}
+            risk_management={this.state.locale.risk_management}
+            other={this.state.locale.other}
+            development={this.state.locale.development}
+          />
+          <Planning
+            id="roadmap"
+            team_building={this.state.locale.team_building}
+            team_building_date={this.state.locale.team_building_date}
+            seed_finance={this.state.locale.seed_finance}
+            seed_finance_date={this.state.locale.seed_finance_date}
+            angel_finance={this.state.locale.angel_finance}
+            angel_finance_date={this.state.locale.angel_finance_date}
+            alpha={this.state.locale.alpha}
+            alpha_date={this.state.locale.alpha_date}
+            bejiing_real_estate={this.state.locale.bejiing_real_estate}
+            bejiing_real_estate_date={this.state.locale.bejiing_real_estate_date}
+            american_real_estate={this.state.locale.american_real_estate}
+            american_real_estate_date={this.state.locale.american_real_estate_date}
+            exchange={this.state.locale.exchange}
+            exchange_date={this.state.locale.exchange_date}
+            PREA={this.state.locale.PREA}
+            PREA_date={this.state.locale.PREA_date}
+            c2c={this.state.locale.c2c}
+            c2c_date={this.state.locale.c2c_date}
+            European={this.state.locale.European}
+            European_date={this.state.locale.European_date}
+            app={this.state.locale.app}
+            app_date={this.state.locale.app_date}
+            sanr={this.state.locale.sanr}
+            sanr_date={this.state.locale.sanr_date}
+            twenty={this.state.locale.twenty}
+            twenty_date={this.state.locale.twenty_date}
+            cybereits={this.state.locale.cybereits}
+            cybereits_date={this.state.locale.cybereits_date}
+          />
+          <Team
+            id="team_intro"
+            team_ceo_name={this.state.locale.team_ceo_name}
+            team_ceo_intro={this.state.locale.team_ceo_intro}
+          />
+          <Investment
+            id="early_investors"
+            early_investors={this.state.locale.early_investors}
+            institution_investors={this.state.locale.institution_investors}
+            jiuhe={this.state.locale.jiuhe}
+            jiuhe_intro={this.state.locale.jiuhe_intro}
+            lixiaolai={this.state.locale.lixiaolai}
+            lixiaolai_intro={this.state.locale.lixiaolai_intro}
+            qidi={this.state.locale.qidi}
+            qidi_intro={this.state.locale.qidi_intro}
+            yingbiziben={this.state.locale.yingbiziben}
+            yingbiziben_intro={this.state.locale.yingbiziben_intro}
+            linkvc={this.state.locale.linkvc}
+            linkvc_intro={this.state.locale.linkvc_intro}
+            jiedianziben={this.state.locale.jiedianziben}
+            jiedianziben_intro={this.state.locale.jiedianziben_intro}
+          />
+          <ProjectAdviser
+            id="project_adviser"
+            consultant_laomao_name={this.state.locale.consultant_laomao_name}
+            consultant_laomao_intro={this.state.locale.consultant_laomao_intro}
+            consultant_hmq_name={this.state.locale.consultant_hmq_name}
+            consultant_hmq_intro={this.state.locale.consultant_hmq_intro}
+            consultant_wyw_name={this.state.locale.consultant_wyw_name}
+            consultant_wyw_intro={this.state.locale.consultant_wyw_intro}
+            consultant_lf_name={this.state.locale.consultant_lf_name}
+            consultant_lf_intro={this.state.locale.consultant_lf_intro}
+            consultant_tgj_name={this.state.locale.consultant_tgj_name}
+            consultant_tgj_intro={this.state.locale.consultant_tgj_intro}
+            consultant_xiong_name={this.state.locale.consultant_xiong_name}
+            consultant_xiong_intro={this.state.locale.consultant_xiong_intro}
+          />
           <Consultant id="partners_adviser" />
           {/* <div id="cre_assignment" style={{ height: '1200px', backgroundColor: 'rgb(247, 251, 252)' }}>
             12

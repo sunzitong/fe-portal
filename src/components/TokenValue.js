@@ -22,7 +22,7 @@ export default class TokenValue extends React.Component {
   }
 
   render() {
-    const { id } = this.props
+    const { id, localeType, allocate_sub_title, allocate_para_1, allocate_para_2, allocate_para_3, allocate_para_4 } = this.props
     const animType = {
       queue: 'right',
     }
@@ -31,7 +31,7 @@ export default class TokenValue extends React.Component {
         <div className={styles.title_container}>
           <h1 className={styles.title}>Token价值</h1>
           <p className={styles.en_title}>Token Value</p>
-          <p className={styles.sub_title}>CRE 是 CYBEREITS 平台的 Token, 是生态系统中的价值媒介。</p>
+          <p className={styles.sub_title}>{allocate_sub_title}</p>
         </div>
         <div className={styles.centent_container} id="TokenValue">
           <OverPack
@@ -48,7 +48,11 @@ export default class TokenValue extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="share" className={styles.pic} />
                   <div className={styles.text}>
-                    购买平台的<br />数字不动产份额
+                    {
+                      localeType === 'en' ? allocate_para_1 : <div>
+                        购买平台的 <br /> 数字不动产份额
+                      </div>
+                    }
                   </div>
                 </div>
               </Col>
@@ -56,7 +60,11 @@ export default class TokenValue extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="buy-back" className={styles.pic} />
                   <div className={styles.text}>
-                    平台的50%净利润<br />回购CRE进行销毁
+                    {
+                      localeType === 'en' ? allocate_para_2 : <div>
+                        平台的50%净利润 <br /> 回购CRE进行销毁
+                      </div>
+                    }
                   </div>
                 </div>
               </Col>
@@ -64,7 +72,11 @@ export default class TokenValue extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="service-fee" className={styles.pic} />
                   <div className={styles.text}>
-                    支付平台的<br />各类服务费
+                    {
+                      localeType === 'en' ? allocate_para_3 : <div>
+                        支付平台的%净利润 <br /> 各类服务费
+                      </div>
+                    }
                   </div>
                 </div>
               </Col>
@@ -72,7 +84,11 @@ export default class TokenValue extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="bonus" className={styles.pic} />
                   <div className={styles.text}>
-                    平台使用CRE<br />进行租金分红
+                    {
+                      localeType === 'en' ? allocate_para_4 : <div>
+                        平台使用CRE%净利润 <br /> 进行租金分红
+                      </div>
+                    }
                   </div>
                 </div>
               </Col>

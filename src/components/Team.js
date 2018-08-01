@@ -10,10 +10,11 @@ export default class Team extends React.Component {
     this.state = {}
   }
   render() {
-    const { id } = this.props
+    const { id, team_ceo_name, team_ceo_intro } = this.props
     const animType = {
       queue: 'bottom',
     }
+    console.log(team_ceo_intro)
     return (
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>
@@ -34,15 +35,18 @@ export default class Team extends React.Component {
                 <Icon logo="tanbochao" className={styles.header_pic} />
                 <div className={styles.introduction_container}>
                   <div className={styles.title}>
-                    <h2 className={styles.name}>谭博超</h2>
-                    <h2 className={styles.position}>CEO</h2>
+                    <h2 className={styles.name}>{team_ceo_name}</h2>
+                    {/* <h2 className={styles.position}>CEO</h2> */}
                   </div>
                   <div className={styles.content}>
-                    <p>清华大学经济管理学院MBA;</p>
-                    <p>CFA持证人;</p>
-                    <p>曾任乐视互联网金融平台创始人;</p>
-                    <p>曾任中国银行总行IT预算负责人、消费金融项目负责人;</p>
-                    <p>曾任人民银行支付标准编委;</p>
+                    {
+                      /*eslint-disable*/
+                      team_ceo_intro.split(';').map((item) => {
+                        return (
+                          <p>{item};</p>
+                        )
+                      })
+                    }
                   </div>
                 </div>
               </div>
