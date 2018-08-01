@@ -26,9 +26,6 @@ pipeline {
         steps {
           // 复制项目所需的配置文件
           sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/alpha.json ./src/config/config.json"
-        }
-
-        steps {
           sh "npm install"
           sh "npm run build"
           // 压缩文件
@@ -53,9 +50,6 @@ pipeline {
         steps {
           // 复制项目所需的配置文件
           sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/production.json ./src/config/config.json"
-        }
-        
-        steps {
           sh "npm install"
           sh "npm run build"
           sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./dist"
