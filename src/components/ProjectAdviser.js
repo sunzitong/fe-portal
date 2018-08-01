@@ -69,7 +69,7 @@ export default class ProjectAdviser extends React.Component {
               <Col {...col} key="cover">
                 <div className={styles.pic_container}>
                   <div className={styles.icon_container}>
-                    <Icon logo="header2" className={styles.pic} />
+                    <Icon logo="header3" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
                     武源文

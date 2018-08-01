@@ -7,7 +7,3 @@ dist/
 .vscode/
 
 .DS_STORE
-
-HashMapping.json
-
-env.js

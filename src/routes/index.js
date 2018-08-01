@@ -19,11 +19,7 @@ const HomeRouteMaps = ({ history }) => (
             path={path}
             key={uuid()}
             {...rest}
-            render={(props) => {
-              console.log(1)
-              // setTimeout(() => setTitle(text))
-              return (<Component {...props} />)
-            }}
+            render={props => <Component {...props} />}
           />
         ))
       }

@@ -2,7 +2,7 @@ import React from 'react'
 import {
   message,
 } from 'antd'
-import env from '../config/env'
+import env from '../config/env.json'
 import styles from './Subscribe.less'
 
 export default class Subscribe extends React.Component {
@@ -21,23 +21,28 @@ export default class Subscribe extends React.Component {
           role="button"
           tabIndex="-1"
           onClick={() => {
-            fetch(`${env.host}:${env.port}/http/email/subscribe`, {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                email: this.input.value,
-              }),
-            }).then(res => res.json()).then((data) => {
-              if (data.result) {
-                message.success('订阅邮件成功！')
-              } else {
-                message.error(data.error)
-              }
-            }).catch((error) => {
-              console.log(error)
-            })
+            let _email = this.input.value
+            if (!/^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/.test(_email)) {
+              message.error('无效的邮件地址')
+            } else {
+              fetch(`${env.host}:${env.port}/http/email/subscribe`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  email: _email,
+                }),
+              }).then(res => res.json()).then((data) => {
+                if (data.result) {
+                  message.success('订阅邮件成功！')
+                } else {
+                  message.error(data.error)
+                }
+              }).catch((error) => {
+                console.log(error)
+              })
+            }
           }}
         >订阅</div>
       </div>

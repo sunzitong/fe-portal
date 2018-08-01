@@ -5,10 +5,6 @@
   "scripts": {
     "start": "ESLINT=none PORT=8989 roadhog dev",
     "build": "ESLINT=none roadhog build",
-    "alpha": "NODE_ENV=alpha pm2 start config/pm2.config.js",
-    "dev": "pm2 start config/pm2.config.js",
-    "rebuild-dll": "./node_modules/.bin/webpack --config ./config/webpack.dll.config.js",
-    "stop": "pm2 delete cybereits-web-portal",
     "lint": "bash ./bin/eslint.sh"
   },
   "author": "marsoln1988@gmail.com",
@@ -17,72 +13,30 @@
     "@babel/polyfill": "^7.0.0-beta.36",
     "@cybereits/timeline": "^0.1.2",
     "antd": "^3.7.1",
-    "autoprefixer": "^6.7.7",
-    "babel-core": "^6.24.1",
     "babel-plugin-dva-hmr": "^0.4.1",
-    "babel-plugin-import": "^1.6.7",
-    "babel-preset-env": "^1.4.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
-    "babel-register": "^6.24.1",
-    "body-parser": "^1.18.2",
+    "babel-plugin-import": "^1.8.0",
     "dva": "^2.1.0",
     "dva-loading": "^1.0.4",
     "echarts": "^4.1.0",
     "echarts-for-react": "^2.0.13",
-    "ejs": "^2.5.7",
     "enquire.js": "^2.1.6",
-    "express": "^4.15.2",
     "history": "^4.6.3",
-    "isomorphic-fetch": "^2.2.1",
-    "material-ui": "^0.17.4",
-    "normalize.css": "^6.0.0",
-    "pixrem": "^3.0.2",
-    "pleeease-filters": "^3.0.1",
-    "postcss-calc": "^5.3.1",
-    "postcss-color-function": "^3.0.0",
-    "postcss-custom-media": "^5.0.1",
-    "postcss-custom-properties": "^5.0.2",
-    "postcss-custom-selectors": "^3.0.0",
-    "postcss-flexbugs-fixes": "^2.1.1",
-    "postcss-global-import": "^1.0.0",
-    "postcss-import": "^9.1.0",
-    "postcss-loader": "^1.3.3",
-    "postcss-media-minmax": "^2.1.2",
-    "postcss-nested": "^1.0.1",
-    "postcss-nesting": "^2.3.1",
-    "postcss-selector-matches": "^2.0.5",
-    "postcss-selector-not": "^2.0.0",
     "prop-types": "^15.6.0",
     "rc-queue-anim": "^1.6.5",
     "rc-scroll-anim": "^2.5.5",
     "rc-tween-one": "^2.2.2",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-overdrive": "^0.0.9",
-    "react-redux": "^5.0.6",
-    "react-router": "^4.1.1",
-    "react-router-dom": "^4.2.2",
-    "react-router-hash-link": "^1.2.0",
-    "react-router-redux": "next",
+    "react-dom": "^16.4.1",
     "react-scrollspy": "^3.3.5",
-    "react-tap-event-plugin": "^2.0.1",
-    "react-vertical-timeline-component": "^2.1.3",
     "recharts": "^1.0.0-beta.7",
+    "redbox-react": "^1.6.0",
     "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0",
-    "serve-favicon": "^2.4.5",
     "url-polyfill": "^1.0.10",
-    "uuid": "^3.0.1",
-    "webpack": "^2.4.1",
-    "webpack-dev-middleware": "^1.10.2",
-    "webpack-hot-middleware": "^2.18.0"
+    "uuid": "^3.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.0.2",
-    "babel-loader": "^6.4.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
-    "css-loader": "^0.28.0",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^15.0.0",
     "eslint-config-standard": "^6.2.1",
@@ -91,32 +45,9 @@
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-react": "^7.0.1",
     "eslint-plugin-standard": "^2.0.1",
-    "file-loader": "^0.11.1",
-    "pre-commit": "^1.2.2",
-    "react-hot-loader": "3.0.0",
-    "style-loader": "^0.16.1"
+    "pre-commit": "^1.2.2"
   },
   "pre-commit": [
     "lint"
-  ],
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ],
-      "stage-2",
-      "react"
-    ]
-  },
-  "browserList": [
-    ">1%",
-    "last 4 versions",
-    "Firefox ESR",
-    "not ie < 9"
   ]
 }

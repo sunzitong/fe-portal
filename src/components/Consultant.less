@@ -28,8 +28,16 @@
     height: 120px;
     flex-direction: column;
     .icon_container {
+      filter: grayscale(1);
       padding: 3px;
       border: 1px solid rgb(234, 237, 238);
+      transition: all .3s ease-in-out;
+      &:hover{
+        filter: none;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        box-shadow: 0 4px 13px 5px rgba(61, 137, 250, 0.925);
+      }
     }
   }
   .centent_container {
