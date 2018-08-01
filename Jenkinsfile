@@ -35,8 +35,9 @@ pipeline {
           
           // 执行测试服务器的部署脚本
           sh "ssh ${REMOVE_SERVER_ALPHA} 'cd /home/wwwroot; \
-          mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C ${env.PROJECT_NAME};'"
+          rm -rf ./${env.PROJECT_NAME}; \
+          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C .; \
+          mv ./dist/ ./${env.PROJECT_NAME}'"
         }
       }
     
@@ -55,8 +56,9 @@ pipeline {
           sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./dist"
           sh "scp -P 65499 ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ${REMOTE_SERVER_PROD}:/home/deploy"
           sh "ssh -p 65499 ${REMOTE_SERVER_PROD} 'cd /home/deploy; \
-          mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_PROD} -C ${env.PROJECT_NAME};'"
+          rm -rf ${env.PROJECT_NAME}; \
+          tar -zxvf ${env.ZIP_FILENAME_PROD} -C .;
+          mv ./dist/ ./${env.PROJECT_NAME}'"
         }
       }
 
