@@ -3,10 +3,9 @@
 env.PROJECT_NAME = 'web-portal'
 env.ADMIN_EMAIL = 'it@kakamf.com'
 env.PACKAGE_DIR = '/mydata/jenkins/packages/'
-env.INSTANCE_NAME = 'cybereits-web-portal'
 
 env.ZIP_FILENAME_ALPHA = 'web-portal-alpha.tar.gz'
-env.REMOVE_SERVER_ALPHA = 'kkmf@47.93.124.209'
+env.REMOVE_SERVER_ALPHA = 'kkmf@alpha.kakamf.com'
 
 env.ZIP_FILENAME_PROD = 'web-portal-prod.tar.gz'
 env.REMOTE_SERVER_PROD = 'deploy@www.cybereits.com'
@@ -16,14 +15,6 @@ pipeline {
     agent any
     
     stages {
-
-      // 准备阶段
-      stage('Preparation'){
-        steps {
-          // 复制项目所需的配置文件
-          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/env.js ./config/env.js"
-        }
-      }
   
       // 为 alpha 分支交付
       stage('Deliver for alpha') {
@@ -33,21 +24,22 @@ pipeline {
         }
 
         steps {
+          // 复制项目所需的配置文件
+          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/alpha.json ./src/config/config.json"
+        }
+
+        steps {
           sh "npm install"
           sh "npm run build"
           // 压缩文件
-          sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_ALPHA} ./config ./dist ./client ./bin ./public ./server ./HashMapping.json ./manifest.json ./package-lock.json ./package.json "
+          sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_ALPHA} ./dist"
           // 上传压缩文件到测试服务器
           sh "scp ${env.PACKAGE_DIR}${env.ZIP_FILENAME_ALPHA} ${REMOVE_SERVER_ALPHA}:/home/wwwroot"
           
           // 执行测试服务器的部署脚本
           sh "ssh ${REMOVE_SERVER_ALPHA} 'cd /home/wwwroot; \
           mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C ${env.PROJECT_NAME}; \
-          cd ${env.PROJECT_NAME}; \
-          npm install --production; \
-          pm2 delete ${env.INSTANCE_NAME}; \
-          npm run alpha'"
+          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C ${env.PROJECT_NAME};'"
         }
       }
     
@@ -57,19 +49,20 @@ pipeline {
           branch 'master'
           expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
         }
+
+        steps {
+          // 复制项目所需的配置文件
+          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/production.json ./src/config/config.json"
+        }
         
         steps {
           sh "npm install"
           sh "npm run build"
-          sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./config ./dist ./client ./bin ./public ./server ./HashMapping.json ./manifest.json ./package-lock.json ./package.json "
+          sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./dist"
           sh "scp -P 65499 ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ${REMOTE_SERVER_PROD}:/home/deploy"
           sh "ssh -p 65499 ${REMOTE_SERVER_PROD} 'cd /home/deploy; \
           mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_PROD} -C ${env.PROJECT_NAME}; \
-          cd ${env.PROJECT_NAME}; \
-          npm install --production; \
-          pm2 delete ${env.INSTANCE_NAME}; \
-          npm run start'"
+          tar -zxvf ${env.ZIP_FILENAME_PROD} -C ${env.PROJECT_NAME};'"
         }
       }
 

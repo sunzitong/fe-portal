@@ -2,7 +2,7 @@ import React from 'react'
 import {
   message,
 } from 'antd'
-import env from '../config/env.json'
+import { api_service } from '../config/env.json'
 import styles from './Subscribe.less'
 
 export default class Subscribe extends React.Component {
@@ -25,7 +25,7 @@ export default class Subscribe extends React.Component {
             if (!/^[A-Za-z0-9](([_.-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([.-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})$/.test(_email)) {
               message.error('无效的邮件地址')
             } else {
-              fetch(`${env.host}:${env.port}/http/email/subscribe`, {
+              fetch(`${api_service}/http/email/subscribe`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

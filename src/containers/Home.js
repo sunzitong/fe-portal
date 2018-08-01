@@ -11,84 +11,9 @@ import Team from '../components/Team'
 import Investment from '../components/Investment'
 import ProjectAdviser from '../components/ProjectAdviser'
 import Consultant from '../components/Consultant'
-// import { connect } from 'react-redux'
-// import Scrollspy from 'react-scrollspy'
-// import { Dialog } from 'material-ui'
-// import { Tooltip, PieChart, Pie, Legend } from 'recharts'
 import i18n from '../i18n'
 
-// import { alert, confirm } from '../actions/dialog'
-
-// import { SmallTitleLogo } from '../components/TitleLogo'
-// import Icon from '../components/Icon'
-
 import styles from './Home.less'
-
-// import pageStyles from './Page.scss'
-// import { downloadPPT, downloadWhitePaper } from '../common/resource'
-// import PublicWhitelistRegStage from './PublicWhitelistRegStage'
-
-// const {
-//   officialEmail,
-//   saleEndFormatTime,
-//   saleEnded,
-// } = window.__INIT_STATE
-
-// const AchievementLogo = ({ index, text, className = '' }) => (
-//   <div className={`animated ${styles.achievement_logo_container} ${className}`}>
-//     <Icon logo={`acv-${index}`} className={styles.achievement_logo} />
-//     <div className="text-center big m-t-10 m-b-10">{text}</div>
-//   </div>
-// )
-
-// const TeamMember = ({ img, title, content }) => (
-//   <div className={styles.team_member_container}>
-//     <img
-//       alt=""
-//       src={`images/${img}.png`}
-//       className={styles.team_avatar}
-//     />
-//     <div style={{ margin: '.8rem auto', fontSize: '1.2rem' }}>{title}</div>
-//     <div className="label">{content}</div>
-//   </div>
-// )
-
-// const Investor = ({ img, title, content }) => (
-//   <div className={styles.investor_container}>
-//     <div className={styles.investor_avatar_container}>
-//       <img
-//         alt=""
-//         src={`images/${img}.png`}
-//         className={styles.investor_avatar}
-//       />
-//     </div>
-//     <div className={styles.investor_name}>{title}</div>
-//     <div className={styles.investor_info}>{content}</div>
-//   </div>
-// )
-
-// const Consultant = ({ img, title, content }) => (
-//   <div className={styles.consultant_container}>
-//     <img
-//       alt=""
-//       src={`images/${img}.png`}
-//       className={styles.consultant_avatar}
-//     />
-//     <div className={styles.consultant_name}>{title}</div>
-//     <div>{content}</div>
-//   </div>
-// )
-
-// const Partners = ({ img }) => (
-//   <img
-//     alt=""
-//     src={`images/${img}.png`}
-//     className={styles.community_logo}
-//   />
-// )
-
-// const mapDispatchToProps = { alert, confirm }
-// const saleEndDateTime = new Date(saleEndFormatTime)
 
 export default class WhiteList extends React.Component {
 
@@ -110,27 +35,6 @@ export default class WhiteList extends React.Component {
     }
     this.switchLocale = this.switchLocale.bind(this)
     this.goToWhiteList = this.goToWhiteList.bind(this)
-  }
-
-  componentDidMount() {
-    // if (window.__INIT_STATE.dev !== 'true') {
-    //   window.particlesJS.load('home-container', 'plugin/particles.json')
-    // }
-    // if (!this.state.whitelistDisabled) {
-    //   if (!this.state.saleEnded) {
-    //     window
-    //       .jQuery('#countdown')
-    //       .countdown({
-    //         image: '/images/digits.png',
-    //         // endTime: saleEndDateTime,
-    //         timerEnd: () => {
-    //           this.setState({
-    //             saleEnded: true,
-    //           })
-    //         },
-    //       })
-    //   }
-    // }
   }
 
   switchLocale(type) {
