@@ -57,7 +57,7 @@ pipeline {
           sh "scp -P 65499 ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ${REMOTE_SERVER_PROD}:/home/deploy"
           sh "ssh -p 65499 ${REMOTE_SERVER_PROD} 'cd /home/deploy; \
           rm -rf ${env.PROJECT_NAME}; \
-          tar -zxvf ${env.ZIP_FILENAME_PROD} -C .;
+          tar -zxvf ${env.ZIP_FILENAME_PROD} -C .; \
           mv ./dist/ ./${env.PROJECT_NAME}'"
         }
       }
