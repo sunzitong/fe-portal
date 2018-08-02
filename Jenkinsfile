@@ -25,7 +25,7 @@ pipeline {
 
         steps {
           // 复制项目所需的配置文件
-          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/alpha.json ./src/config/config.json"
+          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/alpha.json ./src/config/env.json"
           sh "npm install"
           sh "npm run build"
           // 压缩文件
@@ -35,8 +35,9 @@ pipeline {
           
           // 执行测试服务器的部署脚本
           sh "ssh ${REMOVE_SERVER_ALPHA} 'cd /home/wwwroot; \
-          mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C ${env.PROJECT_NAME};'"
+          rm -rf ./${env.PROJECT_NAME}; \
+          tar -zxvf ${env.ZIP_FILENAME_ALPHA} -C .; \
+          mv ./dist/ ./${env.PROJECT_NAME}'"
         }
       }
     
@@ -49,14 +50,15 @@ pipeline {
 
         steps {
           // 复制项目所需的配置文件
-          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/production.json ./src/config/config.json"
+          sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/production.json ./src/config/env.json"
           sh "npm install"
           sh "npm run build"
           sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./dist"
           sh "scp -P 65499 ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ${REMOTE_SERVER_PROD}:/home/deploy"
           sh "ssh -p 65499 ${REMOTE_SERVER_PROD} 'cd /home/deploy; \
-          mkdir ${env.PROJECT_NAME} -p; \
-          tar -zxvf ${env.ZIP_FILENAME_PROD} -C ${env.PROJECT_NAME};'"
+          rm -rf ${env.PROJECT_NAME}; \
+          tar -zxvf ${env.ZIP_FILENAME_PROD} -C .; \
+          mv ./dist/ ./${env.PROJECT_NAME}'"
         }
       }
 
