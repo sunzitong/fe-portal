@@ -59,7 +59,7 @@ export default class Header extends React.Component {
 
   render() {
 
-    // const { localeType } = this.props
+    const { localeType } = this.props
     const { buttonStatus } = this.state
     return (
       <div className={`${styles.header_container} ${buttonStatus === 'open' ? styles.active : null}`}>
@@ -130,7 +130,7 @@ export default class Header extends React.Component {
             />
           </div>
           <div className={styles.language}>
-            {/* <a
+            <a
               className={localeType === 'zh' ? styles.active : null}
               role="button"
               tabIndex="-1"
@@ -144,7 +144,7 @@ export default class Header extends React.Component {
               tabIndex="-1"
               onClick={() => {
                 this.switchLocale('en')
-              }}> English</a> */}
+              }}> English</a>
           </div>
         </div>
       </div>

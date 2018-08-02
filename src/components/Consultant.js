@@ -28,7 +28,7 @@ export default class Consultant extends React.Component {
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>
           <h1 className={styles.title}>合作伙伴</h1>
-          <p className={styles.en_title}>PROJECT CONSULTANT</p>
+          <p className={styles.en_title}>PROJECT PARTNER</p>
         </div>
         <div className={styles.centent_container} id="ProjectAdviser">
           <OverPack

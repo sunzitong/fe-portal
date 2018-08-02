@@ -45,7 +45,23 @@ export default class Investment extends React.Component {
   }
 
   render() {
-    const {id} = this.props
+    const {
+      id,
+      early_investors,
+      institution_investors,
+      jiuhe,
+      jiuhe_intro,
+      lixiaolai,
+      lixiaolai_intro,
+      qidi,
+      qidi_intro,
+      yingbiziben,
+      yingbiziben_intro,
+      linkvc,
+      linkvc_intro,
+      jiedianziben,
+      jiedianziben_intro,
+    } = this.props
     console.log(this.state.onRotating)
     return (
       <div className={styles.container} id={id}>
@@ -65,7 +81,7 @@ export default class Investment extends React.Component {
                 }
               }}
             >
-              早期投资人
+              {early_investors}
             </div>
             <div
               style={this.state.activeButtonKey === '0' ? { paddingLeft: '39px' } : null}
@@ -81,7 +97,7 @@ export default class Investment extends React.Component {
                 }
               }}
             >
-              投资机构
+              {institution_investors}
             </div>
           </div>
         </div>
@@ -96,20 +112,20 @@ export default class Investment extends React.Component {
                   <div className={`${styles.pic} ${styles.Investors3}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      九合创投
+                      {jiuhe}
                     </div>
                     <div className={styles.sub_title}>
-                      国内顶级的本土基金品牌
+                      {jiuhe_intro}
                     </div>
                   </div>
                 </div> : <div className={`${styles.item_container} ${this.state.onRotating ? styles.active : null} ${this.state.activeButtonKey === '1' ? styles.organizationRotate : styles.investorsRotate} ${this.state.organizationNinty && this.state.onRotating ? styles.nintyDeg : null}`}>
                   <div className={`${styles.pic} ${styles.organization1}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      启迪新创
+                      {yingbiziben}
                     </div>
                     <div className={styles.sub_title}>
-                      启迪控股旗下成员企业
+                      {yingbiziben_intro}
                     </div>
                   </div>
                 </div>
@@ -120,20 +136,20 @@ export default class Investment extends React.Component {
                   <div className={`${styles.pic} ${styles.Investors1}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      李笑来
+                      {lixiaolai}
                     </div>
                     <div className={styles.sub_title}>
-                      中国比特币首富
+                      {lixiaolai_intro}
                     </div>
                   </div>
                 </div> : <div ref={(item) => { this.qidi = item }} className={`${styles.item_container} ${this.state.onRotating ? styles.active : null} ${this.state.activeButtonKey === '1' ? styles.organizationRotate : styles.investorsRotate} ${this.state.organizationNinty && this.state.onRotating ? styles.nintyDeg : null}`}>
                   <div className={`${styles.pic} ${styles.organization2}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      启迪新创
+                      {jiedianziben}
                     </div>
                     <div className={styles.sub_title}>
-                      启迪控股旗下成员企业
+                      {jiedianziben_intro}
                     </div>
                   </div>
                 </div>
@@ -144,20 +160,20 @@ export default class Investment extends React.Component {
                   <div className={`${styles.pic} ${styles.Investors2}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      启迪新创
+                      {qidi}
                     </div>
                     <div className={styles.sub_title}>
-                      启迪控股旗下成员企业
+                      {qidi_intro}
                     </div>
                   </div>
                 </div> : <div className={`${styles.item_container} ${this.state.onRotating ? styles.active : null} ${this.state.activeButtonKey === '1' ? styles.organizationRotate : styles.investorsRotate} ${this.state.organizationNinty && this.state.onRotating ? styles.nintyDeg : null}`}>
                   <div className={`${styles.pic} ${styles.organization3}`} />
                   <div className={styles.text_container}>
                     <div className={styles.title}>
-                      启迪新创
+                      {linkvc}
                     </div>
                     <div className={styles.sub_title}>
-                      启迪控股旗下成员企业
+                      {linkvc_intro}
                     </div>
                   </div>
                 </div>

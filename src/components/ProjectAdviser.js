@@ -19,7 +19,21 @@ export default class ProjectAdviser extends React.Component {
     this.state = {}
   }
   render() {
-    const { id } = this.props
+    const {
+      id,
+      consultant_laomao_name,
+      consultant_laomao_intro,
+      consultant_hmq_name,
+      consultant_hmq_intro,
+      consultant_wyw_name,
+      consultant_wyw_intro,
+      consultant_lf_name,
+      consultant_lf_intro,
+      consultant_tgj_name,
+      consultant_tgj_intro,
+      consultant_xiong_name,
+      consultant_xiong_intro,
+    } = this.props
     const animType = {
       queue: 'bottom',
     }
@@ -46,10 +60,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header1" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    老猫
+                    {consultant_laomao_name}
                   </div>
                   <div className={styles.sub_text}>
-                    inblockchain负责人
+                    {consultant_laomao_intro}
                   </div>
                 </div>
               </Col>
@@ -59,10 +73,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header2" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    黄敏强
+                    {consultant_hmq_name}
                   </div>
                   <div className={styles.sub_text}>
-                    公信宝CEO
+                    {consultant_hmq_intro}
                   </div>
                 </div>
               </Col>
@@ -72,10 +86,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header3" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    武源文
+                    {consultant_wyw_name}
                   </div>
                   <div className={styles.sub_text}>
-                    井通科技CEO
+                    {consultant_wyw_intro}
                   </div>
                 </div>
               </Col>
@@ -85,10 +99,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header4" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    李丰
+                    {consultant_lf_name}
                   </div>
                   <div className={styles.sub_text}>
-                    世界第一个Litecoin ASIC矿工
+                    {consultant_lf_intro}
                   </div>
                 </div>
               </Col>
@@ -98,10 +112,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header5" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    涂国君
+                    {consultant_tgj_name}
                   </div>
                   <div className={styles.sub_text}>
-                    公信宝联合创始人
+                    {consultant_tgj_intro}
                   </div>
                 </div>
               </Col>
@@ -111,10 +125,10 @@ export default class ProjectAdviser extends React.Component {
                     <Icon logo="header6" className={styles.pic} />
                   </div>
                   <div className={styles.text}>
-                    熊立健
+                    {consultant_xiong_name}
                   </div>
                   <div className={styles.sub_text}>
-                    Lomostart 创始人
+                    {consultant_xiong_intro}
                   </div>
                 </div>
               </Col>

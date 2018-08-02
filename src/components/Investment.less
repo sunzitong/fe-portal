@@ -7,7 +7,7 @@
   background-position: bottom center;
   background-repeat: no-repeat;
   background-color: #3e90e3;
-  height: 430px;
+  min-height: 430px;
   .button_container {
     height: 100px;
     display: flex;
@@ -56,6 +56,7 @@
       display: flex;
       width: 800px;
       justify-content: space-between;
+      align-items: center;
       .item_container {
         box-shadow: 1px 0px 12px -1px grey;
         border: 1px solid transparent;
@@ -99,6 +100,7 @@
           text-align: center;
           border-bottom-left-radius: 5px;
           border-bottom-right-radius: 5px;
+          max-width: 189px;
           .title {
             font-weight: 500;
             font-size: 16px;
@@ -165,7 +167,7 @@
 
 @media screen and (max-width: 858px) {
   .container {
-    height: 900px !important;
+    min-height: 900px !important;
     background-color: #40c9f9 !important;
   }
   .pic_group {

@@ -51,7 +51,7 @@ export default class extends React.Component {
   }
 
   render() {
-    const { id } = this.props
+    const { id, intro_para_1_title, intro_para_1, intro_para_2_title, intro_para_2, intro_para_3_title, intro_para_3 } = this.props
     const { isMobile } = this.state
 
     console.log('debug', isMobile)
@@ -86,8 +86,8 @@ export default class extends React.Component {
               ease={['easeOutCubic', 'easeInCubic']}
               className={`${styles.text_container} ${isMobile ? styles.mobile : null}`}
             >
-              <h1 key="h1">全球不动产超市</h1>
-              <p key="p">制定3R接入标准，链接全球不动产中介，聚合世界各地不动产资源，打造信息互通的不动产天猫超市。</p>
+              <h1 key="h1">{intro_para_1_title}</h1>
+              <p key="p">{intro_para_1}</p>
             </QueueAnim>
           </OverPack>
         </div>
@@ -110,8 +110,8 @@ export default class extends React.Component {
                 ease={['easeOutCubic', 'easeInCubic']}
                 className={`${styles.text_container} ${isMobile ? styles.mobile : null}`}
               >
-                  <h1 key="h1">数字化拆分</h1>
-                  <p key="p">通过区块链技术，将不动产进行数字化拆分，并借助智能合约对实物资产进行自动处置，实现门槛低、效率高的不动产交易。</p>
+                  <h1 key="h1">{intro_para_2_title}</h1>
+                  <p key="p">{intro_para_2}</p>
                 </QueueAnim>
             }
             {
@@ -122,8 +122,8 @@ export default class extends React.Component {
                 ease={['easeOutCubic', 'easeInCubic']}
                 className={`${styles.text_container} ${isMobile ? styles.mobile : null}`}
               >
-                <h1 key="h1">数字化拆分</h1>
-                <p key="p">通过区块链技术，将不动产进行数字化拆分，并借助智能合约对实物资产进行自动处置，实现门槛低、效率高的不动产交易。</p>
+                <h1 key="h1">{intro_para_2_title}</h1>
+                <p key="p">{intro_para_2}</p>
               </QueueAnim> : <TweenOne
                 key="img"
                 animation={isMobile ? animType.one : { ...animType.one, x: '+=30' }}
@@ -153,8 +153,8 @@ export default class extends React.Component {
               ease={['easeOutCubic', 'easeInCubic']}
               className={`${styles.text_container} ${isMobile ? styles.mobile : null}`}
             >
-              <h1 key="h1">全球不动产超市</h1>
-              <p key="p">制定3R接入标准，链接全球不动产中介，聚合世界各地不动产资源，打造信息互通的不动产天猫超市。</p>
+              <h1 key="h1">{intro_para_3_title}</h1>
+              <p key="p">{intro_para_3}</p>
             </QueueAnim>
           </OverPack>
         </div>

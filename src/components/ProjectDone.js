@@ -20,7 +20,8 @@ export default class ProjectDone extends React.Component {
     this.state = {}
   }
   render() {
-    const { id } = this.props
+    const { id, achiev_sub_title, achiev_para_1, achiev_para_2, achiev_para_3, achiev_para_4, achiev_para_5, achiev_para_6, localeType } = this.props
+    console.log(localeType)
     const animType = {
       queue: 'bottom',
     }
@@ -29,7 +30,7 @@ export default class ProjectDone extends React.Component {
         <div className={styles.title_container}>
           <h1 className={styles.title}>项目落地</h1>
           <p className={styles.en_title}>MVP RESULTS</p>
-          <p className={styles.sub_title}>中国试点项目运行一年取得的成果</p>
+          <p className={styles.sub_title}>{achiev_sub_title}</p>
         </div>
         <div className={styles.centent_container} id="ProjectDone">
           <OverPack
@@ -44,25 +45,25 @@ export default class ProjectDone extends React.Component {
             >
               <Col {...col} key="run-time">
                 <div className={styles.pic_container}>
-                  <Icon logo="run-time" className={styles.pic} />
+                  <Icon logo={localeType === 'en' ? 'run-time-en' : 'run-time'} className={styles.pic} />
                   <div className={styles.text}>
-                    平台运行时间
+                    {achiev_para_1}
                   </div>
                 </div>
               </Col>
               <Col {...col} key="assets">
                 <div className={styles.pic_container}>
-                  <Icon logo="assets" className={styles.pic} />
+                  <Icon logo={localeType === 'en' ? 'assets-en' : 'assets'} className={styles.pic} />
                   <div className={styles.text}>
-                    管理资产规模
+                    {achiev_para_2}
                   </div>
                 </div>
               </Col>
               <Col {...col} key="cover">
                 <div className={styles.pic_container}>
-                  <Icon logo="cover" className={styles.pic} />
+                  <Icon logo={localeType === 'en' ? 'cover-en' : 'cover'} className={styles.pic} />
                   <div className={styles.text}>
-                    业务覆盖范围
+                    {achiev_para_3}
                   </div>
                 </div>
               </Col>
@@ -70,7 +71,7 @@ export default class ProjectDone extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="user" className={styles.pic} />
                   <div className={styles.text}>
-                    累计注册用户
+                    {achiev_para_4}
                   </div>
                 </div>
               </Col>
@@ -78,15 +79,15 @@ export default class ProjectDone extends React.Component {
                 <div className={styles.pic_container}>
                   <Icon logo="trade-count" className={styles.pic} />
                   <div className={styles.text}>
-                    累计交易次数
+                    {achiev_para_5}
                   </div>
                 </div>
               </Col>
               <Col {...col} key="trade">
                 <div className={styles.pic_container}>
-                  <Icon logo="trade" className={styles.pic} />
+                  <Icon logo={localeType === 'en' ? 'trade-en' : 'trade'} className={styles.pic} />
                   <div className={styles.text}>
-                    平台交易规模
+                    {achiev_para_6}
                   </div>
                 </div>
               </Col>

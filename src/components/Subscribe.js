@@ -13,9 +13,10 @@ export default class Subscribe extends React.Component {
   }
 
   render() {
+    const {placeholder, subscribe} = this.props
     return (
       <div className={styles.container}>
-        <input ref={(input) => { this.input = input }} type="text" className={styles.input} placeholder="输入邮箱以订阅Cybereits最新资讯" />
+        <input ref={(input) => { this.input = input }} type="text" className={styles.input} placeholder={placeholder} />
         <div
           className={styles.button}
           role="button"
@@ -44,7 +45,7 @@ export default class Subscribe extends React.Component {
               })
             }
           }}
-        >订阅</div>
+        >{subscribe}</div>
       </div>
     )
   }
