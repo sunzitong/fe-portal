@@ -14,7 +14,6 @@ export default class Team extends React.Component {
     const animType = {
       queue: 'bottom',
     }
-    console.log(team_ceo_intro)
     return (
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>

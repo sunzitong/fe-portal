@@ -8,8 +8,6 @@ import Icon from '../components/Icon'
 import OverPack from 'rc-scroll-anim/lib/ScrollOverPack'
 import styles from './Introduction.less'
 
-console.log(enquire)
-console.log()
 export default class extends React.Component {
 
   static propTypes = {
@@ -53,8 +51,6 @@ export default class extends React.Component {
   render() {
     const { id, intro_para_1_title, intro_para_1, intro_para_2_title, intro_para_2, intro_para_3_title, intro_para_3 } = this.props
     const { isMobile } = this.state
-
-    console.log('debug', isMobile)
 
     const animType = {
       queue: isMobile ? 'bottom' : 'right',

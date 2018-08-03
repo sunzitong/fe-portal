@@ -21,7 +21,6 @@ export default class ProjectDone extends React.Component {
   }
   render() {
     const { id, achiev_sub_title, achiev_para_1, achiev_para_2, achiev_para_3, achiev_para_4, achiev_para_5, achiev_para_6, localeType } = this.props
-    console.log(localeType)
     const animType = {
       queue: 'bottom',
     }
