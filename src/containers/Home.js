@@ -238,17 +238,22 @@ export default class WhiteList extends React.Component {
               <a href="https://twitter.com/cybereits" target="blank">
                 <Icon logo="twitter" className={styles.footer_logo} />
               </a>
-              <a>
+              <a className={styles.wechart_a}>
                 <Icon
                   logo="wechat"
                   className={styles.footer_logo}
-                  onClick={() => { this.setState(({ showWechatQrcode }) => ({ showWechatQrcode: !showWechatQrcode })) }}
+                  // onMouseOver={() => {
+                  //   console.log(1)
+                  //   this.setState(({ showWechatQrcode }) => ({ showWechatQrcode: !showWechatQrcode }))
+                  // }}
+                  // onClick={() => { this.setState(({ showWechatQrcode }) => ({ showWechatQrcode: !showWechatQrcode })) }}
                 />
-                {
+                {/* {
                   this.state.showWechatQrcode
                     ? <Icon logo="qrcode" className={`${styles.footer_logo_wechat} animated fadeInUp`} style={{border: '1px solid rgb(56, 144, 230)'}} />
                     : null
-                }
+                } */}
+                <Icon logo="qrcode" className={`${styles.footer_logo_wechat} animated fadeInUp`} style={{border: '1px solid rgb(56, 144, 230)'}} />
               </a>
               <a href="https://t.me/joinchat/HJivSA3RRwBtzkXvoqDHeA" target="blank">
                 <Icon logo="telegram" className={styles.footer_logo} />

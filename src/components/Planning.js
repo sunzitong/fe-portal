@@ -53,7 +53,7 @@ export default class Planning extends React.Component {
               className="vertical-timeline-element--work"
               date={team_building_date}
               style={{color: 'white'}}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
               // icon={<Icon logo="arrow" />}
             >
               <h3 className="vertical-timeline-element-title">{team_building}</h3>
@@ -65,91 +65,91 @@ export default class Planning extends React.Component {
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               date={seed_finance_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{seed_finance}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               date={angel_finance_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{angel_finance}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--work"
               date={alpha_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{alpha}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={bejiing_real_estate_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{bejiing_real_estate}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={american_real_estate_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{american_real_estate}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={exchange_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{exchange}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={PREA_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{PREA}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={c2c_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{c2c}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={European_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{European}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={app_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{app}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={sanr_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{sanr}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={twenty_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{twenty}</h3>
             </VerticalTimelineElement>
             <VerticalTimelineElement
               className="vertical-timeline-element--education"
               date={cybereits_date}
-              iconStyle={{ background: 'rgb(233, 30, 99)', color: '#fff' }}
+              iconStyle={{ background: '#6de9f7', color: '#fff' }}
             >
               <h3 className="vertical-timeline-element-title">{cybereits}</h3>
             </VerticalTimelineElement>
