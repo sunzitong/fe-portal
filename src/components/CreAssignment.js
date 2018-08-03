@@ -244,7 +244,6 @@ export default class CreAssignment extends React.Component {
         name: other,
       },
     ]
-    console.log(234234234)
     return (
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>

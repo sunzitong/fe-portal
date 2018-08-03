@@ -17,9 +17,7 @@ export default class Investment extends React.Component {
   componentDidMount() {
     this.lixiaolai.addEventListener('webkitAnimationEnd', () => {
       num = num + 1
-      console.log(this.state.activeButtonKey)
       if (this.state.activeButtonKey === '1') {
-        console.log(8989)
         this.setState({
           showInvestors: false,
           organizationNinty: true,
@@ -39,9 +37,7 @@ export default class Investment extends React.Component {
           num = 0
         })
       }
-      console.log('动画结束')
     })
-    console.log(this.jiuhe)
   }
 
   render() {
@@ -62,7 +58,6 @@ export default class Investment extends React.Component {
       jiedianziben,
       jiedianziben_intro,
     } = this.props
-    console.log(this.state.onRotating)
     return (
       <div className={styles.container} id={id}>
         <div className={styles.button_container}>

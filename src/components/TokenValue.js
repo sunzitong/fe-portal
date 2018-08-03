@@ -30,7 +30,7 @@ export default class TokenValue extends React.Component {
       <div className={styles.container} id={id}>
         <div className={styles.title_container}>
           <h1 className={styles.title}>Token价值</h1>
-          <p className={styles.en_title}>Token Value</p>
+          <p className={styles.en_title}>TOKEN VALUE</p>
           <p className={styles.sub_title}>{allocate_sub_title}</p>
         </div>
         <div className={styles.centent_container} id="TokenValue">
@@ -74,7 +74,7 @@ export default class TokenValue extends React.Component {
                   <div className={styles.text}>
                     {
                       localeType === 'en' ? allocate_para_3 : <div>
-                        支付平台的%净利润 <br /> 各类服务费
+                        支付平台<br />各类服务费
                       </div>
                     }
                   </div>
@@ -86,7 +86,7 @@ export default class TokenValue extends React.Component {
                   <div className={styles.text}>
                     {
                       localeType === 'en' ? allocate_para_4 : <div>
-                        平台使用CRE%净利润 <br /> 进行租金分红
+                        平台使用CRE <br />进行租金分红
                       </div>
                     }
                   </div>
