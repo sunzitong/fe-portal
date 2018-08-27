@@ -1,13 +1,13 @@
 #!/usr/bin/env groovy
 
-env.PROJECT_NAME = 'web-portal'
+env.PROJECT_NAME = 'fe-portal'
 env.ADMIN_EMAIL = 'it@kakamf.com'
 env.PACKAGE_DIR = '/mydata/jenkins/packages/'
 
-env.ZIP_FILENAME_ALPHA = 'web-portal-alpha.tar.gz'
+env.ZIP_FILENAME_ALPHA = 'fe-portal-alpha.tar.gz'
 env.REMOVE_SERVER_ALPHA = 'kkmf@alpha.kakamf.com'
 
-env.ZIP_FILENAME_PROD = 'web-portal-prod.tar.gz'
+env.ZIP_FILENAME_PROD = 'fe-portal-prod.tar.gz'
 env.REMOTE_SERVER_PROD = 'deploy@www.cybereits.com'
 
 pipeline {
