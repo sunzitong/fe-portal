@@ -41,7 +41,8 @@ export default class extends React.Component {
               role="button"
               tabIndex="-1"
               onClick={() => {
-                window.open('https://cybereits.com/docs/CYBEREITS_White_Paper_v1.3.0.pdf')
+                let locale = window.localStorage.getItem('__locale') || 'zh'
+                window.open(`https://static.cybereits.cn/static/docs/${locale === 'zh' ? 'CYBEREITS_White_Paper_v1.3.0.pdf' : 'CYBEREITS_White_Paper_EN_v1.2.0.pdf'}`)
               }}
             >{whitepaper}</div>
           </div>
