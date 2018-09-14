@@ -27,7 +27,9 @@ pipeline {
           // 复制项目所需的配置文件
           sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/alpha.json ./src/config/env.json"
           sh "npm install"
-          sh "npm run build"
+          sh "IS_ALPHA=true npm run build"
+          // 上传 dist 目录的文件到 oss 服务器
+          sh "upload-cli dir ./dist -b cybereits-alpha -p dist/${env.PROJECT_NAME}/ -i -e index.html"
           // 压缩文件
           sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_ALPHA} ./dist"
           // 上传压缩文件到测试服务器
@@ -53,8 +55,13 @@ pipeline {
           sh "cp /mydata/jenkins/environments/${env.PROJECT_NAME}/production.json ./src/config/env.json"
           sh "npm install"
           sh "npm run build"
+          // 上传 dist 目录的文件到 oss 服务器
+          sh "upload-cli dir ./dist -b cybereits-prod -p dist/${env.PROJECT_NAME}/ -i -e index.html"
+          // 压缩文件
           sh "tar -cvzf ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ./dist"
+          // 将压缩后的目录传递给正式环境
           sh "scp -P 65499 ${env.PACKAGE_DIR}${env.ZIP_FILENAME_PROD} ${REMOTE_SERVER_PROD}:/home/deploy"
+          // 执行正式环境的部署脚本
           sh "ssh -p 65499 ${REMOTE_SERVER_PROD} 'cd /home/deploy; \
           rm -rf ${env.PROJECT_NAME}; \
           tar -zxvf ${env.ZIP_FILENAME_PROD} -C .; \
